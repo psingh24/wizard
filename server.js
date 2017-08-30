@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+var path = require('path')
+
 mongoose.Promise = Promise;
 
 
@@ -21,9 +23,13 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("public"));
 
 // Main "/" Route. This will redirect the user to our rendered React application
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+// app.get("/", function(req, res) {
+//   res.sendFile(__dirname + "/public/index.html");
+// });
+
+app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
 
 //api-routes
 require("./controllers/api-routes.js")(app);
