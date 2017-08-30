@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "react scrapper using cheerio",
   "main": "index.js",
-  "scripts": {
- 
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/psingh24/reactScrapper.git"
@@ -18,11 +16,14 @@
   "homepage": "https://github.com/psingh24/reactScrapper#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.2",
     "mongoose": "^4.11.9",
     "morgan": "^1.8.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router": "^4.2.0"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

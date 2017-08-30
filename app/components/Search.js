@@ -3,6 +3,10 @@ var createReactClass = require('create-react-class');
 
 var Result = require("./Result");
 
+import {
+  Link
+} from 'react-router-dom'
+
 var Search = createReactClass({
 
     getInitialState: function() {
@@ -46,6 +50,7 @@ var Search = createReactClass({
               </div>
             </div>
           </form>
+           <Link to="/saved"><button className="btn btn-warning btn-sm">Saved Articles</button></Link>
         </div>
       </div>
       <Result search={this.state.value}/>

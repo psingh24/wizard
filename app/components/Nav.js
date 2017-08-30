@@ -1,17 +1,14 @@
 var React = require("react");
 var createReactClass = require('create-react-class');
 
-var App = require("../app")
-
-// var Router = require('react-router').Router
-// var Route = require('react-router').Route
-// var Switch = require('react-router').Switch
-// var Link = require('react-router').Link
+import {
+  Link
+} from 'react-router-dom'
 
 var Nav = createReactClass({
   render: function() {
     return (
-      // <Router>
+
       <nav className="navbar navbar">
         <div className="container">
           <a className="navbar-brand logo" href="/">
@@ -27,10 +24,6 @@ var Nav = createReactClass({
           </div>
         </div>
       </nav>
-
-
-      // <Route exact path="/" component={App}/>
-        // </Router>
     );
   }
 });
