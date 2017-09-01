@@ -17,6 +17,9 @@ var helpers = {
 
   saveData: function(id) {
     return axios.post("/save", {id: id})
+  },
+  clearData: function() {
+    return axios.post("/clear");
   }
 
 };

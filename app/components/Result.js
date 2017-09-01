@@ -14,6 +14,8 @@ var Result = createReactClass({
 
 
     this.props.setId(this.saveInput.value);
+
+    console.log(this.saveInput.value)
   
   },
 
@@ -47,7 +49,7 @@ var Result = createReactClass({
                               </div>
                               <div className="row">
                                   <div className="col-md-12">
-                                       <form onSubmit={this.handleSubmit}>
+                                       <form  onSubmit={this.handleSubmit}>
                                            <input type="hidden" name="save" value={result._id} 
                                                 ref={(input) => { this.saveInput = input }} />
                                           <button className="btn btn-default result-btn">Save</button>

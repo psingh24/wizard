@@ -122,6 +122,17 @@ app.get("/api/saved", function(req, res) {
     });
 });
 
+app.post("/clear", function(req, res) {
+
+  Article.remove({ saved: false }, function (err) {
+  if (err) {
+    throw err;
+  } else {
+      res.redirect("/")
+    }
+  
+});
+});
 // app.post("/save/:id", function(req, res) {
 
 //   console.log(req.params.id)

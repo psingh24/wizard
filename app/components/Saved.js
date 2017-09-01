@@ -1,12 +1,20 @@
 var React = require("react");
 var createReactClass = require("create-react-class");
+import { Modal, Button } from 'react-bootstrap'
 
 var helpers = require("../utlis/helpers");
 var Nav = require("./Nav");
 
 var Saved = createReactClass({
   getInitialState: function() {
-    return { savedResults: [] };
+    return { savedResults: [], showModal: false };
+  },
+  close() {
+    this.setState({ showModal: false });
+  },
+
+  open() {
+    this.setState({ showModal: true });
   },
 
   componentDidMount: function() {
@@ -55,7 +63,7 @@ var Saved = createReactClass({
                         </button>
                       </div>
                     </div>
-                    <div className="row">
+                    <div className="row btn-row">
                       <div className="col-md-12">
                         <form onSubmit={this.handleSubmit}>
                           <input
@@ -66,11 +74,29 @@ var Saved = createReactClass({
                               this.saveInput = input;
                             }}
                           />
-                          <button className="btn btn-default result-btn">
-                            Save
-                          </button>
                         </form>
+                         <Button onClick={this.open} className="btn btn-default result-btn">
+                            Add a note
+                        </Button>
 
+                          <Modal show={this.state.showModal} onHide={this.close}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>{result.title}</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button onClick={this.close}>Close</Button>
+                                </Modal.Footer>
+                        </Modal>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <button className="btn btn-default result-btn">
+                          <a href={result.link} target="_blank">Unsave</a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -87,3 +113,5 @@ var Saved = createReactClass({
 });
 
 module.exports = Saved;
+
+

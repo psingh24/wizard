@@ -13,14 +13,16 @@ var helpers = require("../utlis/helpers");
 
 var Main = createReactClass({
   getInitialState: function() {
-    return { searchTerm: "", id: "", savedResults: "", test: "", results: [], notes: [] };
+    return { searchTerm: "", id: "", savedResults: "", clear: "false", test: "", results: [], notes: [] };
   },
 
-  // The moment the page renders get the History
+  
   componentDidMount: function() {
-    // Get the latest history.
+
     helpers.getData().then(
+         
       function(response) {
+       console.log("component loaded without data")
         // console.log(response);
         if (response !== this.state.results) {
 
@@ -29,13 +31,17 @@ var Main = createReactClass({
       }.bind(this)
     );
 
+    
+   
+   
+
 
   },
 
  
   // If the component changes (i.e. if a search is entered)...
   componentDidUpdate: function() {
-  
+   
     // if(this.state.id !== "") {
     //      helpers.saveData(this.state.id).then(function(response) {
     //         // After we've done the post... then get the updated history
@@ -54,30 +60,58 @@ var Main = createReactClass({
  
 
 
+// console.log(this.state.id)
 
+ if (this.state.clear === "true") {
+      
+        helpers.clearData().then(function(response) {
+         
+        console.log("component cleared of data")
+
+        this.setState({clear: "false"})
+
+         // After we've done the post... then get the updated history
+          helpers.getData().then(
+            function(response) {
+              // console.log(response);
+              if (response !== this.state.results) {
+                
+                // console.log("History", response.data);
+                this.setState({ results: response.data });
+
+              }
+            }.bind(this)
+          );
+        }.bind(this))
+    } else {
 
    var upCaseSearch = this.state.searchTerm.toUpperCase()
     
    if(upCaseSearch !== this.state.test) {
+    
 
       this.setState({ test: upCaseSearch });
 // After we've received the result... then post the search term to our history.
       helpers.postData(this.state.searchTerm).then(
         function(data) {
-          this.setState({ date: true });
+         
 
           // After we've done the post... then get the updated history
           helpers.getData().then(
             function(response) {
               // console.log(response);
               if (response !== this.state.results) {
+                
                 // console.log("History", response.data);
                 this.setState({ results: response.data });
+                  console.log("component loaded with data")
+
               }
             }.bind(this)
           );
         }.bind(this)
       );
+    }
     }
   },
 
@@ -90,6 +124,12 @@ var Main = createReactClass({
     this.setState({ id: value });
   },
 
+  handleClear: function(event) {
+     event.preventDefault();
+    
+    this.setState({ clear: "true"})
+    
+  },
 
 
   render: function() {
@@ -100,7 +140,7 @@ var Main = createReactClass({
 
           <div className="row">
             <div className="col-md-4">
-              <Search setTerm={this.setTerm} />
+              <Search setTerm={this.setTerm} clear={this.handleClear}/>
             </div>
             <div className="col-md-8">
               <Result results={this.state.results} setId={this.setId}/>
