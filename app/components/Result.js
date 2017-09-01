@@ -2,19 +2,26 @@ var React = require("react");
 var createReactClass = require('create-react-class');
 
 var Result = createReactClass({
+
+
    // When a user submits...
   handleSubmit: function(event) {
     // prevent the HTML from trying to submit a form if the user hits "Enter" instead of
     // clicking the button
     event.preventDefault();
-    // console.log(this.refs.value)
+
+   // Set the parent to have the search term
+
+
+    this.props.setId(this.saveInput.value);
+  
   },
 
 
   render: function() {
     return (
       <div>
-      {this.props.results.map(function(result, i) {
+      {this.props.results.map((result, i) => {
             return (
                <div key={i} className="test">
                   <div className="panel panel-default">
@@ -40,16 +47,14 @@ var Result = createReactClass({
                               </div>
                               <div className="row">
                                   <div className="col-md-12">
-                                    
-                                     
-                                          <button onSubmit={this.handleSubmit.bind(this)} className="btn btn-default result-btn">Save</button>
-                                    
+                                       <form onSubmit={this.handleSubmit}>
+                                           <input type="hidden" name="save" value={result._id} 
+                                                ref={(input) => { this.saveInput = input }} />
+                                          <button className="btn btn-default result-btn">Save</button>
+                                      </form>
 
                                   </div>
                               </div>
-                                
-
-                                
                           </div>
                       </div>
                   </div>
@@ -57,9 +62,6 @@ var Result = createReactClass({
               );
             })}
           </div>
-
-
-     
     );
   }
 });

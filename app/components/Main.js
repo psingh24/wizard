@@ -13,7 +13,7 @@ var helpers = require("../utlis/helpers");
 
 var Main = createReactClass({
   getInitialState: function() {
-    return { searchTerm: "", test: "", results: [], notes: [] };
+    return { searchTerm: "", id: "", savedResults: "", test: "", results: [], notes: [] };
   },
 
   // The moment the page renders get the History
@@ -28,11 +28,33 @@ var Main = createReactClass({
         }
       }.bind(this)
     );
+
+
   },
 
  
   // If the component changes (i.e. if a search is entered)...
   componentDidUpdate: function() {
+  
+    // if(this.state.id !== "") {
+    //      helpers.saveData(this.state.id).then(function(response) {
+    //         // After we've done the post... then get the updated history
+    //       helpers.getData().then(
+    //         function(response) {
+    //           // console.log(response);
+    //           if (response !== this.state.results) {
+    //             // console.log("History", response.data);
+    //             this.setState({ results: response.data });
+    //           }
+    //         }.bind(this)
+    //       );
+
+    // }.bind(this))
+    // }
+ 
+
+
+
 
    var upCaseSearch = this.state.searchTerm.toUpperCase()
     
@@ -64,6 +86,10 @@ var Main = createReactClass({
     this.setState({ searchTerm: term });
   },
 
+  setId: function(value) {
+    this.setState({ id: value });
+  },
+
 
 
   render: function() {
@@ -77,7 +103,7 @@ var Main = createReactClass({
               <Search setTerm={this.setTerm} />
             </div>
             <div className="col-md-8">
-              <Result results={this.state.results} />
+              <Result results={this.state.results} setId={this.setId}/>
             </div>
           </div>
 

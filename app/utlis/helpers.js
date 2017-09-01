@@ -3,17 +3,20 @@ var axios = require("axios");
 
 var helpers = {
 
-  modifyTerm: function(term) {
-    return term.toUpperCase();
-  },
-
-    getData: function() {
+  getData: function() {
         return axios.get("/api");
+    },
+  getSavedData: function() {
+        return axios.get("/api/saved");
     },
 
      // This function posts new searches to our database.
   postData: function(query) {
     return axios.post("/api", { query: query });
+  },
+
+  saveData: function(id) {
+    return axios.post("/save", {id: id})
   }
 
 };

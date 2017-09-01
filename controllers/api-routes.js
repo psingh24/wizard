@@ -80,49 +80,47 @@ app.post("/api", function(req, res) {
     });
    res.send("Data sent");
   });
-  // Tell the browser that we finished scraping the text
+ 
   
 });
 
-// app.get("/", function(req, res) {
+app.post("/save", function(req, res) {
 
-  
 
-//   //  Grab every doc in the Articles array
-//   Article.find({}, function(error, doc) {
-//   //   // Log any errors
-//     if (error) {
-//       console.log(error);
-//     }
-//   //   // Or send the doc to the browser as a json object
-//     else {
-//   //     console.log(doc)
-//       res.render("home", {data: {articles: doc}})
-//     }
-//   });
+  console.log(req.body.id)
+  Article.update({ _id: req.body.id }, { $set: { saved: true }}, function(err, data) {
+    if (err) {
+      throw err;
+    } else {
+      res.send("Saved")
+    }
+  });
 
-  
-// });
 
-// app.get("/saved", function(req, res) {
-//   // Grab every doc in the Articles array
-//    Article.find({ saved: true})
-//     // ..and string a call to populate the entry with the books stored in the library's books array
-//     // This simple query is incredibly powerful. Remember this one!
-//     .populate("note")
-//     // Now, execute that query
-//     .exec(function(error, doc) {
-//       // Send any errors to the browser
-//       if (error) {
-//         res.send(error);
-//       }
-//       // Or, send our results to the browser, which will now include the books stored in the library
-//       else {
-//         // console.log(doc[0].note[0].body)
-//         res.render("saved", {data: {articles: doc}})
-//       }
-//     });
-// });
+  // res.redirect("/")
+});
+
+
+
+app.get("/api/saved", function(req, res) {
+  // Grab every doc in the Articles array
+   Article.find({ saved: true})
+    // ..and string a call to populate the entry with the books stored in the library's books array
+    // This simple query is incredibly powerful. Remember this one!
+    .populate("note")
+    // Now, execute that query
+    .exec(function(error, data) {
+      // Send any errors to the browser
+      if (error) {
+        res.send(error);
+      }
+      // Or, send our results to the browser, which will now include the books stored in the library
+      else {
+        // console.log(doc[0].note[0].body)
+        res.send(data)
+      }
+    });
+});
 
 // app.post("/save/:id", function(req, res) {
 
