@@ -27,12 +27,14 @@ app.use(express.static("public"));
 //   res.sendFile(__dirname + "/public/index.html");
 // });
 
+//api-routes
+require("./controllers/api-routes.js")(app);
+
 app.get('*', function (request, response){
   response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 
-//api-routes
-require("./controllers/api-routes.js")(app);
+
 
 
 // Database configuration with mongoose
@@ -50,7 +52,7 @@ db.once("open", function() {
 });
 
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 
 // Listen on port 3000
 app.listen(PORT, function() {

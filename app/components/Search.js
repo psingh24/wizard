@@ -9,24 +9,27 @@ import {
 
 var Search = createReactClass({
 
-    getInitialState: function() {
-        return {
-            value: ''
-        }
+ getInitialState: function() {
+    return { term: "" };
+  },
 
-    },
-    handleChange: function(event) {
-       this.setState({
-                value: event.target.value
-            });
+  // This function will respond to the user input
+  handleChange: function(event) {
 
-            
-    },
+    this.setState({ term: event.target.value });
 
-    handleSubmit(event) {
+  },
 
-    console.log(this.state.value)
+  // When a user submits...
+  handleSubmit: function(event) {
+    // prevent the HTML from trying to submit a form if the user hits "Enter" instead of
+    // clicking the button
     event.preventDefault();
+    console.log(event.target.value)
+
+    // Set the parent to have the search term
+    this.props.setTerm(this.state.term);
+    this.setState({ term: "" });
   },
 
   render: function() {
@@ -40,7 +43,7 @@ var Search = createReactClass({
               <input
                 type="text"
                 className="form-control"
-                value={this.state.value}
+                value={this.state.term}
                 onChange={this.handleChange}
               />
               <div className="input-group-btn">
@@ -53,7 +56,7 @@ var Search = createReactClass({
            <Link to="/saved"><button className="btn btn-warning btn-sm">Saved Articles</button></Link>
         </div>
       </div>
-      <Result search={this.state.value}/>
+     
       </div>
     );
   }

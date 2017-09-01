@@ -11,8 +11,9 @@ Router,
   Link
 } from 'react-router-dom'
 
+import createBrowserHistory from 'history/createBrowserHistory'
 
-var history = createBrowserHistory()
+const history = createBrowserHistory()
 
 // Include the IndexRoute (catch-all route)
 var IndexRoute = router.IndexRoute;
@@ -25,7 +26,7 @@ var Saved = require("../components/Saved");
 // Export the Routes
 module.exports = (
 
-<Router  history={BrowserRouter}>
+<Router  history={history}>
 
 <div>
     <Route exact path="/" component={Main}/>
