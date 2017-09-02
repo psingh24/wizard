@@ -33,6 +33,10 @@ app.post("/api", function(req, res) {
   // First, we grab the body of the html with request
   request("http://www.reddit.com/r/"+searchTerm, function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
+
+    if(error) {
+      console.log(error)
+    }
     var $ = cheerio.load(html);
     // Now, we grab every h2 within an article tag, and do the following:
     $("div.thing").each(function(i, element) {
@@ -133,80 +137,7 @@ app.post("/clear", function(req, res) {
   
 });
 });
-// app.post("/save/:id", function(req, res) {
 
-//   console.log(req.params.id)
-//   Article.update({ _id: req.params.id }, { $set: { saved: true }}, function(err, data) {
-//     if (err) {
-//       throw err;
-//     } else {
-//       res.redirect("/")
-//     }
-//   });
-
-
-//   // res.redirect("/")
-// });
-
-
-//     // A GET request to scrape the echojs website
-// app.post("/", function(req, res) {
-//   var searchTerm = req.body.searchTerm
-  
-//   // console.log(req.body.searchTerm)
-//   // First, we grab the body of the html with request
-//   request("http://www.reddit.com/r/"+searchTerm, function(error, response, html) {
-//     // Then, we load that into cheerio and save it to $ for a shorthand selector
-//     var $ = cheerio.load(html);
-//     // Now, we grab every h2 within an article tag, and do the following:
-//     $("div.thing").each(function(i, element) {
-
-//       // Save an empty result object
-//       var result = {};
-
-//     var imageUrl = $(element).find("a.thumbnail").find("img").attr("src");
-//     var imageSliced;
-//       // console.log(imageUrl)
-
-//       if (imageUrl === undefined) {
-//         imageSliced = "/assets/image/Reddit-Logo.jpeg"
-//       } else {
-//         imageSliced = "http:"+imageUrl
-//       }
-    
-
-
-
-//       result.title = $(element).find("p.title").find("a.title").text();
-//       result.link = $(element).find("li").find("a").attr("href");
-//       result.upvote = $(element).find("div.midcol").find("div.likes").text()
-//       result.rank = $(element).find("span.rank").text()
-//       result.image = imageSliced;
-//     //  console.log($(element).find("a.thumbnail"))
-    
-
-//       // Using our Article model, create a new entry
-//       // This effectively passes the result object to the entry (and the title and link)
-//       var entry = new Article(result);
-
-//       // Now, save that entry to the db
-//       entry.save(function(err, doc) {
-//         // Log any errors
-//         if (err) {
-//           console.log(err);
-//         }
-//         // Or log the doc
-//         else {
-//           // console.log(doc);
-//         }
-//       });
-//         //  console.log(result)
-//     });
-//    res.redirect("/");
-//   });
-//   // Tell the browser that we finished scraping the text
-  
-// });
 
 // app.post("/note/:id", function(req, res) {
 //   console.log(req.body.note)
@@ -243,17 +174,17 @@ app.post("/clear", function(req, res) {
 // })
 
 
-// app.post("/unsave/:id", function(req, res) {
+app.post("/unsave/", function(req, res) {
 
-//     Article.update({ _id: req.params.id }, { $set: { saved: false }}, function(err, data) {
-//     if (err) {
-//       throw err;
-//     } else {
-//       res.redirect("/saved")
-//     }
-//   });
+    Article.update({ _id: req.body.id }, { $set: { saved: false }}, function(err, data) {
+    if (err) {
+      throw err;
+    } else {
+      res.send("saved")
+    }
+  });
 
-// });
+});
 
 // app.post("/clear" , function(req, res) {
 

@@ -20,6 +20,9 @@ var helpers = {
   },
   clearData: function() {
     return axios.post("/clear");
+  },
+  unsaveData: function(id) {
+    return axios.post("/unsave", {id: id})
   }
 
 };

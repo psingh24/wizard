@@ -1,5 +1,6 @@
 var React = require("react");
 var createReactClass = require('create-react-class');
+var SaveUnsaveButton = require("./SaveUnsaveButton");
 
 var Result = createReactClass({
 
@@ -49,11 +50,8 @@ var Result = createReactClass({
                               </div>
                               <div className="row">
                                   <div className="col-md-12">
-                                       <form  onSubmit={this.handleSubmit}>
-                                           <input type="hidden" name="save" value={result._id} 
-                                                ref={(input) => { this.saveInput = input }} />
-                                          <button className="btn btn-default result-btn">Save</button>
-                                      </form>
+
+                                  <SaveUnsaveButton name="Save"  id={result._id} saveId={this.props.setId}/>
 
                                   </div>
                               </div>

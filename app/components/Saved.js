@@ -2,12 +2,14 @@ var React = require("react");
 var createReactClass = require("create-react-class");
 import { Modal, Button } from 'react-bootstrap'
 
+var SaveUnsaveButton = require("./SaveUnsaveButton")
+
 var helpers = require("../utlis/helpers");
 var Nav = require("./Nav");
 
 var Saved = createReactClass({
   getInitialState: function() {
-    return { savedResults: [], showModal: false };
+    return { savedResults: [], showModal: false, id: "" };
   },
   close() {
     this.setState({ showModal: false });
@@ -27,6 +29,30 @@ var Saved = createReactClass({
         }
       }.bind(this)
     );
+  },
+
+   componentDidUpdate: function() {
+    if(this.state.id !== "") {
+
+      helpers.unsaveData(this.state.id).then(function() {
+        this.setState({id: ""})
+
+        helpers.getSavedData().then(
+            function(response) {
+              // console.log(response);
+              if (response !== this.state.results) {
+                // console.log("History", response.data);
+                this.setState({ savedResults: response.data });
+              }
+            }.bind(this)
+          );
+
+      }.bind(this));
+    } 
+   },
+
+  usetId: function(id) {
+    this.setState({id: id}, () => {console.log(this.state.id)})
   },
 
   render: function() {
@@ -94,9 +120,7 @@ var Saved = createReactClass({
                     </div>
                     <div className="row">
                       <div className="col-md-12">
-                        <button className="btn btn-default result-btn">
-                          <a href={result.link} target="_blank">Unsave</a>
-                        </button>
+                        <SaveUnsaveButton name="Unsave" id={result._id} saveId={this.usetId}/>
                       </div>
                     </div>
                   </div>
