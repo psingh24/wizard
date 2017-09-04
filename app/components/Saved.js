@@ -9,7 +9,7 @@ var Nav = require("./Nav");
 
 var Saved = createReactClass({
   getInitialState: function() {
-    return { savedResults: [], showModal: false, id: "", activeModal: null, notes: [], note: '', value: ''};
+    return { savedResults: [], showModal: false, id: "", activeModal: null, notes: [], note: '', value: '', saveNote: "false", unSave: "false"};
   },
   close() {
     this.setState({ showModal: false });
@@ -32,11 +32,13 @@ var Saved = createReactClass({
   },
 
   componentDidUpdate: function() {
-    if (this.state.id !== "" && this.state.note === "") {
+
+
+    if (this.state.unSave === "true" ) {
 
       helpers.unsaveData(this.state.id).then(
         function() {
-          this.setState({ id: "" });
+          this.setState({ unSave: "false" });
 
           helpers.getSavedData().then(
             function(response) {
@@ -50,9 +52,21 @@ var Saved = createReactClass({
         }.bind(this)
       );
 }
-    else if(this.state.note !== "") {
+    else if(this.state.saveNote === "true") {
       helpers.postNote(this.state.id, this.state.note).then(function(response) {
         this.myInput.value= "";
+        this.setState({saveNote: "false"})
+        helpers.getSavedData().then(
+            function(response) {
+              
+              // console.log(response);
+              if (response !== this.state.results) {
+                // console.log("History", response.data);
+                this.setState({ savedResults: response.data});
+              }
+            }.bind(this)
+          );
+        
      
 
       }.bind(this))
@@ -60,7 +74,7 @@ var Saved = createReactClass({
   },
 
   usetId: function(id) {
-    this.setState({ id: id }, () => {
+    this.setState({ id: id, unSave: "true" }, () => {
       console.log(this.state.id);
     });
   },
@@ -74,7 +88,7 @@ var Saved = createReactClass({
   },
 
   handleSubmit(event) {
-    this.setState({note: this.myInput.value, id: this.idInput.value}, () => {console.log(this.state.note, this.state.id)});
+    this.setState({note: this.myInput.value, id: this.idInput.value, saveNote: "true"}, () => {console.log(this.state.note, this.state.id)});
   },
   render: function() {
     return (
@@ -139,6 +153,7 @@ var Saved = createReactClass({
                               <form onSubmit={this.handleSubmit}>
                                 <FormControl
                                   inputRef={ref => { this.myInput = ref; }}
+          
                                   type="text"
                                   ref="note"
                                   placeholder="Enter text"
@@ -175,3 +190,5 @@ var Saved = createReactClass({
 });
 
 module.exports = Saved;
+
+
