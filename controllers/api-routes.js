@@ -197,18 +197,18 @@ app.post("/unsave/", function(req, res) {
 // });
 // });
 
-// app.post("/delete/note/:id", function(req, res) {
+app.post("/delete/note", function(req, res) {
   
 
-//   Note.remove({ _id: req.params.id }, function (err) {
-//   if (err) {
-//     throw err;
-//   } else {
-//        res.redirect("/saved")
-//     }
+  Note.remove({ _id: req.body.id }, function (err) {
+  if (err) {
+    throw err;
+  } else {
+       res.send("note deleted")
+    }
   
-// });
+});
  
 
-// })
+})
 }

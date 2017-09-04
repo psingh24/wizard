@@ -26,6 +26,9 @@ var helpers = {
   },
   postNote: function(id, note) {
     return axios.post("/notes", {id: id, note: note})
+  },
+  deleteNote: function(id) {
+    return axios.post("/delete/note", {id: id})
   }
 
 };

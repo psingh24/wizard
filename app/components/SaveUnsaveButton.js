@@ -6,8 +6,11 @@ var SaveUnsaveButton = createReactClass({
     handleSubmit: function(event) {
        event.preventDefault();
 
-       this.props.saveId(this.saveInput.value)
-
+       if (this.props.name === "Unsave" || this.props.name === "Save") {
+            this.props.saveId(this.saveInput.value)
+       } else if (this.props.name === "X")
+       { this.props.saveNoteId(this.saveInput.value)}
+     
     },
 
     render: function() {
@@ -15,7 +18,7 @@ var SaveUnsaveButton = createReactClass({
             <form onSubmit={this.handleSubmit} >
                 <input type="hidden" name="save" value={this.props.id} 
                 ref={(input) => { this.saveInput = input }} />
-                <button className="btn btn-default result-btn">{this.props.name}</button>
+                <button className="btn btn-danger result-btn">{this.props.name}</button>
             </form>
         )
     }

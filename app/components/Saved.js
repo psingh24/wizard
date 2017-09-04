@@ -9,7 +9,7 @@ var Nav = require("./Nav");
 
 var Saved = createReactClass({
   getInitialState: function() {
-    return { savedResults: [], showModal: false, id: "", activeModal: null, notes: [], note: '', value: '', saveNote: "false", unSave: "false"};
+    return { savedResults: [], showModal: false, id: "", activeModal: null, note: '', value: '', saveNote: "false", unSave: "false", noteId: '', deleteNote: "false" };
   },
   close() {
     this.setState({ showModal: false });
@@ -71,6 +71,21 @@ var Saved = createReactClass({
 
       }.bind(this))
     } 
+    else if(this.state.deleteNote === "true") {
+      helpers.deleteNote(this.state.noteId).then(function(response) {
+        this.setState({deleteNote: "false"})
+         helpers.getSavedData().then(
+            function(response) {
+              
+              // console.log(response);
+              if (response !== this.state.results) {
+                // console.log("History", response.data);
+                this.setState({ savedResults: response.data});
+              }
+            }.bind(this)
+          );
+      }.bind(this))
+    }
   },
 
   usetId: function(id) {
@@ -87,8 +102,12 @@ var Saved = createReactClass({
     this.setState({ activeModal: null });
   },
 
-  handleSubmit(event) {
+  handleSubmit: function(event) {
     this.setState({note: this.myInput.value, id: this.idInput.value, saveNote: "true"}, () => {console.log(this.state.note, this.state.id)});
+  },
+
+  saveNoteId: function(id) {
+    this.setState({noteId: id, deleteNote: "true"}, () => {console.log(this.state.noteId)})
   },
   render: function() {
     return (
@@ -146,11 +165,18 @@ var Saved = createReactClass({
                                 <Modal.Title>{result.title}</Modal.Title>
                               </Modal.Header>
                               <Modal.Body>{result.note.map((note, i) =>{
-                               return ( <p key={i}>{note.body}</p>)
+                               return ( <div key={i} className="row">
+                                <div className="col-md-12">
+                                <SaveUnsaveButton name="X" id={note._id} saveNoteId={this.saveNoteId}/>
+                                <p>{note.body}</p>
+                               
+                                <hr/>
+                                </div>
+                                </div>)
 
                               })}</Modal.Body>  
                               <Modal.Footer>
-                              <form onSubmit={this.handleSubmit}>
+                              
                                 <FormControl
                                   inputRef={ref => { this.myInput = ref; }}
           
@@ -159,9 +185,14 @@ var Saved = createReactClass({
                                   placeholder="Enter text"
                                 />  <input type="hidden" name="save" value={result._id} 
                                   ref={(input) => { this.idInput = input }} />
+
+                                  <div className="row">
+                                  <div className="col-md-12 save-btn">
                                   <Button onClick={this.handleSubmit}>Save Note</Button>
-                                 </form>
+                                 
                                 <Button onClick={this.hideModal}>Close</Button>
+                                </div>
+                                </div>
                                
                               </Modal.Footer>
                             </Modal>
@@ -192,3 +223,7 @@ var Saved = createReactClass({
 module.exports = Saved;
 
 
+// <button className="btn btn-danger noteDelete" onClick={this.deleteNote} >X</button>
+
+//  <input type="hidden" name="save" value={note._id} 
+                                  // ref={(input) => { this.noteId = input }} />

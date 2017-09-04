@@ -90,3 +90,17 @@ a { color: inherit; text-decoration: none; }
 .options {
     padding-top: 30px;
 }
+
+.noteDelete {
+    float: left;
+    margin-right: 10px;
+}
+
+.save-btn {
+    padding-top: 10px;
+}
+
+.result-btn {
+    float: left;
+    margin-right: 10px;
+}
