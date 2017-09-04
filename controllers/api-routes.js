@@ -139,39 +139,38 @@ app.post("/clear", function(req, res) {
 });
 
 
-// app.post("/note/:id", function(req, res) {
-//   console.log(req.body.note)
-//   var id =  req.params.id;
+app.post("/notes", function(req, res) {
+var id = req.body.id
 
-//   var note = {
-//     title: req.params.id,
-//     body: req.body.note
-//   }
+  var note = {
+    title: id,
+    body: req.body.note
+  }
 
-//   var newNote = new Note(note);
-//   console.log(newNote)
+  var newNote = new Note(note);
+  console.log(newNote)
 
-//   newNote.save(function(err, data) {
-//     if (err) {throw err;}
-//     else {
-//       console.log(data)
-//       Article.findByIdAndUpdate(id, { $push: { "note": data._id } }, { new: true }, function(error, doc) {
-//         // Send any errors to the browser
-//         if (error) {
-//           res.send(error);
-//         }
-//         // Or send the doc to the browser
-//         else {
-//           console.log(doc)
-//            res.redirect("/saved")
-//         }
-//       });
-//     }
+  newNote.save(function(err, data) {
+    if (err) {throw err;}
+    else {
+      console.log(data)
+      Article.findByIdAndUpdate(id, { $push: { "note": data._id } }, { new: true }, function(error, doc) {
+        // Send any errors to the browser
+        if (error) {
+          res.send(error);
+        }
+        // Or send the doc to the browser
+        else {
+          
+           res.send("NOte saved")
+        }
+      });
+    }
 
-//   })
+  })
 
-//   // res.redirect("/saved")
-// })
+  // res.redirect("/saved")
+})
 
 
 app.post("/unsave/", function(req, res) {

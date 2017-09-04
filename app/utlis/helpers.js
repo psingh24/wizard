@@ -23,6 +23,9 @@ var helpers = {
   },
   unsaveData: function(id) {
     return axios.post("/unsave", {id: id})
+  },
+  postNote: function(id, note) {
+    return axios.post("/notes", {id: id, note: note})
   }
 
 };
