@@ -38,7 +38,7 @@ app.get('*', function (request, response){
 
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/nytscrapper");
+mongoose.connect("mongodb://heroku_b851j62b:ekf08psj2avqkodh83skattqni@ds123124.mlab.com:23124/heroku_b851j62b");
 var db = mongoose.connection;
 
 // // Show any mongoose errors
