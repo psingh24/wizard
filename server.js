@@ -37,25 +37,25 @@ app.get('*', function (request, response){
 
 
 
-// Database configuration with mongoose
-mongoose.connect("mongodb://heroku_b851j62b:ekf08psj2avqkodh83skattqni@ds123124.mlab.com:23124/heroku_b851j62b");
-var db = mongoose.connection;
+// // Database configuration with mongoose
+// mongoose.connect("mongodb://heroku_b851j62b:ekf08psj2avqkodh83skattqni@ds123124.mlab.com:23124/heroku_b851j62b");
+// var db = mongoose.connection;
 
-// // Show any mongoose errors
-db.on("error", function(error) {
-  console.log("Mongoose Error: ", error);
-});
+// // // Show any mongoose errors
+// db.on("error", function(error) {
+//   console.log("Mongoose Error: ", error);
+// });
 
-// // Once logged in to the db through mongoose, log a success message
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+// // // Once logged in to the db through mongoose, log a success message
+// db.once("open", function() {
+//   console.log("Mongoose connection successful.");
+// });
 
 
 var PORT = process.env.PORT || 8000;
 
 // Listen on port 3000
 app.listen(PORT, function() {
-  console.log("App running on port 3000!");
+  console.log("App running on port 8000!");
 });
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Folder</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M10.7861966,6.8 L6.72727273,6.8 C6.22519568,6.8 5.81818182,7.20294373 5.81818182,7.7 L5.81818182,20.3 C5.81818182,20.7970563 6.22519568,21.2 6.72727273,21.2 L21.2727273,21.2 C21.7748043,21.2 22.1818182,20.7970563 22.1818182,20.3 L22.1818182,10.4 C22.1818182,9.90294373 21.7748043,9.5 21.2727273,9.5 L13.0909091,9.5 C12.7869516,9.5 12.503105,9.34960898 12.3344997,9.09923018 L10.7861966,6.8 Z M13.5774398,7.7 L21.2727273,7.7 C22.7789584,7.7 24,8.90883118 24,10.4 L24,20.3 C24,21.7911688 22.7789584,23 21.2727273,23 L6.72727273,23 C5.22104159,23 4,21.7911688 4,20.3 L4,7.7 C4,6.20883118 5.22104159,5 6.72727273,5 L11.2727273,5 C11.5766847,5 11.8605314,5.15039102 12.0291366,5.40076982 L13.5774398,7.7 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons/Folder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Shape" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="Colors/White" mask="url(#mask-2)" fill="#FFFFFF">
+            <rect id="Rectangle-3-Copy" x="0" y="0" width="28" height="28"></rect>
+        </g>
+    </g>
+</svg>

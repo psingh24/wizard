@@ -1,137 +1,66 @@
 var React = require("react");
 var createReactClass = require("create-react-class");
 
-var App = require("../app");
+
 
 var Nav = require("./Nav");
-var Search = require("./Search");
-var Result = require("./Result");
+var SideBar = require("./Sidebar");
+var MainContent = require("./MainContent");
+var Footer = require("./Footer");
 
 var Link = require("react-router").Link;
 
-var helpers = require("../utlis/helpers");
+
 
 var Main = createReactClass({
   getInitialState: function() {
     return {
-      searchTerm: "",
-      id: "",
-      savedResults: "",
-      clear: "false",
-      results: [],
-      notes: []
+      pages: ["Eula", "Profile", "Contacts", "Alerts", "Connect"],
+      sidebarText: ["Hello, I’m Dr. Sense. I’m here to guide you through set up. You can also ask me questions when logged into your dashboard. Let’s get started.", "Begin setting up your personal profile", "Add emergenacy contacts here. This is who will be alerted if you fall or need help", "This is where you can select which alerts you want enbaled. You can always change your settings later in the dashboard", "Now it is time to connect your VitalBand to the Internet. Make sure you have all the accesories that were included in the package."],
+      currentPage: 0,
+      formCompleted: false,
+
     };
+    this.handleChange = this.handleChange.bind(this);
   },
 
-  componentDidMount: function() {
-    helpers.getData().then(
-      function(response) {
-        console.log("component loaded without data");
-        // console.log(response);
-        if (response !== this.state.results) {
-          this.setState({ results: response.data });
-        }
-      }.bind(this)
-    );
+  continue: function(num) {
+    console.log("currentPage:"+this.state.currentPage)
+    // if (this.state.formCompleted) {
+      this.setState((prevState, props) => ({
+        currentPage: prevState.currentPage + num,
+        formCompleted: false
+    }));
+    // }
   },
-
-  // If the component changes (i.e. if a search is entered)...
-  componentDidUpdate: function() {
-    if (this.state.clear === "true") {
-      helpers.clearData().then(
-        function(response) {
-          console.log("component cleared of data");
-
-          this.setState({ clear: "false" });
-
-          // After we've done the post... then get the updated history
-          helpers.getData().then(
-            function(response) {
-              // console.log(response);
-              if (response !== this.state.results) {
-                // console.log("History", response.data);
-                this.setState({ results: response.data });
-              }
-            }.bind(this)
-          );
-        }.bind(this)
-      );
-    } else if(this.state.id !== "") {
-
-      helpers.saveData(this.state.id).then(function() {
-        this.setState({id: ""})
-
-        helpers.getData().then(
-            function(response) {
-              // console.log(response);
-              if (response !== this.state.results) {
-                // console.log("History", response.data);
-                this.setState({ results: response.data });
-              }
-            }.bind(this)
-          );
-
-      }.bind(this));
-    } 
-    else {
-      var upCaseSearch = this.state.searchTerm.toUpperCase();
-
-      if (upCaseSearch !== this.state.savedResults) {
-        this.setState({ savedResults: upCaseSearch });
-        // After we've received the result... then post the search term to our history.
-        helpers.postData(this.state.searchTerm).then(
-          function(data) {
-            // After we've done the post... then get the updated history
-            helpers.getData().then(
-              function(response) {
-                // console.log(response);
-                if (response !== this.state.results) {
-                  // console.log("History", response.data);
-                  this.setState({ results: response.data });
-                  console.log(response)
-                  console.log("component loaded with data");
-                }
-              }.bind(this)
-            );
-          }.bind(this)
-        );
-      }
-    }
+  back: function(num) {
+    this.setState((prevState, props) => ({
+      currentPage: prevState.currentPage - num
+  }));
   },
-
-  // This function allows childrens to update the parent.
-  setTerm: function(term) {
-    this.setState({ searchTerm: term });
+  handleChange: function(evt) {
+    var checked = evt.target.checked
+    this.setState(prevState => ({
+      formCompleted: checked
+    }));
   },
-
-  handleClear: function(event) {
-    event.preventDefault();
-
-    this.setState({ clear: "true" });
-  },
-
-  handleSave(id) {
-    this.setState({ id: id}, () => {console.log(this.state.id)})
-   
+  componentDidUpdate() {
+    console.log(this.state)
   },
 
   render: function() {
     return (
-      <div>
-        <Nav />
-        <div className="container">
+      <div className="Grid">
+        <SideBar sideBarText={this.state.sidebarText[this.state.currentPage]}/>
+        
+        <MainContent page={this.state.pages[this.state.currentPage]} 
+                     formCompleted={this.state.formCompleted}
+                     handleChange={this.handleChange}/>
 
-          <div className="row">
-            <div className="col-md-4">
-              <Search setTerm={this.setTerm} clear={this.handleClear} />
-            </div>
-            <div className="col-md-8">
-              <Result results={this.state.results} setId={this.handleSave} />
-            </div>
-          </div>
-
+        <Footer continue={this.continue} 
+                back={this.back} 
+                page={this.state.currentPage}/>
         </div>
-      </div>
     );
   }
 });

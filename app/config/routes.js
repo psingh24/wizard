@@ -20,7 +20,7 @@ var IndexRoute = router.IndexRoute;
 
 // Reference the high-level components
 var Main = require("../components/Main");
-var Saved = require("../components/Saved");
+var Test = require("../components/Test");
 
 
 // Export the Routes
@@ -30,7 +30,7 @@ module.exports = (
 
 <div>
     <Route exact path="/" component={Main}/>
-    <Route path="/saved" component={Saved}/>
+    <Route path="/test" component={Test}/>
    
 </div>
 </Router>

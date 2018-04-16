@@ -11,7 +11,7 @@ var Nav = createReactClass({
 
       <nav className="navbar navbar">
         <div className="container">
-          <a className="navbar-brand logo" href="/">
+          <a className="navbar-brand logo" href="/test">
             <i className="fa fa-reddit fa-2x" aria-hidden="true" />
             <span>ReactScrapper</span>
           </a>
