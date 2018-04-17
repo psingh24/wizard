@@ -62,6 +62,32 @@ var Profile = createReactClass({
                 else if (length === 0) return 'error';
                 return null;
             }
+            case "dob": {
+                var value = this.state.dob;
+                if (value) return 'success';
+                else return 'error';
+                return null;
+            }
+            case "height": {
+                var heightFt = this.state.heightFt;
+                var heightIn = this.state.heightIn;
+                if (heightFt && heightIn) return 'success';
+                else return 'error';
+                return null;
+            }
+            case "gender": {
+                var gender = this.state.gender;
+                if (gender) return 'success';
+                else return 'error';
+                return null;
+            }
+            case "activityLevel": {
+                var activityLevel = this.state.activityLevel;
+                if (activityLevel) return 'success';
+                else return 'error';
+                return null;
+            }
+
         }
       },   
   render: function() {
@@ -115,11 +141,16 @@ var Profile = createReactClass({
         </FormGroup>
 
             {/* Date of Birth */}
-        <FormGroup>
-            <input id="date" type="date" name="dob" onChange={this.handleChange}/>
+        <FormGroup
+            controlId="dob"
+          validationState={this.validateFirstName("dob")}
+        >
+            <ControlLabel>Date of Birth</ControlLabel>
+            <FormControl id="date" type="date" name="dob" onChange={this.handleChange}/>
+            <FormControl.Feedback />
         </FormGroup>
             {/* Height */}
-        <FormGroup controlId="formControlsSelect">
+        <FormGroup controlId="height" validationState={this.validateFirstName("height")}>
             <ControlLabel>Height</ControlLabel>
             <FormControl componentClass="select" placeholder="feet" name="heightFt" value={this.state.heightFt} 
         onChange={this.handleChange} >
@@ -135,6 +166,7 @@ var Profile = createReactClass({
                 <option value="9">9'</option>
                 <option value="10">10'</option>
             </FormControl>
+            <FormControl.Feedback />
             <FormControl componentClass="select" placeholder="inches" name="heightIn" value={this.state.heightIn} 
         onChange={this.handleChange} >
                 <option value="select" disabled>Inches</option>
@@ -185,16 +217,17 @@ var Profile = createReactClass({
           <FormControl.Feedback />
         </FormGroup>
         {/* Gender */}
-        <FormGroup controlId="gender">
-            <ControlLabel>Height</ControlLabel>
+        <FormGroup controlId="gender" validationState={this.validateFirstName("gender")}>
+            <ControlLabel>Gender</ControlLabel>
             <FormControl componentClass="select" placeholder="Gender" name="gender" value={this.state.gender} 
         onChange={this.handleChange} >
                 <option value="select" disabled>Gender</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
             </FormControl>
+            <FormControl.Feedback />
         </FormGroup>
-        <FormGroup controlId="activityLevel">
+        <FormGroup controlId="activityLevel" validationState={this.validateFirstName("activityLevel")}>
             <ControlLabel>Height</ControlLabel>
             <FormControl componentClass="select" placeholder="Activity Level" name="activityLevel" value={this.state.activityLevel} 
         onChange={this.handleChange} >
@@ -203,6 +236,7 @@ var Profile = createReactClass({
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </FormControl>
+            <FormControl.Feedback />
         </FormGroup>
       </Form>
         </div>

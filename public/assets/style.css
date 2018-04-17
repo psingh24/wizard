@@ -211,3 +211,7 @@
      text-align:center;
    }
  
+   .form-control-feedback {
+    right: 9px;
+
+   }
