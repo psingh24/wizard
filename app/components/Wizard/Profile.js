@@ -91,14 +91,13 @@ var Profile = createReactClass({
             }
 
         }
-      },   
+      },
   render: function() {
     return (
-     <div>Profile
-         <div className="form">
-         <Form>
+     <div>
+         <Form className="form-profile">
              {/* timezone */}
-         <FormGroup>
+         <FormGroup className="timezone">
             <ControlLabel>Timezone</ControlLabel>
             {/* <TimezonePicker
             absolute      = {false}
@@ -108,9 +107,7 @@ var Profile = createReactClass({
           /> */}
         </FormGroup>
              {/* firstName */}
-        <FormGroup
-          validationState={this.validateFirstName("firstName")}
-        >
+        <FormGroup validationState={this.validateFirstName("firstName")} className="firstName">
         <ControlLabel>First Name</ControlLabel>
           <FormControl
             type="text"
@@ -122,8 +119,7 @@ var Profile = createReactClass({
           <FormControl.Feedback />
         </FormGroup>
             {/* Middle Name */}
-        <FormGroup
-        >
+        <FormGroup className="middleName">
           <ControlLabel>Middle Name</ControlLabel>
           <FormControl
             type="text"
@@ -136,8 +132,7 @@ var Profile = createReactClass({
         </FormGroup>
             {/* Last Name */}
         <FormGroup
-          validationState={this.validateFirstName("lastName")}
-        >
+          validationState={this.validateFirstName("lastName")} className="lastName">
           <ControlLabel>Last Name</ControlLabel>
           <FormControl
             type="text"
@@ -151,17 +146,17 @@ var Profile = createReactClass({
 
             {/* Date of Birth */}
         <FormGroup
-          validationState={this.validateFirstName("dob")}
+          validationState={this.validateFirstName("dob")} className="dob"
         >
             <ControlLabel>Date of Birth</ControlLabel>
             <FormControl id="date" type="date" name="dob" onChange={this.handleChange}/>
             <FormControl.Feedback />
         </FormGroup>
             {/* Height */}
-        <FormGroup validationState={this.validateFirstName("height")}>
+        <FormGroup validationState={this.validateFirstName("height")} className="height" >
             <ControlLabel>Height</ControlLabel>
-            <FormControl componentClass="select" placeholder="feet" name="heightFt" value={this.state.heightFt} 
-        onChange={this.handleChange} >
+            <label><FormControl componentClass="select" placeholder="feet" name="heightFt" value={this.state.heightFt}
+        onChange={this.handleChange}>
                 <option value="select" disabled>Feet</option>
                 <option value="1">1'</option>
                 <option value="2">2'</option>
@@ -175,7 +170,8 @@ var Profile = createReactClass({
                 <option value="10">10'</option>
             </FormControl>
             <FormControl.Feedback />
-            <FormControl componentClass="select" placeholder="inches" name="heightIn" value={this.state.heightIn} 
+            </label>
+            <label><FormControl componentClass="select" placeholder="inches" name="heightIn" value={this.state.heightIn}
         onChange={this.handleChange} >
                 <option value="select" disabled>Inches</option>
                 <option value="0">0"</option>
@@ -191,11 +187,12 @@ var Profile = createReactClass({
                 <option value="10">10"</option>
                 <option value="11">11"</option>
             </FormControl>
+            </label>
         </FormGroup>
             {/* Weight */}
         <FormGroup
-          validationState={this.validateFirstName("weight")}
-          
+          validationState={this.validateFirstName("weight")} className="weight"
+
         >
           <ControlLabel>Weight(lbs)</ControlLabel>
           <FormControl
@@ -209,8 +206,8 @@ var Profile = createReactClass({
         </FormGroup>
         {/* phone number */}
         <FormGroup
-          validationState={this.validateFirstName("telephone")}
-          
+          validationState={this.validateFirstName("telephone")} className="phone"
+
         >
           <ControlLabel>Phone Number</ControlLabel>
           <FormControl
@@ -223,9 +220,9 @@ var Profile = createReactClass({
           <FormControl.Feedback />
         </FormGroup>
         {/* Gender */}
-        <FormGroup validationState={this.validateFirstName("gender")}>
+        <FormGroup validationState={this.validateFirstName("gender")} className="gender" >
             <ControlLabel>Gender</ControlLabel>
-            <FormControl componentClass="select" placeholder="Gender" name="gender" value={this.state.gender} 
+            <FormControl componentClass="select" placeholder="Gender" name="gender" value={this.state.gender}
         onChange={this.handleChange} >
                 <option value="select" disabled>Gender</option>
                 <option value="male">male</option>
@@ -233,9 +230,9 @@ var Profile = createReactClass({
             </FormControl>
             <FormControl.Feedback />
         </FormGroup>
-        <FormGroup validationState={this.validateFirstName("activityLevel")}>
-            <ControlLabel>Height</ControlLabel>
-            <FormControl componentClass="select" placeholder="Activity Level" name="activityLevel" value={this.state.activityLevel} 
+        <FormGroup validationState={this.validateFirstName("activityLevel")} className="activityLevel" >
+            <ControlLabel>Activity Level</ControlLabel>
+            <FormControl componentClass="select" placeholder="Activity Level" name="activityLevel" value={this.state.activityLevel}
         onChange={this.handleChange} >
                 <option value="select" disabled>Activity Level</option>
                 <option value="Very Active">Very Active</option>
@@ -245,14 +242,11 @@ var Profile = createReactClass({
             <FormControl.Feedback />
         </FormGroup>
       </Form>
-        </div>
-       
+
    </div>
-        
+
     );
   }
 });
 
 module.exports = Profile;
-
-

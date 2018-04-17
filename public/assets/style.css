@@ -200,22 +200,100 @@
      color: rgba(71, 181, 210, 1.0);
      text-decoration: none;
  }
- form {
-     width: 1000px;
+.form-profile {
+     margin:0;
+     width: 800px;
      display: grid;
      grid-template-columns: 1fr 1fr 1fr;
-     /* grid-gap: 20px; */
+     grid-template-rows: 50px 50px 100px 50px 100px 1fr;
+     grid-gap: 36px;
+     min-height: 100vh;
+     grid-template-areas: ". timezone  ."
+                          "firstName  middleName  lastName"
+                          "dob  height  weight"
+                          "phone  gender  activityLevel"
+                          "address  address  address";
  }
- 
+
+.timezone {
+      margin:0;
+      grid-area: timezone;
+      display: grid;
+      grid-column: 2/3;
+}
+.firstName {
+      margin:0;
+      grid-area: firstName;
+      display: grid;
+      grid-column: 1/2;
+}
+.middleName {
+      margin:0;
+      grid-area: middleName;
+      display: grid;
+      grid-column: 2/3;
+}
+.lastName {
+      margin:0;
+      grid-area: lastName;
+      display: grid;
+      grid-column: 3/4;
+}
+.dob {
+      margin:0;
+      grid-area: dob;
+      display: grid;
+      grid-column: 1/2;
+}
+.height {
+      margin:0;
+      grid-area: height;
+      display: grid;
+      grid-column: 2/3;
+
+}
+.height input{
+      width: 100px;
+}
+.weight {
+      margin:0;
+      grid-area: weight;
+      display: grid;
+      grid-column: 3/4;
+}
+.phone {
+      margin:0;
+      grid-area: phone;
+      display: grid;
+      grid-column: 1/2;
+}
+.gender {
+      margin:0;
+      grid-area: gender;
+      display: grid;
+      grid-column: 2/3;
+}
+.activityLevel {
+      margin:0;
+      grid-area: activityLevel;
+      display: grid;
+      grid-column: 3/4;
+}
+
+
  .checkbox {
      text-align:center;
    }
- 
-/* Validation css */
-   .form-control-feedback {
-    right: 9px;
 
-   }
+/* Validation css */
+
    .has-feedback label~.form-control-feedback {
-    top: 30px;
+
+    font-size: .6em;
+
+}
+.label {
+  margin: 0;
+  font-size: .6em;
+
 }

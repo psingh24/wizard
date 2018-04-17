@@ -17,7 +17,7 @@ var MainContent = createReactClass({
             case "Eula": {
                 return (
                     <div>
-                        <img src="assets/image/informationIcon.png" alt="" className="logo"/>
+                        <img src="assets/image/logo.svg" alt="" className="logo"/>
                         <Eula {...this.props} />
                 </div>
               );
