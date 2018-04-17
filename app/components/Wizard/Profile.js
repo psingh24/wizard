@@ -3,8 +3,7 @@ var createReactClass = require("create-react-class");
 // import { Form, Text, TextArea, Radio, RadioGroup, Select, Checkbox } from 'react-form';
 
 var Link = require("react-router").Link;
-var Telephone = require("react-phone-input")
-import DatePicker from 'react-datepicker';
+
 // import TimezonePicker from 'react-bootstrap-timezone-picker';
 // import '../../../node_modules/react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 
