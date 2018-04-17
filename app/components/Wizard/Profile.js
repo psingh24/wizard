@@ -5,7 +5,7 @@ var createReactClass = require("create-react-class");
 var Link = require("react-router").Link;
 var Telephone = require("react-phone-input")
 import DatePicker from 'react-datepicker';
-import TimezonePicker from 'react-bootstrap-timezone-picker';
+// import TimezonePicker from 'react-bootstrap-timezone-picker';
 // import '../../../node_modules/react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 
 import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
@@ -101,12 +101,12 @@ var Profile = createReactClass({
              {/* timezone */}
          <FormGroup>
             <ControlLabel>Timezone</ControlLabel>
-            <TimezonePicker
+            {/* <TimezonePicker
             absolute      = {false}
             defaultValue  = "Europe/Moscow"
             placeholder   = "Select timezone..."
             onChange      = {this.handleChange}
-          />
+          /> */}
         </FormGroup>
              {/* firstName */}
         <FormGroup
