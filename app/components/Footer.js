@@ -21,15 +21,15 @@ var Footer = createReactClass({
         <div className="footer">
             <div className="event-back">
 
-            {this.props.page > 0 
-            ? <a onClick={this.handleBack} href="#"><span className="chevron-event"><img src="assets/image/icon-chevron-left.svg" className="chevron" alt=""/></span> Back</a> 
+            {this.props.page > 0
+            ? <a onClick={this.handleBack} href="#" className="footer-btn"><span className="chevron-event"><img src="assets/image/icon-chevron-left.svg" className="chevron" alt=""/></span> Back</a>
             : <div></div>}
             </div>
 
             <div></div>
 
             <div className="event-forward">
-                <a className="" onClick={this.handleContinue} href="#">Continue <span className="chevron-event"><img src="assets/image/icon-chevron-right.svg" className="chevron" alt=""/></span></a>
+                <a className="footer-btn" onClick={this.handleContinue} href="#">Continue <span className="chevron-event"><img src="assets/image/icon-chevron-right.svg" className="chevron" alt=""/></span></a>
             </div>
         </div>
     );
