@@ -211,7 +211,11 @@
      text-align:center;
    }
  
+/* Validation css */
    .form-control-feedback {
     right: 9px;
 
    }
+   .has-feedback label~.form-control-feedback {
+    top: 30px;
+}

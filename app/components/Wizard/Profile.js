@@ -5,6 +5,8 @@ var createReactClass = require("create-react-class");
 var Link = require("react-router").Link;
 var Telephone = require("react-phone-input")
 import DatePicker from 'react-datepicker';
+import TimezonePicker from 'react-bootstrap-timezone-picker';
+// import '../../../node_modules/react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 
 import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
 
@@ -23,7 +25,8 @@ var Profile = createReactClass({
             weight: '',
             phoneNumber: '',
             gender: '',
-            activityLevel: ''
+            activityLevel: '',
+            timezone: ''
         }
     },
     handleChange(e) {
@@ -95,9 +98,18 @@ var Profile = createReactClass({
      <div>Profile
          <div className="form">
          <Form>
+             {/* timezone */}
+         <FormGroup>
+            <ControlLabel>Timezone</ControlLabel>
+            <TimezonePicker
+            absolute      = {false}
+            defaultValue  = "Europe/Moscow"
+            placeholder   = "Select timezone..."
+            onChange      = {this.handleChange}
+          />
+        </FormGroup>
              {/* firstName */}
         <FormGroup
-          controlId="firstName"
           validationState={this.validateFirstName("firstName")}
         >
         <ControlLabel>First Name</ControlLabel>
@@ -112,7 +124,6 @@ var Profile = createReactClass({
         </FormGroup>
             {/* Middle Name */}
         <FormGroup
-          controlId="middleName"
         >
           <ControlLabel>Middle Name</ControlLabel>
           <FormControl
@@ -126,7 +137,6 @@ var Profile = createReactClass({
         </FormGroup>
             {/* Last Name */}
         <FormGroup
-          controlId="lastName"
           validationState={this.validateFirstName("lastName")}
         >
           <ControlLabel>Last Name</ControlLabel>
@@ -142,7 +152,6 @@ var Profile = createReactClass({
 
             {/* Date of Birth */}
         <FormGroup
-            controlId="dob"
           validationState={this.validateFirstName("dob")}
         >
             <ControlLabel>Date of Birth</ControlLabel>
@@ -150,7 +159,7 @@ var Profile = createReactClass({
             <FormControl.Feedback />
         </FormGroup>
             {/* Height */}
-        <FormGroup controlId="height" validationState={this.validateFirstName("height")}>
+        <FormGroup validationState={this.validateFirstName("height")}>
             <ControlLabel>Height</ControlLabel>
             <FormControl componentClass="select" placeholder="feet" name="heightFt" value={this.state.heightFt} 
         onChange={this.handleChange} >
@@ -186,7 +195,6 @@ var Profile = createReactClass({
         </FormGroup>
             {/* Weight */}
         <FormGroup
-          controlId="weight"
           validationState={this.validateFirstName("weight")}
           
         >
@@ -202,7 +210,6 @@ var Profile = createReactClass({
         </FormGroup>
         {/* phone number */}
         <FormGroup
-          controlId="telephone"
           validationState={this.validateFirstName("telephone")}
           
         >
@@ -217,7 +224,7 @@ var Profile = createReactClass({
           <FormControl.Feedback />
         </FormGroup>
         {/* Gender */}
-        <FormGroup controlId="gender" validationState={this.validateFirstName("gender")}>
+        <FormGroup validationState={this.validateFirstName("gender")}>
             <ControlLabel>Gender</ControlLabel>
             <FormControl componentClass="select" placeholder="Gender" name="gender" value={this.state.gender} 
         onChange={this.handleChange} >
@@ -227,7 +234,7 @@ var Profile = createReactClass({
             </FormControl>
             <FormControl.Feedback />
         </FormGroup>
-        <FormGroup controlId="activityLevel" validationState={this.validateFirstName("activityLevel")}>
+        <FormGroup validationState={this.validateFirstName("activityLevel")}>
             <ControlLabel>Height</ControlLabel>
             <FormControl componentClass="select" placeholder="Activity Level" name="activityLevel" value={this.state.activityLevel} 
         onChange={this.handleChange} >
