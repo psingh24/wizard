@@ -26,7 +26,7 @@ var MainContent = createReactClass({
                 return (
                     <div>
                         <img src="assets/image/profileIcon.png" alt="" className="logo"/>
-                        <Profile />
+                        <Profile {...this.props}/>
                     </div>
                 );
             }

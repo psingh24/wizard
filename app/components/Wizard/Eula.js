@@ -9,11 +9,11 @@ var Link = require("react-router").Link;
 
 var Eula = createReactClass({
   componentDidMount() {
-    console.log(this.props.formCompleted)
+    // console.log(this.props.formCompleted)
   },
   render: function() {
     return (
-      <div>
+     <div>
       <h1 className="wiz-content-center">Vital to your health, vital to your peace of mind, vital to YOU.</h1>
       <p className="wiz-content-center-small">( Please review and agree to our terms of use. )</p>
       <hr className="hr-short"/>
@@ -28,7 +28,7 @@ var Eula = createReactClass({
       <hr className="hr-short"/>
 
       {this.props.formCompleted ? <div></div> : <p className="wiz-content-center-small">Please read the documents and check the box to continue</p>}
-      <p className="wiz-content-center-small"><Checkbox checked={this.props.formChecked} onChange={this.props.handleChange}>  I agree to the terms and Conditions laid out in the above documents</Checkbox></p>
+      <p className="wiz-content-center-small"><Checkbox checked={this.props.formCompleted ? "checked": false} onChange={this.props.handleChange}>  I agree to the terms and Conditions laid out in the above documents</Checkbox></p>
 
       {/* <p> */}
           {/* <img src="assets/image/icon-checkmark-square.svg" alt=""/> Begin Set-up</p> */}

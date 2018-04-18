@@ -33,6 +33,23 @@ var Profile = createReactClass({
         this.setState({dob: dateControl.value})
         this.setState({ [e.target.name]: e.target.value });
       },
+    componentWillUnmount() {
+        var data = {
+            firstName: this.state.firstName,
+            middleName: this.state.middleName,
+            lastName: this.state.lastName,
+            phone: this.state.phone,
+            dob: this.state.dob,
+            heightFt: this.state.heightFt,
+            heightIn: this.state.heightIn,
+            weight: this.state.weight,
+            phoneNumber: this.state.phoneNumber,
+            gender: this.state.gender,
+            activityLevel: this.state.activityLevel,
+            timezone: this.state.timezone
+        }
+        this.props.saveProfile(data)
+    },
     validateFirstName(id) {
         switch (id) {
             case "firstName": {
@@ -92,6 +109,9 @@ var Profile = createReactClass({
 
         }
       },
+      componentDidMount() {
+        console.log("My Test: "+this.props.profileData.firstName);
+      },
   render: function() {
     return (
      <div>
@@ -108,7 +128,7 @@ var Profile = createReactClass({
         </FormGroup>
              {/* firstName */}
         <FormGroup validationState={this.validateFirstName("firstName")} className="firstName">
-        <ControlLabel>First Name</ControlLabel>
+        <ControlLabel>{this.props.profileData ? "FirstName" : this.props.profileData.firstName}</ControlLabel>
           <FormControl
             type="text"
             name="firstName"
