@@ -31,11 +31,12 @@
      display: grid;
      grid-template-columns: 1fr 800px 1fr;
      grid-template-rows: 1fr;
-     grid-template-areas: "......  content   ......" ;
+     grid-template-areas: ". content ." ;
      padding: 0 20px;
  }
  .content {
      grid-area: content;
+     width: 800px;
      color: rgba(71, 181, 210, 1.0);
  }
 
@@ -51,45 +52,6 @@
  }
 
 
-
-
-.listContacts {
-    margin:0;
-    display: grid;
-    grid: 1fr 1fr 1fr 100px;
-    grid-gap: 5px;
-    grid-template-areas: "name   number   email   options"
-                         "method   relationship   .   ."
-                         "addContact   addContact   addContact";
-}
-.structureFormAlerts {
-    margin:0;
-    display: grid;
-    grid: 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
-    min-height: 100vh;
-    grid-gap: 5px;
-    grid-template-areas: "enable   feature   message"
-                         "check01   sos   input01"
-                         "check02   abnormalHR   input02"
-                         "check03   lowBat   state   input03";
-}
-.connect01Examples {
-    margin:0;
-    display: grid;
-    grid: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
-    grid-template-areas: "image01   image02   image03   image04   image05";
-}
-.connect02Examples {
-    margin:0;
-    display: grid;
-    grid: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
-    grid-template-areas: "image01   image02   image03   image04   image05";
-}
-
-
-
 /* Global stye Guide Structure */
  p {
      margin: 10px 0;
@@ -103,7 +65,7 @@
      padding: 0 0 20px 0;
  }
  a {
-     text-decoration: none;
+     text-decoration: none!important;
      color: rgba(0, 0, 0, 1.0);
  }
  a:hover {
@@ -112,8 +74,6 @@
  img {
      display:block;
  }
-
-
  hr {
      display: block;
      height: 1px;
@@ -132,28 +92,19 @@
      margin: 0 auto;
      padding: 0;
  }
-
-
-
-
-
-
-
-
- .btm-gutter {
-     font-size: 1.3em;
+ .content-center-small {
      text-align: center;
-     font-style: normal;
-     font-weight: normal;
-     padding: 0 0 20px 0;
+     font-size: 0.7em;
+     display: block;
  }
-
-
-
-
-
-
-
+ .content-center {
+     text-align: center;
+ }
+ .content-center img {
+     display: inline-block;
+     vertical-align: middle;
+ }
+ /* Aside Bar - Wizard Area */
  .help-text {
      align-items: start;
      padding: 25px;
@@ -174,10 +125,6 @@
      display: block;
  }
 
-
-
-
-
  /* Hamburger css */
  .menu1 {
      position: absolute;
@@ -197,21 +144,6 @@
      cursor: pointer;
      filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
  }
- .wiz-content-center-small {
-     text-align: center;
-     font-size: 0.7em;
-     display: block;
- }
- .wiz-content-center {
-     text-align: center;
- }
- .wiz-content-center img {
-     display: inline-block;
-     vertical-align: middle;
- }
-
-
-
 
 
 
@@ -261,7 +193,7 @@
  .event-back:hover .chevron-event, .event-forward:hover .chevron-event  {
      background: rgba(71, 181, 210, 1.0);
  }
- .footer-btn {
+ .footer-btn .footer-btn:visited {
      text-decoration: none;
  }
  .footer-btn:hover {
@@ -310,9 +242,31 @@
 
 
 
+/* Form Standard Elements */
+.formInputTitle {
+    font-size: .9em;
+    color: rgba(71, 181, 210, 1.0);
+    margin: 0;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.has-feedback label~.form-control-feedback {
+    font-size: .6em;
+    position: absolute;
+    font-family: 'Glyphicons Halflings';
+    color: rgba(71, 181, 210, 1.0);
+    top: -4px;
+    right: 0;
+    display: block;
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+
+}
 
 
-/* Profile Page css */
+/* Profile Page */
 .structureFormProfile {
     font-size: .9em;
     font-weight: normal;
@@ -326,13 +280,6 @@
                           "dob   height   weight"
                           "phone   gender   activityLevel"
                           "address   city   stateZipcode";
-}
-
-.formInputTitle {
-    font-size: .9em;
-    margin: 0;
-    font-weight: normal;
-    font-style: normal;
 }
 .timezone {
       margin:0;
@@ -357,8 +304,6 @@
 .height {
       margin:0;
       grid-area: height;
-      grid-column: 2/3;
-
 }
 .structureFormProfileHeight {
     display: grid;
@@ -400,23 +345,17 @@
       margin:0;
       grid-area: activityLevel;
 }
-
-
-
 .address {
       margin:0;
       grid-area: address;
-      grid-column: 1/2;
 }
 .city {
       margin:0;
       grid-area: city;
-      grid-column: 2/3;
 }
 .stateZipcode {
       grid-area: stateZipcode;
       display: grid;
-      grid-column: 3/4;
       grid-template-columns: 126px 127px;
       grid-gap: 0 10px;
       grid-template-areas:  "title   title"
@@ -424,23 +363,21 @@
 }
 .state {
       margin:0;
-      grid-area: feet;
-      grid-column: 1/2;
+      grid-area: state;
 }
 .zip {
       margin:0;
-      grid-area: inch;
-      grid-column: 2/3;
+      grid-area: zip;
 }
 
 
 
-/* Contact Form Page css */
+/* Contact Form Page */
 .structureFormContacts {
-  font-size: .9em;
-  font-weight: normal;
-  font-style: normal;
-  display: grid;
+    font-size: .9em;
+    font-weight: normal;
+    font-style: normal;
+    display: grid;
     grid-template-columns: 263px 264px 263px;
     grid-gap: 14px 36px;
     grid-template-areas: ". relationship  ."
@@ -450,70 +387,63 @@
                           "contactsBack . contactsSave";
 }
 .relationship {
-      margin:0;
-      grid-area: relationship;
+    margin:0;
+    grid-area: relationship;
 }
 .email {
-      margin:0;
-      grid-area: email;
+    margin:0;
+    grid-area: email;
 }
 .preferredContact {
-      margin:0;
-      grid-area: preferredContact;
+    margin:0;
+    grid-area: preferredContact;
 }
-
-
-
-
 .contactsBack {
-      margin: 20px 0 0 0;
-      grid-area: contactsBack;
+    margin: 20px 0 0 0;
+    grid-area: contactsBack;
 }
 .contactsSave {
-      margin: 20px 0 0 0;
-      grid-area: contactsSave;
-      justify-self: end;
+    margin: 20px 0 0 0;
+    grid-area: contactsSave;
+    justify-self: end;
 }
 
 
 
 
 
-
-
-
-
-/* Validation css */
-.checkbox {
-    text-align:center;
+/* the other grid-template-rows css */
+.listContacts {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr 100px;
+    grid-gap: 5px;
+    grid-template-areas: "name   number   email   options"
+                         "method   relationship   .   ."
+                         "addContact   addContact   addContact";
 }
-
-
-
-
-
-
-
-.has-feedback label~.form-control-feedback {
-    font-size: .6em;
-    position: absolute;
-    font-family: 'Glyphicons Halflings';
-    top: -4px;
-    right: 0;
-    display: block;
-    width: 22px;
-    height: 22px;
-    pointer-events: none;
-
+.structureFormAlerts {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    min-height: 100vh;
+    grid-gap: 5px;
+    grid-template-areas: "enable   feature   message"
+                         "check01   sos   input01"
+                         "check02   abnormalHR   input02"
+                         "check03   lowBat   state   input03";
 }
-
-
-
-
-
-.label {
-  margin: 0;
-  font-size: .6em;
-  font-weight: normal;
-
+.connect01Examples {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "image01   image02   image03   image04   image05";
+}
+.connect02Examples {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "image01   image02   image03   image04   image05";
 }
