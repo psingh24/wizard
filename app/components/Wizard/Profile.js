@@ -19,7 +19,7 @@ var Profile = createReactClass({
     return (
      <div>
          <Form className="structureFormProfile">
-              
+
 
 
         {/*timezone*/}
@@ -101,7 +101,7 @@ var Profile = createReactClass({
                 <option value="9">9'</option>
                 <option value="10">10'</option>
             </FormControl>
-            <FormControl.Feedback />
+
             </label>
             <label className="inch"><FormControl componentClass="select" placeholder="inches" name="heightIn" value={this.props.profileData.heightIn}
         onChange={this.props.handleProfileChange} >
@@ -120,6 +120,7 @@ var Profile = createReactClass({
                 <option value="11">11"</option>
             </FormControl>
             </label>
+            <FormControl.Feedback />
         </FormGroup>
             {/* Weight */}
         <FormGroup

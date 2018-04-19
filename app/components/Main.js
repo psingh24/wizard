@@ -41,12 +41,12 @@ var Main = createReactClass({
   },
 
   continue: function(num) {
-    if (this.state.formCompleted) {
+  //  if (this.state.formCompleted) { /* commnet this line to keep moving without hacing to have anything line 44 and 49 */
       this.setState((prevState, props) => ({
         currentPage: prevState.currentPage + num,
         formCompleted: false
     }));
-    }
+  // }/* commnet this line to keep moving without hacing to have anything line 44 and 49 */
   },
   back: function(num) {
     this.setState((prevState, props) => ({
@@ -66,7 +66,7 @@ var Main = createReactClass({
     profile[e.target.name] = e.target.value;                        //updating value
     this.setState({profile});
   },
-  isEmpty(obj) { 
+  isEmpty(obj) {
     for (var x in obj) { return false; }
     return true;
  },
@@ -137,16 +137,16 @@ var Main = createReactClass({
     return (
       <div className="Grid">
         <SideBar sideBarText={this.state.sidebarText[this.state.currentPage]}/>
-        
-        <MainContent page={this.state.pages[this.state.currentPage]} 
+
+        <MainContent page={this.state.pages[this.state.currentPage]}
                      formCompleted={this.state.formCompleted}
                      handleProfileChange={this.handleProfileChange}
                      handleChange={this.handleChange}
                      validate={this.validate}
                      profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}/>
 
-        <Footer continue={this.continue} 
-                back={this.back} 
+        <Footer continue={this.continue}
+                back={this.back}
                 page={this.state.currentPage}/>
         </div>
     );
