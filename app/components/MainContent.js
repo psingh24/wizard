@@ -25,7 +25,7 @@ var MainContent = createReactClass({
             case "Profile": {
                 return (
                     <div>
-                        <img src="assets/image/profileIcon.png" alt="" className="logo"/>
+                        <img src="assets/image/profileIcon.png" alt="" className="icon"/>
                         <Profile {...this.props}/>
                     </div>
                 );
@@ -33,7 +33,7 @@ var MainContent = createReactClass({
             case "Contacts": {
                 return (
                     <div>
-                        <img src="assets/image/ContactsIcon.png" alt="" className="logo"/>
+                        <img src="assets/image/ContactsIcon.png" alt="" className="icon"/>
                         <Contacts />
                     </div>
                 );
@@ -41,7 +41,7 @@ var MainContent = createReactClass({
             case "Alerts": {
                 return (
                     <div>
-                        <img src="assets/image/SOSAlertIcon.png" alt="" className="logo"/>
+                        <img src="assets/image/SOSAlertIcon.png" alt="" className="icon"/>
                         <Alerts />
                     </div>
                 );
@@ -49,7 +49,7 @@ var MainContent = createReactClass({
             case "Connect": {
                 return (
                     <div>
-                        <img src="assets/image/ConnectIcon.png" alt="" className="logo"/>
+                        <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
                         <Connect />
                     </div>
                 );

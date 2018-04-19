@@ -6,13 +6,69 @@
     margin:0;
     color: rgba(255, 255, 255, 1.0);
     display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: 1fr 50px;
+    grid: 1fr 50px / 300px 1fr;
     min-height: 100vh;
     grid-gap: 5px;
     grid-template-areas: "sidebar  main"
                          "footer   footer";
  }
+
+
+
+
+
+.structureFormContacts {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas: ". relationship  ."
+                         "firstName   middleName   lastName"
+                         "email   phone   preferredContact"
+                         "address   city   stateZipcode";
+}
+
+.listContacts {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr 100px;
+    grid-gap: 5px;
+    grid-template-areas: "name   number   email   options"
+                         "method   relationship   .   ."
+                         "addContact   addContact   addContact";
+}
+
+.structureFormAlerts {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    min-height: 100vh;
+    grid-gap: 5px;
+    grid-template-areas: "enable   feature   message"
+                         "check01   sos   input01"
+                         "check02   abnormalHR   input02"
+                         "check03   lowBat   state   input03";
+}
+
+.connect01Examples {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "image01   image02   image03   image04   image05";
+}
+
+.connect02Examples {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "image01   image02   image03   image04   image05";
+}
+
+
+
+
  p {
      margin: 10px 0;
      display: block
@@ -136,13 +192,20 @@
      display: inline-block;
      vertical-align: middle;
  }
- .logo {
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-     height: 120px;
-     padding: 20px 0;
- }
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    padding: 20px 0;
+}
+.icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    padding: 20px 0;
+}
  a.btn-sub {
      text-decoration: none;
      text-align: center;
@@ -200,26 +263,74 @@
      color: rgba(71, 181, 210, 1.0);
      text-decoration: none;
  }
-.form-profile {
-     margin:0;
-     width: 800px;
-     display: grid;
-     grid-template-columns: 1fr 1fr 1fr;
-     grid-template-rows: 50px 50px 100px 50px 100px 1fr;
-     grid-gap: 36px;
-     min-height: 100vh;
-     grid-template-areas: ". timezone  ."
-                          "firstName  middleName  lastName"
-                          "dob  height  weight"
-                          "phone  gender  activityLevel"
-                          "address  address  address";
- }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.structureFormProfile {
+    margin: 0;
+    font-size: .8em;
+    font-weight: normal;
+    font-style: normal;
+    margin:0;
+    width: 760px;
+    display: grid;
+    grid: 1fr 1fr 1fr;
+    grid-gap: 36px;
+    grid-template-areas:  ". timezone  ."
+                          "firstName   middleName   lastName"
+                          "dob   height   weight"
+                          "phone   gender   activityLevel"
+                          "address   city   stateZipcode";
+}
+.structureFormProfileHeight {
+    margin: 0;
+    font-size: .8em;
+    font-weight: normal;
+    font-style: normal;
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:  "title   title"
+                          "feet   inch";
+}
+
+.feet {
+      margin:0;
+      grid-area: feet;
+      display: grid;
+      grid-column: 1/2;
+}
+
+.inch {
+      margin:0;
+      grid-area: inch;
+      display: grid;
+      grid-column: 2/3;
+}
+.formInputTitle {
+    font-size: .9em;
+    font-weight: normal;
+    font-style: normal;
+    grid-column: 1/2;
+}
 
 .timezone {
       margin:0;
       grid-area: timezone;
       display: grid;
-      grid-column: 2/3;
 }
 .firstName {
       margin:0;
@@ -295,5 +406,6 @@
 .label {
   margin: 0;
   font-size: .6em;
+  font-weight: normal;
 
 }
