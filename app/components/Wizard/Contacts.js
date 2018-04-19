@@ -2,7 +2,7 @@ var React = require("react");
 var createReactClass = require("create-react-class");
 
 var Link = require("react-router").Link;
-import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem, Button, ButtonToolbar } from 'react-bootstrap';
 
 
 var Contacts = createReactClass({
@@ -315,22 +315,27 @@ var Contacts = createReactClass({
       <FormControl.Feedback />
       </FormGroup>
       </div>
+
+
+          <ButtonToolbar className="contactsBack">
+              <Button bsStyle="info"><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button>
+          </ButtonToolbar>
+          <ButtonToolbar className="contactsSave">
+              <Button bsStyle="primary"><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
+          </ButtonToolbar>
+
+
+
+
         </Form>
         </div>)
       },
       returnContacts() {
-        this.state.contacts.map(function(object) {
-            return (<div key={object.name}>
-                        <div>Name: {object.name}</div>
-                        <div>Number: {object.phoneNumber}</div>
-                        <div>Email: {object.email}</div>
-                        <div>Method: {object.contactMethod}</div>
-                        <div>Relationship: {object.relationship}</div>
+            return ( <div>
                         <div>Delete Button</div>
                         <div>Edit Button</div>
                         <div>Add Contact Button</div>
                     </div>)
-                });
       },
       addContact() {
         //on click of add contact button
@@ -367,6 +372,7 @@ var Contacts = createReactClass({
     }
     return (
         <div>
+           {/*this.returnContacts()*/}
           {this.returnForm()}
         </div>
 

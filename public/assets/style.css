@@ -314,11 +314,9 @@
 
 /* Profile Page css */
 .structureFormProfile {
-    margin: 0;
-    font-size: .8em;
+    font-size: .9em;
     font-weight: normal;
     font-style: normal;
-    margin:0;
     width: 760px;
     display: grid;
     grid-template-columns: 263px 264px 263px;
@@ -331,6 +329,7 @@
 }
 .formInputTitle {
     font-size: .9em;
+    margin: 0;
     font-weight: normal;
     font-style: normal;
 }
@@ -361,14 +360,9 @@
 
 }
 .structureFormProfileHeight {
-    margin: 0;
-    font-size: .8em;
-    font-weight: normal;
-    font-style: normal;
-    margin:0;
     display: grid;
-    grid-template-columns: 126px 127px;
-    grid-gap: 10px 36px;
+    grid-template-columns: 127px 127px;
+    grid-gap: 0 10px;
     align-self: start;
     grid-template-areas:  "title   title"
                           "feet   inch";
@@ -377,11 +371,17 @@
       margin:0;
       grid-area: feet;
       grid-column: 1/2;
+      font-size: .9em;
+      font-weight: normal;
+      font-style: normal;
 }
 .inch {
       margin:0;
       grid-area: inch;
       grid-column: 2/3;
+      font-size: .9em;
+      font-weight: normal;
+      font-style: normal;
 }
 .weight {
       margin:0;
@@ -436,14 +436,17 @@
 
 /* Contact Form Page css */
 .structureFormContacts {
-    margin:0;
-    display: grid;
+  font-size: .9em;
+  font-weight: normal;
+  font-style: normal;
+  display: grid;
     grid-template-columns: 263px 264px 263px;
-    grid-gap: 10px 36px;
+    grid-gap: 14px 36px;
     grid-template-areas: ". relationship  ."
                           "firstName   middleName   lastName"
                           "email   phone   preferredContact"
-                          "address   city   stateZipcode";
+                          "address   city   stateZipcode"
+                          "contactsBack . contactsSave";
 }
 .relationship {
       margin:0;
@@ -461,6 +464,19 @@
 
 
 
+.contactsBack {
+      margin: 20px 0 0 0;
+      grid-area: contactsBack;
+}
+.contactsSave {
+      margin: 20px 0 0 0;
+      grid-area: contactsSave;
+      justify-self: end;
+}
+
+
+
+
 
 
 
@@ -472,7 +488,6 @@
 }
 
 .has-feedback label~.form-control-feedback {
-
     font-size: .6em;
 
 }

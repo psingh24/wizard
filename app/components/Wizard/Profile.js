@@ -19,16 +19,25 @@ var Profile = createReactClass({
     return (
      <div>
          <Form className="structureFormProfile">
-                {/* timezone */}
-            <FormGroup className="timezone">
-            <ControlLabel className="formInputTitle">Timezone</ControlLabel>
-            {/* <TimezonePicker
-            absolute      = {false}
-            defaultValue  = "Europe/Moscow"
-            placeholder   = "Select timezone..."
-            onChange      = {this.handleChange}
-            /> */}
+              
+
+
+        {/*timezone*/}
+        <FormGroup className="timezone">
+        <ControlLabel className="formInputTitle">Timezone</ControlLabel>
+        <FormControl
+        type="text"
+        name="middleName"
+        placeholder="Time Zone"
+        />
+        <FormControl.Feedback />
         </FormGroup>
+
+
+
+
+
+
                 {/* firstName */}
          <FormGroup validationState={this.props.validate('firstName')} className="firstName">
          <ControlLabel className="formInputTitle">First Name</ControlLabel>
@@ -77,7 +86,7 @@ var Profile = createReactClass({
         </FormGroup>
             {/* Height */}
         <FormGroup validationState={this.props.validate("height")} className="height structureFormProfileHeight" >
-            <ControlLabel className="formInputTitle title">Height</ControlLabel>
+            <ControlLabel className="formInputTitle">Height</ControlLabel>
             <label className="feet"><FormControl componentClass="select" placeholder="feet" name="heightFt" value={this.props.profileData.heightFt}
         onChange={this.props.handleProfileChange}>
                 <option value="select" disabled>Feet</option>
