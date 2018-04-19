@@ -12,7 +12,7 @@ import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem } 
 
 
 var Profile = createReactClass({
-      componentDidMount() {
+    componentDidMount() {
         console.log(this.props);
       },
   render: function() {
