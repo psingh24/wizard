@@ -13,20 +13,38 @@
                          "footer   footer";
  }
 
+ /* Master Page Grid Structure css */
+ .aside {
+     grid-area: sidebar;
+     grid-column: 1/2;
+     background: rgba(71, 181, 210, 1.0);
+     padding: 0;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-rows: 1fr 280px;
+     grid-template-areas: "help-text"
+                          "wiz";
+ }
+ .content {
+     grid-area: content;
+     grid-column: 2/3;
+     color: rgba(71, 181, 210, 1.0);
+     align-items: start;
+     padding: 0 20px;
+ }
+ .footer {
+     grid-area: footer;
+     grid-column: 1/3;
+     display: grid;
+     grid-template-columns: 250px 1fr 250px;
+     grid-template-rows: 1fr;
+     background: rgba(255, 255, 255, 1.0);
+     grid-template-areas: "event-back  ......  event-forward";
+     padding: 0 20px;
+ }
 
 
 
-
-.structureFormContacts {
-    margin:0;
-    display: grid;
-    grid: 1fr 1fr 1fr;
-    grid-gap: 5px;
-    grid-template-areas: ". relationship  ."
-                         "firstName   middleName   lastName"
-                         "email   phone   preferredContact"
-                         "address   city   stateZipcode";
-}
 
 .listContacts {
     margin:0;
@@ -37,7 +55,6 @@
                          "method   relationship   .   ."
                          "addContact   addContact   addContact";
 }
-
 .structureFormAlerts {
     margin:0;
     display: grid;
@@ -49,7 +66,6 @@
                          "check02   abnormalHR   input02"
                          "check03   lowBat   state   input03";
 }
-
 .connect01Examples {
     margin:0;
     display: grid;
@@ -57,7 +73,6 @@
     grid-gap: 5px;
     grid-template-areas: "image01   image02   image03   image04   image05";
 }
-
 .connect02Examples {
     margin:0;
     display: grid;
@@ -68,19 +83,12 @@
 
 
 
-
+/* Global stye Guide Structure */
  p {
      margin: 10px 0;
      display: block
  }
  h1 {
-     font-size: 1.3em;
-     text-align: center;
-     font-style: normal;
-     font-weight: normal;
-     padding: 0 0 20px 0;
- }
- .btm-gutter {
      font-size: 1.3em;
      text-align: center;
      font-style: normal;
@@ -115,17 +123,26 @@
  img {
      display:block;
  }
- .aside {
-     grid-area: sidebar;
-     grid-column: 1/2;
-     background: rgba(71, 181, 210, 1.0);
-     padding: 0;
-     display: grid;
-     grid-template-columns: 1fr;
-     grid-template-rows: 1fr 280px;
-     grid-template-areas: "help-text"
-                          "wiz";
+ .formInputTitle {
+     font-size: .9em;
+     font-weight: normal;
+     font-style: normal;
  }
+
+ .btm-gutter {
+     font-size: 1.3em;
+     text-align: center;
+     font-style: normal;
+     font-weight: normal;
+     padding: 0 0 20px 0;
+ }
+
+
+
+
+
+
+
  .help-text {
      align-items: start;
      padding: 25px;
@@ -155,6 +172,9 @@
      grid-template-areas: "......  content   ......" ;
      color: rgba(71, 181, 210, 1.0);
  }
+
+
+ /* Hamburger css */
  .menu1 {
      position: absolute;
      right: 0px;
@@ -173,13 +193,13 @@
      cursor: pointer;
      filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
  }
- .content {
-     grid-area: content;
-     grid-column: 2/3;
-     color: rgba(71, 181, 210, 1.0);
-     align-items: start;
-     padding: 0 20px;
- }
+
+
+
+
+
+
+
  .wiz-content-center-small {
      text-align: center;
      font-size: 0.7em;
@@ -218,16 +238,7 @@
      margin-left: auto;
      margin-right: auto;
  }
- .footer {
-     grid-area: footer;
-     grid-column: 1/3;
-     display: grid;
-     grid-template-columns: 250px 1fr 250px;
-     grid-template-rows: 1fr;
-     background: rgba(255, 255, 255, 1.0);
-     grid-template-areas: "event-back  ......  event-forward";
-     padding: 0 20px;
- }
+
  .event-back {
      grid-area: event-back;
      grid-column: 1/2;
@@ -278,6 +289,14 @@
 
 
 
+
+
+
+
+
+
+
+/* Profile Page css */
 .structureFormProfile {
     margin: 0;
     font-size: .8em;
@@ -294,39 +313,6 @@
                           "phone   gender   activityLevel"
                           "address   city   stateZipcode";
 }
-.structureFormProfileHeight {
-    margin: 0;
-    font-size: .8em;
-    font-weight: normal;
-    font-style: normal;
-    margin:0;
-    display: grid;
-    grid: 1fr 1fr;
-    grid-gap: 10px;
-    grid-template-areas:  "title   title"
-                          "feet   inch";
-}
-
-.feet {
-      margin:0;
-      grid-area: feet;
-      display: grid;
-      grid-column: 1/2;
-}
-
-.inch {
-      margin:0;
-      grid-area: inch;
-      display: grid;
-      grid-column: 2/3;
-}
-.formInputTitle {
-    font-size: .9em;
-    font-weight: normal;
-    font-style: normal;
-    grid-column: 1/2;
-}
-
 .timezone {
       margin:0;
       grid-area: timezone;
@@ -363,8 +349,29 @@
       grid-column: 2/3;
 
 }
-.height input{
-      width: 100px;
+.structureFormProfileHeight {
+    margin: 0;
+    font-size: .8em;
+    font-weight: normal;
+    font-style: normal;
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:  "title   title"
+                          "feet   inch";
+}
+.feet {
+      margin:0;
+      grid-area: feet;
+      display: grid;
+      grid-column: 1/2;
+}
+.inch {
+      margin:0;
+      grid-area: inch;
+      display: grid;
+      grid-column: 2/3;
 }
 .weight {
       margin:0;
@@ -391,14 +398,34 @@
       grid-column: 3/4;
 }
 
+/* Contact Form Page css */
+.structureFormContacts {
+    margin:0;
+    display: grid;
+    grid: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas: ". relationship  ."
+                         "firstName   middleName   lastName"
+                         "email   phone   preferredContact"
+                         "address   city   stateZipcode";
+}
 
- .checkbox {
-     text-align:center;
-   }
+
+
+
+
+
+
+
+
+
 
 /* Validation css */
+.checkbox {
+    text-align:center;
+}
 
-   .has-feedback label~.form-control-feedback {
+.has-feedback label~.form-control-feedback {
 
     font-size: .6em;
 

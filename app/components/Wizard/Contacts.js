@@ -8,7 +8,9 @@ import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem } 
 var Contacts = createReactClass({
     getInitialState: function() {
         return {
-            name: '',
+            firstName: '',
+            middleName: '',
+            lastName: '',
             email: '',
             relationship: '',
             phoneNumber: '',
@@ -17,9 +19,11 @@ var Contacts = createReactClass({
             city: '',
             state: '',
             zip: '',
-            contacts: 
+            contacts:
                [     {
-                    name: 'bob',
+                    firstName: 'bob',
+                    middleName: '',
+                    lastName: 'bob',
                     email: 'bob@gmail.com',
                     relationship: 'Parent',
                     phoneNumber: '1231231231',
@@ -29,19 +33,21 @@ var Contacts = createReactClass({
                     state: 'Tx',
                     zip: '76021'
                 },
-                 {
-                    name: 'test',
-                    email: 'bob@gmail.com',
-                    relationship: 'Parent',
-                    phoneNumber: '1231231231',
-                    contactMethod: 'SMS',
-                    address: '123 Fake St.',
-                    city: 'Dallas',
-                    state: 'Tx',
-                    zip: '76021'
-                }
+                {
+                     firstName: 'joe',
+                     middleName: '',
+                     lastName: 'cool',
+                     email: 'jan@gmail.com',
+                     relationship: 'Parent',
+                     phoneNumber: '1231231231',
+                     contactMethod: 'SMS',
+                     address: '123 Fake St.',
+                     city: 'Dallas',
+                     state: 'Tx',
+                     zip: '76021'
+                 }
             ]
-            
+
         }
     },
     handleChange(e) {
@@ -49,13 +55,23 @@ var Contacts = createReactClass({
       },
     validate(id) {
         switch (id) {
-            case "name": {
-                var length = this.state.name.length;
+            case "firstName": {
+                var length = this.state.firstName.length;
                 if (length >= 3) return 'success';
                 else if (length > 0) return 'warning';
                 else if (length === 0) return 'error';
                 return null;
             }
+
+            case "lastName": {
+                var length = this.state.lastName.length;
+                if (length >= 3) return 'success';
+                else if (length > 0) return 'warning';
+                else if (length === 0) return 'error';
+                return null;
+            }
+
+
             case "weight": {
                 var length = this.state.weight.length;
                 if (length >= 1 && !isNaN(this.state.weight)) return 'success';
@@ -88,24 +104,53 @@ var Contacts = createReactClass({
       },
       returnForm() {
         return (<div className="form">
-        <Form>
-            {/* Name */}
-        <FormGroup
-        validationState={this.validate("name")}
-        >
-        <ControlLabel>Name *</ControlLabel>
+        <Form className="structureFormContacts">
+            {/* First Name */}
+        <FormGroup validationState={this.validate("firstName")} className="name">
+        <ControlLabel className="formInputTitle">First Name *</ControlLabel>
             <FormControl
             type="text"
-            name="name"
-            value={this.state.name}
-            placeholder="Enter Name"
+            name="firstName"
+            value={this.state.firstName}
+            placeholder="First Name"
             onChange={this.handleChange}
             />
         <FormControl.Feedback />
         </FormGroup>
+
+
+        {/* Middle Name */}
+    <FormGroup className="middleName">
+    <ControlLabel className="formInputTitle">Middle Name</ControlLabel>
+        <FormControl
+        type="text"
+        name="middleName"
+        value={this.state.middleName}
+        placeholder="Middle Name"
+        onChange={this.handleChange}
+        />
+    <FormControl.Feedback />
+    </FormGroup>
+
+    {/* Last Name */}
+<FormGroup validationState={this.validate("lastName")} className="lastName">
+<ControlLabel className="formInputTitle">Last Name *</ControlLabel>
+    <FormControl
+    type="text"
+    name="lastName"
+    value={this.state.lastName}
+    placeholder="Last Name"
+    onChange={this.handleChange}
+    />
+<FormControl.Feedback />
+</FormGroup>
+
+
+
+
         {/* Email */}
         <FormGroup  validationState={this.validate("email")}>
-        <ControlLabel>Email</ControlLabel>
+        <ControlLabel className="formInputTitle">Email</ControlLabel>
         <FormControl
         type="text"
         name="email"
@@ -117,9 +162,9 @@ var Contacts = createReactClass({
         </FormGroup>
 
         {/* Relationship */}
-        <FormGroup>
-        <ControlLabel>Relationship</ControlLabel>
-        <FormControl componentClass="select" placeholder="Select Relationship" name="relationship" value={this.state.relationship} 
+        <FormGroup className="structureFormContacts">
+        <ControlLabel className="formInputTitle">Relationship</ControlLabel>
+        <FormControl componentClass="select" placeholder="Select Relationship" name="relationship" value={this.state.relationship}
         onChange={this.handleChange} >
             <option value="select" disabled>Select Relationship</option>
             <option value="Parent">Parent</option>
@@ -135,7 +180,7 @@ var Contacts = createReactClass({
 
         {/* telephone */}
         <FormGroup>
-        <ControlLabel>Phone Number</ControlLabel>
+        <ControlLabel className="formInputTitle">Phone Number</ControlLabel>
         <FormControl
         type="text"
         name="phoneNumber"
@@ -149,8 +194,8 @@ var Contacts = createReactClass({
 
         {/* Perferred contact method */}
         <FormGroup validationState={this.validate("contactMethod")}>
-        <ControlLabel>Preferred Contact Method *</ControlLabel>
-        <FormControl componentClass="select" placeholder="Preferred Contact Method" name="contactMethod" value={this.state.contactMethod} 
+        <ControlLabel className="formInputTitle">Preferred Contact Method *</ControlLabel>
+        <FormControl componentClass="select" placeholder="Preferred Contact Method" name="contactMethod" value={this.state.contactMethod}
         onChange={this.handleChange} >
             <option value="select" disabled>Preferred Contact Method</option>
             <option value="Email">Email</option>
@@ -161,7 +206,7 @@ var Contacts = createReactClass({
 
           {/* Physical Address */}
           <FormGroup>
-        <ControlLabel>Physical Address</ControlLabel>
+        <ControlLabel className="formInputTitle">Physical Address</ControlLabel>
             <FormControl
             type="text"
             name="address"
@@ -173,7 +218,7 @@ var Contacts = createReactClass({
         </FormGroup>
         {/* City */}
         <FormGroup>
-        <ControlLabel>City</ControlLabel>
+        <ControlLabel className="formInputTitle">City</ControlLabel>
         <FormControl
         type="text"
         name="city"
@@ -186,8 +231,8 @@ var Contacts = createReactClass({
 
         {/* State */}
         <FormGroup>
-        <ControlLabel>State</ControlLabel>
-        <FormControl componentClass="select" placeholder="State" name="state" value={this.state.state} 
+        <ControlLabel className="formInputTitle">State</ControlLabel>
+        <FormControl componentClass="select" placeholder="State" name="state" value={this.state.state}
         onChange={this.handleChange} >
             <option value="" disabled="selected">Select a State</option>
             <option value="AL">Alabama</option>
@@ -248,7 +293,7 @@ var Contacts = createReactClass({
 
           {/* zip code */}
           <FormGroup>
-        <ControlLabel>Zip Code</ControlLabel>
+        <ControlLabel className="formInputTitle">Zip Code</ControlLabel>
         <FormControl
         type="text"
         name="zip"
@@ -306,15 +351,15 @@ var Contacts = createReactClass({
             //             <div>Relationship: {object.relationship}</div>
             //         </div>)
         //   })
-    
+
     }
     return (
         <div>
-          {content}
+          {this.returnForm()}
         </div>
-     
-     
-        
+
+
+
     );
   }
 });
