@@ -54,21 +54,21 @@ var Contacts = createReactClass({
         this.setState({ [e.target.name]: e.target.value });
       },
       componentWillUnmount() {
-        this.props.contactData.push({
-            firstName: this.state.firstName,
-            middleName: this.state.middleName,
-            lastName: this.state.lastName,
-            email: this.state.email,
-            relationship: this.state.relationship,
-            phoneNumber: this.state.phoneNumber,
-            contactMethod: this.state.contactMethod,
-            address: this.state.address,
-            city: this.state.city,
-            state: this.state.state,
-            zip: this.state.zip
-        })
+        // this.props.contactData.push({
+        //     firstName: this.state.firstName,
+        //     middleName: this.state.middleName,
+        //     lastName: this.state.lastName,
+        //     email: this.state.email,
+        //     relationship: this.state.relationship,
+        //     phoneNumber: this.state.phoneNumber,
+        //     contactMethod: this.state.contactMethod,
+        //     address: this.state.address,
+        //     city: this.state.city,
+        //     state: this.state.state,
+        //     zip: this.state.zip
+        // })
       
-            console.log(this.props.contactData)
+        //     console.log(this.props.contactData)
 
       },
     validate(id) {
@@ -120,6 +120,24 @@ var Contacts = createReactClass({
             }
         }
       },
+      addContact() {
+        console.log("fired")
+        var data = {
+            firstName: this.state.firstName,
+            middleName: this.state.middleName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            relationship: this.state.relationship,
+            phoneNumber: this.state.phoneNumber,
+            contactMethod: this.state.contactMethod,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            zip: this.state.zip
+        }
+        this.props.addContactsToState(data)
+        console.log(this.props.contactData)
+    },
       returnForm() {
         return (<div className="form">
         <Form className="structureFormContacts">
@@ -339,7 +357,7 @@ var Contacts = createReactClass({
               <Button bsStyle="info"><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button>
           </ButtonToolbar>
           <ButtonToolbar className="contactsSave">
-              <Button bsStyle="primary"><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
+              <Button bsStyle="primary" onClick={this.addContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
           </ButtonToolbar>
 
 
@@ -350,14 +368,13 @@ var Contacts = createReactClass({
       },
       returnContacts() {
             return ( <div>
+                        <div>Name: {this.props.contactData[0].firstName}</div>
                         <div>Delete Button</div>
                         <div>Edit Button</div>
                         <div>Add Contact Button</div>
                     </div>)
       },
-      addContact() {
-        //on click of add contact button
-      },
+    
       deleteContact(id) {
 
       },
@@ -365,33 +382,10 @@ var Contacts = createReactClass({
 
       },
   render: function() {
-    var content = '';
-
-    console.log("returnContacts: " + this.returnContacts())
-
-    // // I hit continue, if I have a contact -> display contact [add contact or edit or delete](delete only if                        there are more than one contact)
-    //                 // else display form to add contact [back to contacts or add contact]
-
-    if(this.state.contacts.length === 0) {
-        content =  this.returnForm()
-    } else {
-
-        // content = this.state.contacts.map(function(object) {
-            content = this.returnContacts()
-            // return (<div key={object.name}>
-            //             <div>Name: {object.name}</div>
-            //             <div>Number: {object.phoneNumber}</div>
-            //             <div>Email: {object.email}</div>
-            //             <div>Method: {object.contactMethod}</div>
-            //             <div>Relationship: {object.relationship}</div>
-            //         </div>)
-        //   })
-
-    }
     return (
         <div>
            {/*this.returnContacts()*/}
-          {this.returnForm()}
+          {this.props.contactData.length > 0 ? this.returnContacts() : this.returnForm()}
         </div>
 
 

@@ -37,7 +37,8 @@ var Main = createReactClass({
           state: '',
           zip: ''
         },
-      contacts: []
+      contacts: [],
+      contactId: 1
     };
   },
 
@@ -86,13 +87,18 @@ var Main = createReactClass({
         })
       });
   },
+  addContactsToState(data) {
+    this.setState({
+      contacts: this.state.contacts.concat(data)
+    })
+  },
   isEmpty(obj) { 
 >>>>>>> 29b138f5c2d63f7fc8460c8638924f7d3522cdc3
     for (var x in obj) { return false; }
     return true;
  },
   componentDidUpdate() {
-    console.log("Current state: " +this.state.contacts[0])
+    console.log(this.state)
   },
   validate(id) {
     var value;
@@ -174,7 +180,8 @@ var Main = createReactClass({
                      validate={this.validate}
                      profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}
                      handleContactChange={this.handleContactChange}
-                     contactData={this.state.contacts}/>
+                     contactData={this.state.contacts}
+                     addContactsToState={this.addContactsToState}/>
 
         <Footer continue={this.continue}
                 back={this.back}
