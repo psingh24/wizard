@@ -36,17 +36,19 @@ var Main = createReactClass({
           city: '',
           state: '',
           zip: ''
-        }
+        },
+      contacts: []
     };
   },
 
   continue: function(num) {
-    if (this.state.formCompleted) {
+    // if (this.state.formCompleted) {
+      console.log("continie happened first")
       this.setState((prevState, props) => ({
         currentPage: prevState.currentPage + num,
         formCompleted: false
     }));
-    }
+    // }
   },
   back: function(num) {
     this.setState((prevState, props) => ({
@@ -66,12 +68,19 @@ var Main = createReactClass({
     profile[e.target.name] = e.target.value;                        //updating value
     this.setState({profile});
   },
+  handleContactChange: function(e) {
+    this.setState(
+      {contacts: this.state.p.contacts(
+        {[e.target.name]: e.target.value
+        })
+      });
+  },
   isEmpty(obj) { 
     for (var x in obj) { return false; }
     return true;
  },
   componentDidUpdate() {
-    console.log("My Main Page Profile: " +this.state.profile.firstName)
+    console.log("Current state: " +this.state.contacts[0])
   },
   validate(id) {
     var value;
@@ -130,6 +139,14 @@ var Main = createReactClass({
               else return 'error';
               return null;
           }
+          case "finishedForm": {
+            if (this.state.profile.firstName && this.state.profile.lastName && this.state.profile.dob 
+                && this.state.profile.heightFt && this.state.profile.heightIn && this.state.profile.weight
+                && this.state.profile.phoneNumber && this.state.profile.gender && this.state.profile.activityLevel) {
+                  console.log("it happened first")
+                  this.setState({formCompleted: true})
+            }
+          }
       }
     },
 
@@ -143,7 +160,9 @@ var Main = createReactClass({
                      handleProfileChange={this.handleProfileChange}
                      handleChange={this.handleChange}
                      validate={this.validate}
-                     profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}/>
+                     profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}
+                     handleContactChange={this.handleContactChange}
+                     contactData={this.state.contacts}/>
 
         <Footer continue={this.continue} 
                 back={this.back} 

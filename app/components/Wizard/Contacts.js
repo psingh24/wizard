@@ -53,6 +53,24 @@ var Contacts = createReactClass({
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value });
       },
+      componentWillUnmount() {
+        this.props.contactData.push({
+            firstName: this.state.firstName,
+            middleName: this.state.middleName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            relationship: this.state.relationship,
+            phoneNumber: this.state.phoneNumber,
+            contactMethod: this.state.contactMethod,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            zip: this.state.zip
+        })
+      
+            console.log(this.props.contactData)
+
+      },
     validate(id) {
         switch (id) {
             case "firstName": {

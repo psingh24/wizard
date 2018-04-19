@@ -34,7 +34,7 @@ var MainContent = createReactClass({
                 return (
                     <div>
                         <img src="assets/image/ContactsIcon.png" alt="" className="icon"/>
-                        <Contacts />
+                        <Contacts {...this.props}/>
                     </div>
                 );
             }
