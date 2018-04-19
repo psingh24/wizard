@@ -105,8 +105,30 @@ var Contacts = createReactClass({
       returnForm() {
         return (<div className="form">
         <Form className="structureFormContacts">
+
+
+
+        {/* Relationship */}
+        <FormGroup className="relationship">
+        <ControlLabel className="formInputTitle">Relationship</ControlLabel>
+        <FormControl componentClass="select" placeholder="Select Relationship" name="relationship" value={this.state.relationship}
+        onChange={this.handleChange} >
+            <option value="select" disabled>Select Relationship</option>
+            <option value="Parent">Parent</option>
+            <option value="Spouse">Spouse</option>
+            <option value="Son/Daughter">Son/Daughter</option>
+            <option value="Sibling">Sibling</option>
+            <option value="Aunt/Uncle">Aunt/Uncle</option>
+            <option value="Extended Family">Extended Family</option>
+            <option value="Other">Other</option>
+        </FormControl>
+        <FormControl.Feedback />
+        </FormGroup>
+
+
+
             {/* First Name */}
-        <FormGroup validationState={this.validate("firstName")} className="name">
+        <FormGroup validationState={this.validate("firstName")} className="firstName">
         <ControlLabel className="formInputTitle">First Name *</ControlLabel>
             <FormControl
             type="text"
@@ -149,7 +171,7 @@ var Contacts = createReactClass({
 
 
         {/* Email */}
-        <FormGroup  validationState={this.validate("email")}>
+        <FormGroup  validationState={this.validate("email")} className="email">
         <ControlLabel className="formInputTitle">Email</ControlLabel>
         <FormControl
         type="text"
@@ -161,25 +183,10 @@ var Contacts = createReactClass({
         <FormControl.Feedback />
         </FormGroup>
 
-        {/* Relationship */}
-        <FormGroup className="structureFormContacts">
-        <ControlLabel className="formInputTitle">Relationship</ControlLabel>
-        <FormControl componentClass="select" placeholder="Select Relationship" name="relationship" value={this.state.relationship}
-        onChange={this.handleChange} >
-            <option value="select" disabled>Select Relationship</option>
-            <option value="Parent">Parent</option>
-            <option value="Spouse">Spouse</option>
-            <option value="Son/Daughter">Son/Daughter</option>
-            <option value="Sibling">Sibling</option>
-            <option value="Aunt/Uncle">Aunt/Uncle</option>
-            <option value="Extended Family">Extended Family</option>
-            <option value="Other">Other</option>
-        </FormControl>
-        <FormControl.Feedback />
-        </FormGroup>
+
 
         {/* telephone */}
-        <FormGroup>
+        <FormGroup className="phone">
         <ControlLabel className="formInputTitle">Phone Number</ControlLabel>
         <FormControl
         type="text"
@@ -193,7 +200,7 @@ var Contacts = createReactClass({
 
 
         {/* Perferred contact method */}
-        <FormGroup validationState={this.validate("contactMethod")}>
+        <FormGroup validationState={this.validate("contactMethod")} className="preferredContact">
         <ControlLabel className="formInputTitle">Preferred Contact Method *</ControlLabel>
         <FormControl componentClass="select" placeholder="Preferred Contact Method" name="contactMethod" value={this.state.contactMethod}
         onChange={this.handleChange} >
@@ -204,105 +211,110 @@ var Contacts = createReactClass({
         <FormControl.Feedback />
         </FormGroup>
 
-          {/* Physical Address */}
-          <FormGroup>
-        <ControlLabel className="formInputTitle">Physical Address</ControlLabel>
-            <FormControl
-            type="text"
-            name="address"
-            value={this.state.address}
-            placeholder="Enter Address"
-            onChange={this.handleChange}
-            />
-        <FormControl.Feedback />
-        </FormGroup>
-        {/* City */}
-        <FormGroup>
-        <ControlLabel className="formInputTitle">City</ControlLabel>
-        <FormControl
-        type="text"
-        name="city"
-        value={this.state.city}
-        placeholder="Enter city"
-        onChange={this.handleChange}
-        />
-        <FormControl.Feedback />
-        </FormGroup>
+        {/* Physical Address */}
+        <FormGroup className="address">
+      <ControlLabel className="formInputTitle">Physical Address</ControlLabel>
+          <FormControl
+          type="text"
+          name="address"
+          value={this.state.address}
+          placeholder="Enter Address"
+          onChange={this.handleChange}
+          />
+      <FormControl.Feedback />
+      </FormGroup>
+      {/* City */}
+      <FormGroup className="city">
+      <ControlLabel className="formInputTitle">City</ControlLabel>
+      <FormControl
+      type="text"
+      name="city"
+      value={this.state.city}
+      placeholder="Enter city"
+      onChange={this.handleChange}
+      />
+      <FormControl.Feedback />
+      </FormGroup>
 
-        {/* State */}
-        <FormGroup>
-        <ControlLabel className="formInputTitle">State</ControlLabel>
-        <FormControl componentClass="select" placeholder="State" name="state" value={this.state.state}
-        onChange={this.handleChange} >
-            <option value="" disabled="selected">Select a State</option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District Of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-        </FormControl>
-        <FormControl.Feedback />
-        </FormGroup>
+      {/* State */}
+
+        <div className="stateZipcode">
 
 
-          {/* zip code */}
-          <FormGroup>
-        <ControlLabel className="formInputTitle">Zip Code</ControlLabel>
-        <FormControl
-        type="text"
-        name="zip"
-        value={this.state.zip}
-        placeholder="Enter zip"
-        onChange={this.handleChange}
-        />
-        <FormControl.Feedback />
-        </FormGroup>
+      <FormGroup className="state">
+      <ControlLabel className="formInputTitle">State</ControlLabel>
+      <FormControl componentClass="select" placeholder="State" name="state" value={this.state.state}
+      onChange={this.handleChange} >
+          <option value="" disabled="selected">Select a State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+      </FormControl>
+      <FormControl.Feedback />
+      </FormGroup>
+
+
+        {/* zip code */}
+        <FormGroup className="zip">
+      <ControlLabel className="formInputTitle">Zip Code</ControlLabel>
+      <FormControl
+      type="text"
+      name="zip"
+      value={this.state.zip}
+      placeholder="Enter zip"
+      onChange={this.handleChange}
+      />
+      <FormControl.Feedback />
+      </FormGroup>
+      </div>
         </Form>
         </div>)
       },
