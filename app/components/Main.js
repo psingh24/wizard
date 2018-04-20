@@ -82,7 +82,31 @@ var Main = createReactClass({
     })
   },
 
-  contactFormLogic() {
+  contactFormLogic(step) {
+    switch(step) {
+      case "AddToContacts": {
+        this.setState({test: 1})
+        break;
+      }
+      case "AddAnotherContacts": {
+        this.setState({test: 0})
+        break;
+      }
+      case "Back": {
+        this.setState({test: 1})
+        break;
+      }
+      case "Delete": {
+        this.setState({test: 0})
+        break;
+      }
+      case "Edit": {
+        this.setState({test: 2})
+        break;
+      }
+
+    }
+
     this.state.test === 1 ? this.setState({test: 0}) : this.setState({test: 1})
   },
   deleteContact(id) {
