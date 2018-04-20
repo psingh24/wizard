@@ -139,11 +139,9 @@ var Contacts = createReactClass({
         console.log(this.props.contactData)
     },
       returnForm() {
+          console.log("test")    
         return (<div className="form">
         <Form className="structureFormContacts">
-
-
-
         {/* Relationship */}
         <FormGroup className="relationship">
         <ControlLabel className="formInputTitle">Relationship</ControlLabel>
@@ -178,8 +176,8 @@ var Contacts = createReactClass({
 
 
         {/* Middle Name */}
-    <FormGroup className="middleName">
-    <ControlLabel className="formInputTitle">Middle Name</ControlLabel>
+        <FormGroup className="middleName">
+        <ControlLabel className="formInputTitle">Middle Name</ControlLabel>
         <FormControl
         type="text"
         name="middleName"
@@ -187,21 +185,21 @@ var Contacts = createReactClass({
         placeholder="Middle Name"
         onChange={this.handleChange}
         />
-    <FormControl.Feedback />
-    </FormGroup>
+        <FormControl.Feedback />
+        </FormGroup>
 
-    {/* Last Name */}
-<FormGroup validationState={this.validate("lastName")} className="lastName">
-<ControlLabel className="formInputTitle">Last Name *</ControlLabel>
-    <FormControl
-    type="text"
-    name="lastName"
-    value={this.state.lastName}
-    placeholder="Last Name"
-    onChange={this.handleChange}
-    />
-<FormControl.Feedback />
-</FormGroup>
+         {/* Last Name */}
+        <FormGroup validationState={this.validate("lastName")} className="lastName">
+        <ControlLabel className="formInputTitle">Last Name *</ControlLabel>
+        <FormControl
+        type="text"
+        name="lastName"
+        value={this.state.lastName}
+        placeholder="Last Name"
+        onChange={this.handleChange}
+        />
+        <FormControl.Feedback />
+        </FormGroup>
 
 
 
@@ -249,7 +247,7 @@ var Contacts = createReactClass({
 
         {/* Physical Address */}
         <FormGroup className="address">
-      <ControlLabel className="formInputTitle">Physical Address</ControlLabel>
+        <ControlLabel className="formInputTitle">Physical Address</ControlLabel>
           <FormControl
           type="text"
           name="address"
@@ -257,30 +255,30 @@ var Contacts = createReactClass({
           placeholder="Enter Address"
           onChange={this.handleChange}
           />
-      <FormControl.Feedback />
-      </FormGroup>
-      {/* City */}
-      <FormGroup className="city">
-      <ControlLabel className="formInputTitle">City</ControlLabel>
-      <FormControl
-      type="text"
-      name="city"
-      value={this.state.city}
-      placeholder="Enter city"
-      onChange={this.handleChange}
-      />
-      <FormControl.Feedback />
-      </FormGroup>
+        <FormControl.Feedback />
+        </FormGroup>
+        {/* City */}
+        <FormGroup className="city">
+        <ControlLabel className="formInputTitle">City</ControlLabel>
+        <FormControl
+        type="text"
+        name="city"
+        value={this.state.city}
+        placeholder="Enter city"
+        onChange={this.handleChange}
+        />
+        <FormControl.Feedback />
+        </FormGroup>
 
-      {/* State */}
+        {/* State */}
 
         <div className="stateZipcode">
 
 
-      <FormGroup className="state">
-      <ControlLabel className="formInputTitle">State</ControlLabel>
-      <FormControl componentClass="select" placeholder="State" name="state" value={this.state.state}
-      onChange={this.handleChange} >
+        <FormGroup className="state">
+        <ControlLabel className="formInputTitle">State</ControlLabel>
+        <FormControl componentClass="select" placeholder="State" name="state" value={this.state.state}
+        onChange={this.handleChange} >
           <option value="" disabled="selected">Select a State</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -333,24 +331,24 @@ var Contacts = createReactClass({
           <option value="WV">West Virginia</option>
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
-      </FormControl>
-      <FormControl.Feedback />
-      </FormGroup>
+        </FormControl>
+        <FormControl.Feedback />
+        </FormGroup>
 
 
         {/* zip code */}
         <FormGroup className="zip">
-      <ControlLabel className="formInputTitle">Zip Code</ControlLabel>
-      <FormControl
-      type="text"
-      name="zip"
-      value={this.state.zip}
-      placeholder="Enter zip"
-      onChange={this.handleChange}
-      />
-      <FormControl.Feedback />
-      </FormGroup>
-      </div>
+        <ControlLabel className="formInputTitle">Zip Code</ControlLabel>
+        <FormControl
+        type="text"
+        name="zip"
+        value={this.state.zip}
+        placeholder="Enter zip"
+        onChange={this.handleChange}
+        />
+        <FormControl.Feedback />
+        </FormGroup>
+        </div>
 
 
           <ButtonToolbar className="contactsBack">
@@ -367,12 +365,15 @@ var Contacts = createReactClass({
         </div>)
       },
       returnContacts() {
-            return ( <div>
-                        <div>Name: {this.props.contactData[0].firstName}</div>
-                        <div>Delete Button</div>
-                        <div>Edit Button</div>
-                        <div>Add Contact Button</div>
-                    </div>)
+          this.props.contactData.map(function(contact, i) {
+            return (<div key={i}>
+                <div >Name:</div>
+                <div>Delete Button</div>
+                <div>Edit Button</div>
+                <div>Add Contact Button</div>
+            </div>)
+        })
+                         
       },
     
       deleteContact(id) {
@@ -382,13 +383,36 @@ var Contacts = createReactClass({
 
       },
   render: function() {
+      var content;
+
+      if (this.props.contactData.length > 0) {
+          console.log("true")
+          content = this.props.contactData.map((contact, i) => {
+            return (
+                <div key={i}>
+                <div >Name: {contact.firstName}</div>
+                <Button>Delete Button</Button>
+                <Button>Edit Button</Button>
+                <Button className="AddContact" onClick={() => {content = <div>test</div>}} >Add Contact</Button>
+            </div>)
+          })
+          
+          
+          
+      
+      } else {
+        console.log("false")
+        content = this.returnForm();
+     
+    }
+
     return (
         <div>
-           {/*this.returnContacts()*/}
-          {this.props.contactData.length > 0 ? this.returnContacts() : this.returnForm()}
+          {content}
         </div>
 
-
+//start 0 contacts -> render form
+//Click add contact -> 1 contact -> render contacts click add addtional contact -> render form
 
     );
   }

@@ -43,21 +43,12 @@ var Main = createReactClass({
   },
 
   continue: function(num) {
-<<<<<<< HEAD
   //  if (this.state.formCompleted) { /* commnet this line to keep moving without hacing to have anything line 44 and 49 */
-=======
-    // if (this.state.formCompleted) {
-      console.log("continie happened first")
->>>>>>> 29b138f5c2d63f7fc8460c8638924f7d3522cdc3
       this.setState((prevState, props) => ({
         currentPage: prevState.currentPage + num,
         formCompleted: false
     }));
-<<<<<<< HEAD
   // }/* commnet this line to keep moving without hacing to have anything line 44 and 49 */
-=======
-    // }
->>>>>>> 29b138f5c2d63f7fc8460c8638924f7d3522cdc3
   },
   back: function(num) {
     this.setState((prevState, props) => ({
@@ -77,9 +68,6 @@ var Main = createReactClass({
     profile[e.target.name] = e.target.value;                        //updating value
     this.setState({profile});
   },
-<<<<<<< HEAD
-  isEmpty(obj) {
-=======
   handleContactChange: function(e) {
     this.setState(
       {contacts: this.state.p.contacts(
@@ -93,7 +81,6 @@ var Main = createReactClass({
     })
   },
   isEmpty(obj) { 
->>>>>>> 29b138f5c2d63f7fc8460c8638924f7d3522cdc3
     for (var x in obj) { return false; }
     return true;
  },
