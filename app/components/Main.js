@@ -19,6 +19,7 @@ var Main = createReactClass({
       sidebarText: ["Hello, I’m Dr. Sense. I’m here to guide you through set up. You can also ask me questions when logged into your dashboard. Let’s get started.", "Begin setting up your personal profile", "Add emergenacy contacts here. This is who will be alerted if you fall or need help", "This is where you can select which alerts you want enbaled. You can always change your settings later in the dashboard", "Now it is time to connect your VitalBand to the Internet. Make sure you have all the accesories that were included in the package."],
       currentPage: 0,
       formCompleted: false,
+      test: 0,
       profile: {
           timezone: '',
           firstName: '',
@@ -79,6 +80,16 @@ var Main = createReactClass({
     this.setState({
       contacts: this.state.contacts.concat(data)
     })
+  },
+
+  contactFormLogic() {
+    this.state.test === 1 ? this.setState({test: 0}) : this.setState({test: 1})
+  },
+  deleteContact(id) {
+    var array = this.state.contacts;
+    var index = id;
+    array.splice(index, 1);
+    this.setState({contacts: array });
   },
   isEmpty(obj) { 
     for (var x in obj) { return false; }
@@ -166,9 +177,11 @@ var Main = createReactClass({
                      handleChange={this.handleChange}
                      validate={this.validate}
                      profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}
-                     handleContactChange={this.handleContactChange}
                      contactData={this.state.contacts}
-                     addContactsToState={this.addContactsToState}/>
+                     addContactsToState={this.addContactsToState}
+                     test={this.state.test}
+                     contactFormLogic={this.contactFormLogic}
+                     deleteContact={this.deleteContact}/>
 
         <Footer continue={this.continue}
                 back={this.back}
