@@ -131,7 +131,7 @@ var Contacts = createReactClass({
             state: '',
             zip: ''
         })
-        this.props.contactFormLogic("AddToContacts");
+        this.props.contactFormLogic("Add");
         console.log(this.props.contactData)
     },
       returnForm(id) {
@@ -416,25 +416,45 @@ var Contacts = createReactClass({
           }
       },
       editContact(id) {
-        this.returnForm(id);
+          console.log("id in edit: "+ id)
+            this.returnFormWithData(id)
+      },
+      returnFormWithData(id) {
         this.props.contactFormLogic("Edit");
+        return ( 
+                    <FormGroup validationState={this.validate("firstName")} className="firstName">
+                    <ControlLabel className="formInputTitle">First Name *</ControlLabel>
+                        <FormControl
+                        type="text"
+                        name="firstName"
+                        value={this.props.contactData[id].firstName}
+                        placeholder="First Name"
+                        onChange={this.handleChange}
+                        />
+                    <FormControl.Feedback />
+                    </FormGroup>
+                )
       },
   render: function() {
       var content;
     
 
-      if (this.props.test > 0) {
+      if (this.props.test === 1) {
           console.log("true")
           content = this.returnContacts()
-      } else {
+      } else if (this.props.test === 0) {
         console.log("false")
         content = this.returnForm();
+      }
+      else if (this.props.test === 2) {
+        // content = this.returnFormWithData(this.props.contact)
+        console.log("form with data")
     }
 
     return (
         <div>
           {content}
-          {this.props.test > 0 ? <Button className="AddContact" onClick={() => {this.props.contactFormLogic("Add")}} >Add Contact</Button> :
+          {this.props.test > 0 ? <Button className="AddContact" onClick={() => {this.props.contactFormLogic("AddAnotherContacts")}} >Add Contact</Button> :
             <div>
             <ButtonToolbar className="contactsBack">
               {this.props.contactData.length > 0 ? <Button bsStyle="info" onClick={() => {this.props.contactFormLogic("Back")}}><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button> : ""}
