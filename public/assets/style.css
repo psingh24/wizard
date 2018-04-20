@@ -273,7 +273,7 @@
     font-style: normal;
     width: 760px;
     display: grid;
-    grid-template-columns: 263px 264px 263px;
+    grid-template-columns: 242px 244px 242px;
     grid-gap: 14px 36px;
     grid-template-areas:  ". timezone  ."
                           "firstName   middleName   lastName"
@@ -307,7 +307,7 @@
 }
 .structureFormProfileHeight {
     display: grid;
-    grid-template-columns: 127px 127px;
+    grid-template-columns: 112px 112px;
     grid-gap: 0 10px;
     align-self: start;
     grid-template-areas:  "title   title"
@@ -356,7 +356,7 @@
 .stateZipcode {
       grid-area: stateZipcode;
       display: grid;
-      grid-template-columns: 126px 127px;
+      grid-template-columns: 116px 116px;
       grid-gap: 0 10px;
       grid-template-areas:  "title   title"
                             "state   zip";
@@ -378,7 +378,7 @@
     font-weight: normal;
     font-style: normal;
     display: grid;
-    grid-template-columns: 263px 264px 263px;
+    grid-template-columns: 242px 244px 242px;
     grid-gap: 14px 36px;
     grid-template-areas: ". relationship  ."
                           "firstName   middleName   lastName"
