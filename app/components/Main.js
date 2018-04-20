@@ -39,7 +39,7 @@ var Main = createReactClass({
           zip: ''
         },
       contacts: [],
-      contactId: 1
+      contactId: 0
     };
   },
 
@@ -84,7 +84,7 @@ var Main = createReactClass({
 
   contactFormLogic(step) {
     switch(step) {
-      case "AddToContacts": {
+      case "Add": {
         this.setState({test: 1})
         break;
       }
@@ -101,13 +101,12 @@ var Main = createReactClass({
         break;
       }
       case "Edit": {
+        console.log("frieeeeeed")
         this.setState({test: 2})
         break;
       }
 
     }
-
-    this.state.test === 1 ? this.setState({test: 0}) : this.setState({test: 1})
   },
   deleteContact(id) {
     var array = this.state.contacts;
@@ -205,7 +204,8 @@ var Main = createReactClass({
                      addContactsToState={this.addContactsToState}
                      test={this.state.test}
                      contactFormLogic={this.contactFormLogic}
-                     deleteContact={this.deleteContact}/>
+                     deleteContact={this.deleteContact}
+                     contactId={this.state.contactId}/>
 
         <Footer continue={this.continue}
                 back={this.back}
