@@ -4,7 +4,6 @@ var createReactClass = require("create-react-class");
 var Link = require("react-router").Link;
 import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem, Button, ButtonToolbar } from 'react-bootstrap';
 
-
 var Contacts = createReactClass({
     getInitialState: function() {
         return {
@@ -18,36 +17,7 @@ var Contacts = createReactClass({
             address: '',
             city: '',
             state: '',
-            zip: '',
-            contacts:
-               [     {
-                    firstName: 'bob',
-                    middleName: '',
-                    lastName: 'bob',
-                    email: 'bob@gmail.com',
-                    relationship: 'Parent',
-                    phoneNumber: '1231231231',
-                    contactMethod: 'SMS',
-                    address: '123 Fake St.',
-                    city: 'Dallas',
-                    state: 'Tx',
-                    zip: '76021'
-                },
-                {
-                     firstName: 'joe',
-                     middleName: '',
-                     lastName: 'cool',
-                     email: 'jan@gmail.com',
-                     relationship: 'Parent',
-                     phoneNumber: '1231231231',
-                     contactMethod: 'SMS',
-                     address: '123 Fake St.',
-                     city: 'Dallas',
-                     state: 'Tx',
-                     zip: '76021'
-                 }
-            ]
-
+            zip: ''
         }
     },
     handleChange(e) {
@@ -388,8 +358,7 @@ var Contacts = createReactClass({
         this.setState(data)
       },
       updateContact() {
-          var id = this.props.editMode[1];
-       console.log(this.props.editMode[1])
+        var id = this.props.editMode[1];
         var data = {
             firstName: this.state.firstName,
             middleName: this.state.middleName,
@@ -437,7 +406,6 @@ var Contacts = createReactClass({
     return (
         <div>
           {content}
-          
         </div>
 
     );
