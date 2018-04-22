@@ -19,7 +19,7 @@ var Main = createReactClass({
       sidebarText: ["Hello, I’m Dr. Sense. I’m here to guide you through set up. You can also ask me questions when logged into your dashboard. Let’s get started.", "Begin setting up your personal profile", "Add emergenacy contacts here. This is who will be alerted if you fall or need help", "This is where you can select which alerts you want enbaled. You can always change your settings later in the dashboard", "Now it is time to connect your VitalBand to the Internet. Make sure you have all the accesories that were included in the package."],
       currentPage: 0,
       formCompleted: false,
-      test: 0,
+      contactFormPage: 0,
       profile: {
           timezone: '',
           firstName: '',
@@ -82,31 +82,8 @@ var Main = createReactClass({
     })
   },
 
-  contactFormLogic(step) {
-    switch(step) {
-      case "Add": {
-        this.setState({test: 1})
-        break;
-      }
-      case "AddAnotherContacts": {
-        this.setState({test: 0})
-        break;
-      }
-      case "Back": {
-        this.setState({test: 1})
-        break;
-      }
-      case "Delete": {
-        this.setState({test: 0})
-        break;
-      }
-      case "Edit": {
-        console.log("frieeeeeed")
-        this.setState({test: 2})
-        break;
-      }
-
-    }
+  contactFormLogic() {
+    this.state.contactFormPage === 1 ? this.setState({contactFormPage: 0}) : this.setState({contactFormPage: 1})
   },
   deleteContact(id) {
     var array = this.state.contacts;
@@ -202,7 +179,7 @@ var Main = createReactClass({
                      profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}
                      contactData={this.state.contacts}
                      addContactsToState={this.addContactsToState}
-                     test={this.state.test}
+                     contactFormPage={this.state.contactFormPage}
                      contactFormLogic={this.contactFormLogic}
                      deleteContact={this.deleteContact}
                      contactId={this.state.contactId}/>

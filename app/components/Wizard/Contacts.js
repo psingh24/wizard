@@ -118,56 +118,11 @@ var Contacts = createReactClass({
             zip: this.state.zip
         }
         this.props.addContactsToState(data)
-        this.setState({
-            firstName: '',
-            middleName: '',
-            lastName: '',
-            email: '',
-            relationship: '',
-            phoneNumber: '',
-            contactMethod: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: ''
-        })
-        this.props.contactFormLogic("Add");
+        this.clearState();
+        this.props.contactFormLogic();
         console.log(this.props.contactData)
     },
-      returnForm(id) {
-        //   console.log("id: "+id)
-        //   var contact = id;
-        //   if (contact >= 0) {
-        //       console.log("return form with data")
-        //       return ( 
-        //         <FormGroup validationState={this.validate("firstName")} className="firstName">
-        //         <ControlLabel className="formInputTitle">First Name *</ControlLabel>
-        //             <FormControl
-        //             type="text"
-        //             name="firstName"
-        //             value={this.props.contactData[id].firstName}
-        //             placeholder="First Name"
-        //             onChange={this.handleChange}
-        //             />
-        //         <FormControl.Feedback />
-        //         </FormGroup>
-        //     )
-        //   }    else {
-        //       console.log("empty form")
-        //       return ( 
-        //             <FormGroup validationState={this.validate("firstName")} className="firstName">
-        //             <ControlLabel className="formInputTitle">First Name *</ControlLabel>
-        //                 <FormControl
-        //                 type="text"
-        //                 name="firstName"
-        //                 value={this.state.firstName}
-        //                 placeholder="First Name"
-        //                 onChange={this.handleChange}
-        //                 />
-        //             <FormControl.Feedback />
-        //             </FormGroup>
-        //         )
-        //   }
+      returnForm() {     
         return (<div className="form">
         <Form className="structureFormContacts">
         {/* Relationship */}
@@ -378,16 +333,15 @@ var Contacts = createReactClass({
         </FormGroup>
         </div>
 
+            <ButtonToolbar className="contactsBack">
+              {
+                this.props.contactData.length > 0 ? 
+                <Button bsStyle="info" onClick={() => {this.props.contactFormLogic()}}><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button> : ""}
+            </ButtonToolbar>
 
-          {/* <ButtonToolbar className="contactsBack">
-              <Button bsStyle="info"><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button>
-          </ButtonToolbar>
-          <ButtonToolbar className="contactsSave">
+            <ButtonToolbar className="contactsSave">
               <Button bsStyle="primary" onClick={this.addContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
-          </ButtonToolbar> */}
-
-
-
+            </ButtonToolbar>
 
         </Form>
         </div>)
@@ -404,71 +358,51 @@ var Contacts = createReactClass({
                 {this.props.contactData.length <= 1 ? "" :<Button onClick={() => this.deleteContact(i)}>Delete Button</Button>}
                 <Button onClick={() => this.editContact(i)}>Edit Button</Button>
             </div>)
-        })
-
-                         
+        })              
       },
-    
       deleteContact(id) {
-          this.props.deleteContact(id);
-          if (this.props.contactData.length < 1) {
-            this.props.contactFormLogic("Delete");
+        this.props.deleteContact(id);
+        if (this.props.contactData.length < 1) {
+            this.props.contactFormLogic();
           }
       },
       editContact(id) {
-          console.log("id in edit: "+ id)
-            this.returnFormWithData(id)
+        var data = this.props.contactData[id]
+        this.props.contactFormLogic()
+        this.setState(data)
       },
-      returnFormWithData(id) {
-        this.props.contactFormLogic("Edit");
-        return ( 
-                    <FormGroup validationState={this.validate("firstName")} className="firstName">
-                    <ControlLabel className="formInputTitle">First Name *</ControlLabel>
-                        <FormControl
-                        type="text"
-                        name="firstName"
-                        value={this.props.contactData[id].firstName}
-                        placeholder="First Name"
-                        onChange={this.handleChange}
-                        />
-                    <FormControl.Feedback />
-                    </FormGroup>
-                )
+      clearState() {
+        this.setState({
+            firstName: '',
+            middleName: '',
+            lastName: '',
+            email: '',
+            relationship: '',
+            phoneNumber: '',
+            contactMethod: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: ''
+        })
       },
   render: function() {
       var content;
-    
-
-      if (this.props.test === 1) {
+      if (this.props.contactFormPage === 1) {
           console.log("true")
-          content = this.returnContacts()
-      } else if (this.props.test === 0) {
+          content = (<div>
+                        {this.returnContacts()}
+                        <Button className="AddContact" onClick={() => {this.props.contactFormLogic();this.clearState()}} >Add More Contacts</Button> 
+                    </div>)
+      } else if (this.props.contactFormPage === 0) {
         console.log("false")
         content = this.returnForm();
       }
-      else if (this.props.test === 2) {
-        // content = this.returnFormWithData(this.props.contact)
-        console.log("form with data")
-    }
-
     return (
         <div>
           {content}
-          {this.props.test > 0 ? <Button className="AddContact" onClick={() => {this.props.contactFormLogic("AddAnotherContacts")}} >Add Contact</Button> :
-            <div>
-            <ButtonToolbar className="contactsBack">
-              {this.props.contactData.length > 0 ? <Button bsStyle="info" onClick={() => {this.props.contactFormLogic("Back")}}><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button> : ""}
-          </ButtonToolbar>
-          <ButtonToolbar className="contactsSave">
-              <Button bsStyle="primary" onClick={this.addContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
-          </ButtonToolbar>
-            </div>
-
-        }
+          
         </div>
-
-//start 0 contacts -> render form
-//Click add contact -> 1 contact -> render contacts click add addtional contact -> render form
 
     );
   }
