@@ -38,8 +38,7 @@ var Main = createReactClass({
           state: '',
           zip: ''
         },
-      contacts: [],
-      contactId: 0
+      contacts: []
     };
   },
 
@@ -182,7 +181,7 @@ var Main = createReactClass({
                      contactFormPage={this.state.contactFormPage}
                      contactFormLogic={this.contactFormLogic}
                      deleteContact={this.deleteContact}
-                     contactId={this.state.contactId}/>
+                      />
 
         <Footer continue={this.continue}
                 back={this.back}
