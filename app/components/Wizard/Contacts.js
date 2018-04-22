@@ -117,7 +117,7 @@ var Contacts = createReactClass({
             state: this.state.state,
             zip: this.state.zip
         }
-        this.props.addContactsToState(data)
+        this.props.addContactsToState(data, "add")
         this.clearState();
         this.props.contactFormLogic();
         console.log(this.props.contactData)
@@ -130,7 +130,7 @@ var Contacts = createReactClass({
         <ControlLabel className="formInputTitle">Relationship</ControlLabel>
         <FormControl componentClass="select" placeholder="Select Relationship" name="relationship" value={this.state.relationship}
         onChange={this.handleChange} >
-            <option value="select" disabled>Select Relationship</option>
+            <option value="" disabled="selected">Select Relationship</option>
             <option value="Parent">Parent</option>
             <option value="Spouse">Spouse</option>
             <option value="Son/Daughter">Son/Daughter</option>
@@ -339,9 +339,24 @@ var Contacts = createReactClass({
                 <Button bsStyle="info" onClick={() => {this.props.contactFormLogic()}}><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button> : ""}
             </ButtonToolbar>
 
-            <ButtonToolbar className="contactsSave">
+
+            {this.props.editMode[0] ? 
+                <ButtonToolbar className="contactsSave">
+                <Button bsStyle="primary" onClick={this.updateContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Update Contact</Button>
+              </ButtonToolbar>
+              :
+              <ButtonToolbar className="contactsSave">
               <Button bsStyle="primary" onClick={this.addContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
             </ButtonToolbar>
+        
+        
+        
+        
+        
+            }
+            {/* <ButtonToolbar className="contactsSave">
+              <Button bsStyle="primary" onClick={this.addContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
+            </ButtonToolbar> */}
 
         </Form>
         </div>)
@@ -367,9 +382,30 @@ var Contacts = createReactClass({
           }
       },
       editContact(id) {
+        this.props.handleEditModeContact(id);
         var data = this.props.contactData[id]
         this.props.contactFormLogic()
         this.setState(data)
+      },
+      updateContact() {
+          var id = this.props.editMode[1];
+       console.log(this.props.editMode[1])
+        var data = {
+            firstName: this.state.firstName,
+            middleName: this.state.middleName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            relationship: this.state.relationship,
+            phoneNumber: this.state.phoneNumber,
+            contactMethod: this.state.contactMethod,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            zip: this.state.zip
+        }
+        this.props.addContactsToState(data, "edit", id)
+        this.clearState();
+        this.props.contactFormLogic();
       },
       clearState() {
         this.setState({

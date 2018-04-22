@@ -38,7 +38,8 @@ var Main = createReactClass({
           state: '',
           zip: ''
         },
-      contacts: []
+      contacts: [],
+      editMode: [false, 0]
     };
   },
 
@@ -68,21 +69,23 @@ var Main = createReactClass({
     profile[e.target.name] = e.target.value;                        //updating value
     this.setState({profile});
   },
-  handleContactChange: function(e) {
-    this.setState(
-      {contacts: this.state.p.contacts(
-        {[e.target.name]: e.target.value
-        })
-      });
+  addContactsToState(data, mode, id) {
+    if (mode === "add"){
+      this.setState({
+        contacts: this.state.contacts.concat(data)
+      })
+    } else if (mode === "edit") {
+      this.deleteContact(id);
+      this.setState({
+        contacts: this.state.contacts.concat(data)
+      })
+    }
   },
-  addContactsToState(data) {
-    this.setState({
-      contacts: this.state.contacts.concat(data)
-    })
-  },
-
   contactFormLogic() {
     this.state.contactFormPage === 1 ? this.setState({contactFormPage: 0}) : this.setState({contactFormPage: 1})
+  },
+  handleEditModeContact(id) {
+    this.setState({editMode: [true, id]})
   },
   deleteContact(id) {
     var array = this.state.contacts;
@@ -181,6 +184,8 @@ var Main = createReactClass({
                      contactFormPage={this.state.contactFormPage}
                      contactFormLogic={this.contactFormLogic}
                      deleteContact={this.deleteContact}
+                     editMode={this.state.editMode}
+                     handleEditModeContact={this.handleEditModeContact}
                       />
 
         <Footer continue={this.continue}
