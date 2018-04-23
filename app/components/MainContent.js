@@ -6,6 +6,12 @@ var Profile = require("./Wizard/Profile");
 var Contacts = require("./Wizard/Contacts");
 var Alerts = require("./Wizard/Alerts");
 var Connect = require("./Wizard/Connect");
+var Connect1 = require("./Wizard/Connect1");
+var Connect2 = require("./Wizard/Connect2");
+var Connect3 = require("./Wizard/Connect3");
+var Connect4 = require("./Wizard/Connect4");
+var Connect5 = require("./Wizard/Connect5");
+var Success = require("./Wizard/Success");
 
 var Link = require("react-router").Link;
 
@@ -51,6 +57,55 @@ var MainContent = createReactClass({
                     <div>
                         <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
                         <Connect />
+                    </div>
+                );
+            }
+            case "Connect1": {
+                return (
+                    <div>
+                        <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
+                        <Connect1 />
+                    </div>
+                );
+            }
+            case "Connect2": {
+                return (
+                    <div>
+                        <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
+                        <Connect2 />
+                    </div>
+                );
+            }
+            case "Connect3": {
+                return (
+                    <div>
+                        <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
+                        <Connect3 />
+                    </div>
+                );
+            }
+            case "Connect4": {
+                return (
+                    <div>
+                        <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
+                        <Connect4 />
+                    </div>
+                );
+            }
+            case "Connect5": {
+                return (
+                    <div>
+                        <h1>We're almost there...</h1>
+                        <Connect5 />
+                    </div>
+                );
+            }
+            case "Sucess": {
+                return (
+                    <div>
+                        <h1>Rediecting to Dashboard...</h1>
+                        <h1>If the page does not redirect, click the "Go To Dashboard" Button.</h1>
+                        <Success />
                     </div>
                 );
             }
