@@ -88,12 +88,17 @@ var Main = createReactClass({
   contactFormLogic() {
     this.state.contactFormPage === 1 ? this.setState({contactFormPage: 0}) : this.setState({contactFormPage: 1})
   },
-  handleEditModeContact(id) {
+  handleEditModeContact(id, step) {
     var newArray = this.state.editMode.slice()
-    newArray[0] = true;
-    newArray[1] = id;
-    console.log("NewArray:" + newArray)
-    this.setState({editMode: newArray})
+    if (step === "editPage") {
+      newArray[0] = true;
+      newArray[1] = id;
+      this.setState({editMode: newArray})
+    } else if (step === "backPage") {
+      newArray[0] = false;
+      newArray[1] = id;
+      this.setState({editMode: newArray})
+    }
   },
   deleteContact(id) {
     var array = this.state.contacts;

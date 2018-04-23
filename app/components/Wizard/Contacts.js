@@ -306,7 +306,7 @@ var Contacts = createReactClass({
             <ButtonToolbar className="contactsBack">
               {
                 this.props.contactData.length > 0 ? 
-                <Button bsStyle="info" onClick={() => {this.props.contactFormLogic()}}><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button> : ""}
+                <Button bsStyle="info" onClick={() => {this.props.contactFormLogic(); this.props.handleEditModeContact(0, "backPage");}}><span className="glyphicon glyphicon-chevron-left"></span> Back To Contacts</Button> : ""}
             </ButtonToolbar>
 
 
@@ -318,16 +318,7 @@ var Contacts = createReactClass({
               <ButtonToolbar className="contactsSave">
               <Button bsStyle="primary" onClick={this.addContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
             </ButtonToolbar>
-        
-        
-        
-        
-        
             }
-            {/* <ButtonToolbar className="contactsSave">
-              <Button bsStyle="primary" onClick={this.addContact}><span className="glyphicon glyphicon glyphicon-plus"></span> Add To Contacts</Button>
-            </ButtonToolbar> */}
-
         </Form>
         </div>)
       },
@@ -352,7 +343,7 @@ var Contacts = createReactClass({
           }
       },
       editContact(id) {
-        this.props.handleEditModeContact(id);
+        this.props.handleEditModeContact(id, "editPage");
         var data = this.props.contactData[id]
         this.props.contactFormLogic()
         this.setState(data)
