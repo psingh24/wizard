@@ -27,10 +27,13 @@ var Footer = createReactClass({
             </div>
 
             <div></div>
-
             <div className="event-forward">
                 <a className="footer-btn" onClick={this.handleContinue} href="#">Continue <span className="chevron-event"><img src="assets/image/icon-chevron-right.svg" className="chevron" alt=""/></span></a>
             </div>
+            {/* page validattion */}
+            {/* {this.props.formCompleted ? <div className="event-forward">
+                <a className="footer-btn" onClick={this.handleContinue} href="#">Continue <span className="chevron-event"><img src="assets/image/icon-chevron-right.svg" className="chevron" alt=""/></span></a>
+            </div> :  <div></div>} */}
         </div>
     );
   }

@@ -63,16 +63,19 @@ var Main = createReactClass({
     this.setState(prevState => ({
       formCompleted: checked
     }));
+    
   },
   handleProfileChange: function(e) {
     var profile = Object.assign({}, this.state.profile);    //creating copy of object
     profile[e.target.name] = e.target.value;                        //updating value
     this.setState({profile});
+    // this.profilePageCompleted()
   },
   addContactsToState(data, mode, id) {
     if (mode === "add"){
       this.setState({
-        contacts: this.state.contacts.concat(data)
+        contacts: this.state.contacts.concat(data),
+        formCompleted: true
       })
     } else if (mode === "edit") {
       this.deleteContact(id);
@@ -109,6 +112,21 @@ var Main = createReactClass({
   isEmpty(obj) { 
     for (var x in obj) { return false; }
     return true;
+ },
+ profilePageCompleted() {
+   console.log("firedddd")
+  if ((this.state.profile.firstName.length > 1) && 
+  (this.state.profile.lastName.length > 1) && 
+  (this.state.profile.dob != '') && 
+  (this.state.profile.heightFt != '') && 
+  (this.state.profile.heightIn != '') && 
+  (this.state.profile.weight != '') && 
+  (this.state.profile.phoneNumber.length >8) && 
+  (this.state.profile.gender != '') && 
+  (this.state.profile.activityLevel != '')) {
+        console.log("fired")
+        this.setState({formCompleted: true})
+  }
  },
   componentDidUpdate() {
     console.log(this.state)
@@ -170,14 +188,6 @@ var Main = createReactClass({
               else return 'error';
               return null;
           }
-          case "finishedForm": {
-            if (this.state.profile.firstName && this.state.profile.lastName && this.state.profile.dob 
-                && this.state.profile.heightFt && this.state.profile.heightIn && this.state.profile.weight
-                && this.state.profile.phoneNumber && this.state.profile.gender && this.state.profile.activityLevel) {
-                  console.log("it happened first")
-                  this.setState({formCompleted: true})
-            }
-          }
       }
     },
 
@@ -188,10 +198,12 @@ var Main = createReactClass({
 
         <MainContent page={this.state.pages[this.state.currentPage]}
                      formCompleted={this.state.formCompleted}
+
                      handleProfileChange={this.handleProfileChange}
                      handleChange={this.handleChange}
                      validate={this.validate}
                      profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}
+
                      contactData={this.state.contacts}
                      addContactsToState={this.addContactsToState}
                      contactFormPage={this.state.contactFormPage}
@@ -203,7 +215,8 @@ var Main = createReactClass({
 
         <Footer continue={this.continue}
                 back={this.back}
-                page={this.state.currentPage}/>
+                page={this.state.currentPage}
+                formCompleted={this.state.formCompleted}/>
         </div>
     );
   }
