@@ -42,7 +42,7 @@ var MainContent = createReactClass({
                 return (
                     <div>
                         <img src="assets/image/SOSAlertIcon.png" alt="" className="icon"/>
-                        <Alerts />
+                        <Alerts {...this.props}/>
                     </div>
                 );
             }

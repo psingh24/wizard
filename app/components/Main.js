@@ -76,8 +76,12 @@ var Main = createReactClass({
       })
     } else if (mode === "edit") {
       this.deleteContact(id);
+      var newArray = this.state.editMode.slice()
+      newArray[0] = false; 
+      newArray[1] = 0
       this.setState({
-        contacts: this.state.contacts.concat(data)
+        contacts: this.state.contacts.concat(data),
+        editMode: newArray
       })
     }
   },
@@ -86,8 +90,8 @@ var Main = createReactClass({
   },
   handleEditModeContact(id) {
     var newArray = this.state.editMode.slice()
-    newArray[0] = true 
-    newArray[1] = id 
+    newArray[0] = true;
+    newArray[1] = id;
     console.log("NewArray:" + newArray)
     this.setState({editMode: newArray})
   },
