@@ -16,8 +16,85 @@ var Alerts = createReactClass({
   },
   render: function() {
     return (
-     <div>Alerts
-    <Table condensed hover responsive>
+        <div className="structureFormAlerts">
+          
+            <div className="enable formInputTitle">Enable</div>
+            <div className="feature formInputTitle">Feature</div>
+            <div className="message formInputTitle">Message</div>
+          
+
+        {/* SOS */}
+          
+            <div className="sosCheckbox"><Checkbox checked={"checked"} disabled></Checkbox></div>
+            <div className="sos">SOS</div>
+            <FormGroup className="sosMessage">
+              <FormControl
+              type="text"
+              name="SOS"
+              value={this.state.SOSMessage}
+              placeholder={this.props.profileData.firstName+ " has sent an SOS"}
+              onChange={this.handleChange}
+              />
+            </FormGroup>
+         
+
+        {/* Abnormal Heart Rate */}
+          
+            <div className="ahrCheckbox"><Checkbox ></Checkbox></div>
+            <div className="abnormalHeartRate">Abnormal Heart Rate</div>
+            <FormGroup className="ahrMessage">
+              <FormControl
+              type="text"
+              name="SOS"
+              value={this.state.SOSMessage}
+              placeholder={this.props.profileData.firstName+ " has sent an SOS"}
+              onChange={this.handleChange}
+              />
+              <div className="ahrHeartRate">
+                  <FormGroup className="hrMin">
+                  <div className="formInputTitle">Heart Rate</div>
+                    <FormControl
+                    type="text"
+                    name="SOS"
+                    value={this.state.SOSMessage}
+                    placeholder={this.props.profileData.firstName+ " has sent an SOS"}
+                    onChange={this.handleChange}
+                    />
+                  </FormGroup>
+                  <FormGroup className="hrMax">
+                  <div className="formInputTitle">&nbsp;</div>
+                    <FormControl
+                    type="text"
+                    name="SOS"
+                    value={this.state.SOSMessage}
+                    placeholder={this.props.profileData.firstName+ " has sent an SOS"}
+                    onChange={this.handleChange}
+                    />
+                  </FormGroup>
+              </div>
+            </FormGroup>
+          
+
+        
+
+        {/* VitalBand Low Battery */}
+          
+            <div className="vblbCheckbox"><Checkbox ></Checkbox></div>
+            <div className="vitalBandLowBattery">VitalBand Low Battery</div>
+            <FormGroup className="vblbMessage">
+              <FormControl
+              type="text"
+              name="SOS"
+              value={this.state.SOSMessage}
+              placeholder={this.props.profileData.firstName+ " has sent an SOS"}
+              onChange={this.handleChange}
+              />
+            </FormGroup>
+          
+
+
+
+{/* <Table condensed hover responsive>
   <thead>
     <tr>
       <th>Enable</th>
@@ -35,7 +112,7 @@ var Alerts = createReactClass({
             type="text"
             name="SOS"
             value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"} 
+            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
             onChange={this.handleChange}
             />
         </FormGroup></td>
@@ -48,7 +125,7 @@ var Alerts = createReactClass({
             type="text"
             name="SOS"
             value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"} 
+            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
             onChange={this.handleChange}
             />
         </FormGroup>
@@ -60,7 +137,7 @@ var Alerts = createReactClass({
             type="text"
             name="SOS"
             value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"} 
+            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
             onChange={this.handleChange}
             />
         </FormGroup>
@@ -69,7 +146,7 @@ var Alerts = createReactClass({
             type="text"
             name="SOS"
             value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"} 
+            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
             onChange={this.handleChange}
             />
         </FormGroup>
@@ -83,14 +160,13 @@ var Alerts = createReactClass({
             type="text"
             name="SOS"
             value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"} 
+            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
             onChange={this.handleChange}
             />
         </FormGroup></td>
     </tr>
   </tbody>
-</Table>
-    
+</Table> */ }
      </div>);
   }
 });

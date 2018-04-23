@@ -416,23 +416,44 @@
 .listContacts {
     margin:0;
     display: grid;
-    grid: 1fr 1fr 1fr 100px;
-    grid-gap: 5px;
-    grid-template-areas: "name   number   email   options"
-                         "method   relationship   .   ."
-                         "addContact   addContact   addContact";
+    grid: 100px 250px 410px;
+    grid-gap: 20px;
+    grid-template-areas: "enable   feature   message"
+                         "sosCheckbox   sos   sosMessage"
+                         "ahrCheckbox   abnormalHeartRate   ahrMessage"
+                         ".   .   ahrHeartRate"
+                         "vblbCheckbox   vitalBandLowBattery   vblbMessage";
 }
 .structureFormAlerts {
     margin:0;
     display: grid;
-    grid: 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
-    min-height: 100vh;
-    grid-gap: 5px;
+    grid-template-columns: 50px 300px 410px;
+    grid-gap: 10px;
     grid-template-areas: "enable   feature   message"
-                         "check01   sos   input01"
-                         "check02   abnormalHR   input02"
-                         "check03   lowBat   state   input03";
+                        "sosCheckbox   sos   sosMessage"
+                        "ahrCheckbox   abnormalHeartRate   ahrMessage"
+                        ".   .   ahrHeartRate"
+                        "vblbCheckbox   vitalBandLowBattery   vblbMessage";
 }
+
+.ahrHeartRate {
+      grid-area: ahrHeartRate;
+      display: grid;
+      padding: 20px 0 0 0;
+      grid-template-columns: 200px 200px;
+      grid-gap: 0 10px;
+      grid-template-areas:  "hrMin   hrMax";
+}
+.state {
+      margin:0;
+      grid-area: state;
+}
+.zip {
+      margin:0;
+      grid-area: zip;
+}
+
+
 .connect01Examples {
     margin:0;
     display: grid;
