@@ -65,7 +65,7 @@ var Main = createReactClass({
     }));
   },
   handleProfileChange: function(e) {
-    let profile = Object.assign({}, this.state.profile);    //creating copy of object
+    var profile = Object.assign({}, this.state.profile);    //creating copy of object
     profile[e.target.name] = e.target.value;                        //updating value
     this.setState({profile});
   },
@@ -85,7 +85,11 @@ var Main = createReactClass({
     this.state.contactFormPage === 1 ? this.setState({contactFormPage: 0}) : this.setState({contactFormPage: 1})
   },
   handleEditModeContact(id) {
-    this.setState({editMode: [true, id]})
+    var newArray = this.state.editMode.slice()
+    newArray[0] = true 
+    newArray[1] = id 
+    console.log("NewArray:" + newArray)
+    this.setState({editMode: newArray})
   },
   deleteContact(id) {
     var array = this.state.contacts;
