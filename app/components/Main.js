@@ -96,6 +96,7 @@ var Main = createReactClass({
   back: function(num) {
     this.setState((prevState, props) => ({
       currentPage: prevState.currentPage - num,
+      errorMessage: ""
   }));
   },
   handleChange: function(evt) {
