@@ -27,8 +27,8 @@ var Eula = createReactClass({
           <img src="assets/image/icon-folder.svg" alt=""/> EULA</p>
       <hr className="hr-short"/>
 
-      {this.props.formCompleted ? <div></div> : <p className="content-center-small">Please read the documents and check the box to continue</p>}
-      <p className="content-center-small"><Checkbox checked={this.props.formCompleted ? "checked": false} onChange={this.props.handleChange}>  I agree to the terms and Conditions laid out in the above documents</Checkbox></p>
+      {this.props.EulaCompleted ? <div></div> : <p className="content-center-small">Please read the documents and check the box to continue</p>}
+      <p className="content-center-small"><Checkbox checked={this.props.EulaCompleted ? "checked": false} onChange={this.props.handleChange}>  I agree to the terms and Conditions laid out in the above documents</Checkbox></p>
 
       {/* <p> */}
           {/* <img src="assets/image/icon-checkmark-square.svg" alt=""/> Begin Set-up</p> */}

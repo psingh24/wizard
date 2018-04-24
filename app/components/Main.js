@@ -18,7 +18,7 @@ var Main = createReactClass({
       pages: ["Eula", "Profile", "Contacts", "Alerts", "Connect", "Connect1", "Connect2", "Connect3", "Connect4", "Connect5", "Sucess"],
       sidebarText: ["Hello, I’m Dr. Sense. I’m here to guide you through set up. You can also ask me questions when logged into your dashboard. Let’s get started.", "Begin setting up your personal profile", "Add emergenacy contacts here. This is who will be alerted if you fall or need help", "This is where you can select which alerts you want enbaled. You can always change your settings later in the dashboard", "Now it is time to connect your VitalBand to the Internet. Make sure you have all the accesories that were included in the package.", "Let's run through a quick check list to make sure we're ready.", "Please read the follow these instructions to set up your hub", "You are now ready to connect your VitalBand", "Would you like to download the VitalBand mobile application? THe mobile application will provide you with protection outside of your home. The VitalBand will display a red line to remind you to launch your mobile app on your phone when you are not in the coverage range of your home hub.", "We are connecting now. The could take up to 30 seconds.", "Congratulations!"],
       currentPage: 0,
-      formCompleted: false,
+      EulaCompleted: false,
       contactFormPage: 0,
       profile: {
           timezone: '',
@@ -43,25 +43,48 @@ var Main = createReactClass({
     };
   },
 
-  continue: function(num) {
-  //  if (this.state.formCompleted) { /* commnet this line to keep moving without hacing to have anything line 44 and 49 */
-      this.setState((prevState, props) => ({
-        currentPage: prevState.currentPage + num,
-        formCompleted: false
-    }));
-  // }/* commnet this line to keep moving without hacing to have anything line 44 and 49 */
+  continue: function(num, page) {
+    console.log("Page:" + page)
+    if ((this.state.EulaCompleted) && (page === 0)) {
+        this.setState((prevState, props) => ({
+          currentPage: prevState.currentPage + num,
+        }));
+    } 
+    else if ((
+      (this.state.profile.firstName.length > 1) && 
+      (this.state.profile.lastName.length > 1) && 
+      (this.state.profile.dob != '') && 
+      (this.state.profile.heightFt != '') && 
+      (this.state.profile.heightIn != '') && 
+      (this.state.profile.weight != '') && 
+      (this.state.profile.phoneNumber.length >8) && 
+      (this.state.profile.gender != '') && 
+      (this.state.profile.activityLevel != '')) && (page === 1)) {
+        this.setState((prevState, props) => ({
+          currentPage: prevState.currentPage + num,
+        }));
+    } 
+    else if ((this.state.contacts.length > 0) && (page === 2)) {
+        this.setState((prevState, props) => ({
+          currentPage: prevState.currentPage + num,
+        }));
+    } 
+    else if ((page > 2)) {
+        this.setState((prevState, props) => ({
+          currentPage: prevState.currentPage + num,
+        }));
+    }
   },
   back: function(num) {
     this.setState((prevState, props) => ({
       currentPage: prevState.currentPage - num,
-      formCompleted: true
   }));
   },
   handleChange: function(evt) {
     var checked = evt.target.checked
-    // console.log("checked: "+ checked)
+    console.log("checked: "+ checked)
     this.setState(prevState => ({
-      formCompleted: checked
+      EulaCompleted: checked
     }));
     
   },
@@ -69,7 +92,7 @@ var Main = createReactClass({
     var profile = Object.assign({}, this.state.profile);    //creating copy of object
     profile[e.target.name] = e.target.value;                        //updating value
     this.setState({profile});
-    // this.profilePageCompleted()
+    this.profilePageCompleted()
   },
   addContactsToState(data, mode, id) {
     if (mode === "add"){
@@ -197,7 +220,7 @@ var Main = createReactClass({
         <SideBar sideBarText={this.state.sidebarText[this.state.currentPage]}/>
 
         <MainContent page={this.state.pages[this.state.currentPage]}
-                     formCompleted={this.state.formCompleted}
+                      EulaCompleted={this.state.EulaCompleted}
 
                      handleProfileChange={this.handleProfileChange}
                      handleChange={this.handleChange}
