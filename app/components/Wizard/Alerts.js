@@ -6,14 +6,6 @@ var Link = require("react-router").Link;
 import { Checkbox, Table, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 var Alerts = createReactClass({
-  getInitialState: function() {
-    return {
-      SOS: ''
-    }
-  },
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  },
   render: function() {
     return (
         <div className="structureFormAlerts">
@@ -31,34 +23,34 @@ var Alerts = createReactClass({
               <FormControl
               type="text"
               name="SOS"
-              value={this.state.SOSMessage}
-              placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-              onChange={this.handleChange}
+              value={this.props.alertsData.SOS}
+              placeholder={this.props.profileData.firstName + " has sent an SOS"}
+              onChange={this.props.handleAlertsChange}
               />
             </FormGroup>
          
 
         {/* Abnormal Heart Rate */}
           
-            <div className="ahrCheckbox"><Checkbox ></Checkbox></div>
+            <div className="ahrCheckbox"><Checkbox name="abnormalHeartRateChecked" onChange={this.props.alertsData.abnormalHeartRateChecked}></Checkbox></div>
             <div className="abnormalHeartRate">Abnormal Heart Rate</div>
             <FormGroup className="ahrMessage">
               <FormControl
               type="text"
-              name="SOS"
-              value={this.state.SOSMessage}
-              placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-              onChange={this.handleChange}
+              name="abnormalHeartRate"
+              value={this.props.alertsData.abnormalHeartRate}
+              placeholder={this.props.profileData.firstName + " has an abnormal heart rate."}
+              onChange={this.props.handleAlertsChange}
               />
               <div className="ahrHeartRate">
                   <FormGroup className="hrMin">
                   <div className="formInputTitle">Heart Rate</div>
                     <FormControl
                     type="text"
-                    name="SOS"
-                    value={this.state.SOSMessage}
-                    placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-                    onChange={this.handleChange}
+                    name="min"
+                    value={this.props.alertsData.min}
+                    placeholder={50}
+                    onChange={this.props.handleAlertsChange}
                     />
                     <div className="formInputTitle">/min</div>
                   </FormGroup>
@@ -66,10 +58,10 @@ var Alerts = createReactClass({
                   <div className="formInputTitle">&nbsp;</div>
                     <FormControl
                     type="text"
-                    name="SOS"
-                    value={this.state.SOSMessage}
-                    placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-                    onChange={this.handleChange}
+                    name="max"
+                    placeholder={140}
+                    value={this.props.alertsData.max}
+                    onChange={this.props.handleAlertsChange}
                     />
                     <div className="formInputTitle">/max</div>
                   </FormGroup>
@@ -81,94 +73,17 @@ var Alerts = createReactClass({
 
         {/* VitalBand Low Battery */}
           
-            <div className="vblbCheckbox"><Checkbox ></Checkbox></div>
+            <div className="vblbCheckbox"><Checkbox name="battery" onChange={this.props.alertsData.batteryChecked}></Checkbox></div>
             <div className="vitalBandLowBattery">VitalBand Low Battery</div>
             <FormGroup className="vblbMessage">
               <FormControl
               type="text"
-              name="SOS"
-              value={this.state.SOSMessage}
-              placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-              onChange={this.handleChange}
+              name="battery"
+              value={this.props.alertsData.battery}
+              onChange={this.props.handleAlertsChange}
               />
             </FormGroup>
           
-
-
-
-{/* <Table condensed hover responsive>
-  <thead>
-    <tr>
-      <th>Enable</th>
-      <th>Feature</th>
-      <th>Message</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><Checkbox checked={"checked"} disabled></Checkbox></td>
-      <td>SOS</td>
-      <td>
-        <FormGroup className="firstName">
-            <FormControl
-            type="text"
-            name="SOS"
-            value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-            onChange={this.handleChange}
-            />
-        </FormGroup></td>
-    </tr>
-    <tr>
-      <td><Checkbox ></Checkbox></td>
-      <td>Abnormal Heart Rate</td>
-      <td><FormGroup className="firstName">
-            <FormControl
-            type="text"
-            name="SOS"
-            value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-            onChange={this.handleChange}
-            />
-        </FormGroup>
-        </td>
-      <td>
-
-      <FormGroup className="firstName">
-            <FormControl
-            type="text"
-            name="SOS"
-            value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-            onChange={this.handleChange}
-            />
-        </FormGroup>
-      <FormGroup className="firstName">
-            <FormControl
-            type="text"
-            name="SOS"
-            value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-            onChange={this.handleChange}
-            />
-        </FormGroup>
-      </td>
-    </tr>
-    <tr>
-      <td><Checkbox ></Checkbox></td>
-      <td>VitalBand Low Battery</td>
-      <td><FormGroup className="firstName">
-            <FormControl
-            type="text"
-            name="SOS"
-            value={this.state.SOSMessage}
-            placeholder={this.props.profileData.firstName+ " has sent an SOS"}
-            onChange={this.handleChange}
-            />
-        </FormGroup></td>
-    </tr>
-  </tbody>
-</Table> */ }
      </div>);
   }
 });

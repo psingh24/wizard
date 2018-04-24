@@ -40,6 +40,15 @@ var Main = createReactClass({
         },
       contacts: [],
       editMode: [false, 0],
+      alerts: {
+        SOS: "",
+        abnormalHeartRate: "",
+        abnormalHeartRateChecked: false,
+        max: 140,
+        min: 50,
+        battery: '',
+        batteryChecked: false
+      },
       errorMessage: ''
     };
   },
@@ -99,7 +108,13 @@ var Main = createReactClass({
       errorMessage: ""
   }));
   },
-  handleChange: function(evt) {
+  handleAlertsChange: function(evt) {
+    var alerts = Object.assign({}, this.state.alerts);    //creating copy of object
+    alerts[evt.target.name] = evt.target.value;                        //updating value
+    this.setState({alerts});
+
+  },
+  handleEulaChange: function(evt) {
     var checked = evt.target.checked
     console.log("checked: "+ checked)
     this.setState(prevState => ({
@@ -241,11 +256,11 @@ var Main = createReactClass({
       <div className="Grid">
         <SideBar sideBarText={this.state.sidebarText[this.state.currentPage]}/>
 
-        <MainContent page={this.state.pages[this.state.currentPage]}
+        <MainContent  page={this.state.pages[this.state.currentPage]}
                       EulaCompleted={this.state.EulaCompleted}
+                      handleChange={this.handleEulaChange}
 
                      handleProfileChange={this.handleProfileChange}
-                     handleChange={this.handleChange}
                      validate={this.validate}
                      profileData={this.isEmpty(this.state.profile) ? {} : this.state.profile}
 
@@ -256,6 +271,9 @@ var Main = createReactClass({
                      deleteContact={this.deleteContact}
                      editMode={this.state.editMode}
                      handleEditModeContact={this.handleEditModeContact}
+
+                     alertsData={this.state.alerts}
+                     handleAlertsChange={this.handleAlertsChange}
                       />
         
         <Footer continue={this.continue}
