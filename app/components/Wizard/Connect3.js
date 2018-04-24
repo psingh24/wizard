@@ -17,7 +17,7 @@ var Connect3 = createReactClass({
             placeholder="Five-digit Code"
             />
         </FormGroup>
-        <Image src="assets/image/vitalband-back.png" thumbnail/>
+        <Image src="assets/image/vitalband-back.png" className="imageWatchCode"/>
          
      </div>
         

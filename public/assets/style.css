@@ -73,6 +73,8 @@
  }
  img {
      display:block;
+     background-color: none;
+     border: none;
  }
  hr {
      display: block;
@@ -86,7 +88,6 @@
      display: block;
      height: 1px;
      width: 500px;
-     align: center;
      border: 0;
      border-top: 1px solid rgba(71, 181, 210, 1.0);
      margin: 0 auto;
@@ -439,32 +440,107 @@
 .ahrHeartRate {
       grid-area: ahrHeartRate;
       display: grid;
-      padding: 20px 0 0 0;
+      padding: 10px 0 0 0;
       grid-template-columns: 200px 200px;
       grid-gap: 0 10px;
       grid-template-areas:  "hrMin   hrMax";
 }
-.state {
-      margin:0;
-      grid-area: state;
+.hrMin {
+    font-size: .8em;
+    font-weight: normal;
+    font-style: normal;
+    margin:0;
+    grid-area: hrMin;
 }
-.zip {
-      margin:0;
-      grid-area: zip;
+.hrMax {
+    font-size: .8em;
+    font-weight: normal;
+    font-style: normal;
+    margin:0;
+      padding: 0;
+      grid-area: hrMax;
 }
 
 
-.connect01Examples {
+.connect01 {
     margin:0;
     display: grid;
-    grid: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 152px 152px 152px 152px 152px;
     grid-gap: 5px;
     grid-template-areas: "image01   image02   image03   image04   image05";
 }
-.connect02Examples {
+.image01 {
+    display: block;
+    width: 152px;
+}
+.image02 {
+    display: block;
+    width: 152px;
+}
+.image03 {
+    display: block;
+    width: 152px;
+}
+.image04 {
+    display: block;
+    width: 152px;
+}
+
+.image05 {
+    display: block;
+    width: 152px;
+}
+
+.connect02 {
     margin:0;
     display: grid;
-    grid: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 5px;
-    grid-template-areas: "image01   image02   image03   image04   image05";
+    grid: 50px 578px 152px;
+    grid-gap: 10px;
+    grid-template-areas: "disclaimer   disclaimer   disclaimer"
+                        "noEthernetBTN   noEthernetBTN   noEthernetBTN"
+                        "noEthernet   noEthernet   noEthernet"
+                        "checkBox01   checkBox01Text   checkBox01Image"
+                        "checkBox02   checkBox02Text   checkBox02Image"
+                        "checkBox03   checkBox03Text   checkBox03Image";
 }
+
+.disclaimer {
+    margin:0;
+    grid-area: disclaimer;
+}
+
+.noEthernetBTN {
+    margin:0;
+    grid-area: noEthernetBTN;
+}
+.noEthernet {
+    margin:0;
+    grid-area: noEthernet;
+}
+
+
+.connectThumb {
+    display: block;
+    width: 152px;
+}
+
+.btnLarge {
+    display: block;
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+.watchCode {
+    width: 200px;
+}
+.imageWatchCode {
+    display: block;
+    width: 100%;
+}
+
+.imageSmartPhone {
+    display: block;
+    width: 400px;
+}
+

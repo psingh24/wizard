@@ -8,9 +8,7 @@ import { Button } from 'react-bootstrap';
 var Success = createReactClass({
   render: function() {
     return (
-     <div>
-         <Button>GO TO DASHBAORD</Button>
-     </div>
+     <div className="noEthernetBTN"><Button className="btnLarge" bsStyle="primary">GO TO DASHBAORD</Button></div>
         
     );
   }

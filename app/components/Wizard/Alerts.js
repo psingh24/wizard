@@ -60,6 +60,7 @@ var Alerts = createReactClass({
                     placeholder={this.props.profileData.firstName+ " has sent an SOS"}
                     onChange={this.handleChange}
                     />
+                    <div className="formInputTitle">/min</div>
                   </FormGroup>
                   <FormGroup className="hrMax">
                   <div className="formInputTitle">&nbsp;</div>
@@ -70,6 +71,7 @@ var Alerts = createReactClass({
                     placeholder={this.props.profileData.firstName+ " has sent an SOS"}
                     onChange={this.handleChange}
                     />
+                    <div className="formInputTitle">/max</div>
                   </FormGroup>
               </div>
             </FormGroup>

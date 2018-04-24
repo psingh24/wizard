@@ -8,12 +8,12 @@ import { Image } from 'react-bootstrap';
 var Connect = createReactClass({
   render: function() {
     return (
-     <div>
-        <Image src="assets/image/watch-and-charger.png" thumbnail />
-        <Image src="assets/image/dot.png" thumbnail />
-        <Image src="assets/image/pi-hub.png" thumbnail />
-        <Image src="assets/image/Pi-Charger.png" thumbnail />
-        <Image src="assets/image/ethernet-cable.png" thumbnail />
+     <div className="connect01">
+        <div><Image src="assets/image/watch-and-charger.png" className="image01"/></div>
+        <div><Image src="assets/image/dot.png" className="image02"/></div>
+        <div><Image src="assets/image/pi-hub.png" className="image03"/></div>
+        <div><Image src="assets/image/Pi-Charger.png" className="image04"/></div>
+        <div><Image src="assets/image/ethernet-cable.png" className="image05"/></div>
      </div>
         
     );

@@ -10,7 +10,7 @@ var Connect5 = createReactClass({
     return (
      <div>
 
-         <Image src="assets/image/hour-glass.svg" thumbnail />
+         <Image src="assets/image/hour-glass.svg" class="imageSmartPhone"/>
          
      </div>
         
