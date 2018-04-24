@@ -14,6 +14,7 @@ var Connect3 = createReactClass({
             <FormControl
             type="text"
             name="watchCode"
+            className="watchCode"
             placeholder="Five-digit Code"
             />
         </FormGroup>

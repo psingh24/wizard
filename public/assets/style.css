@@ -54,7 +54,7 @@
 
 /* Global stye Guide Structure */
  p {
-     margin: 10px 0;
+     margin: 0;
      display: block
  }
  h1 {
@@ -93,13 +93,18 @@
      margin: 0 auto;
      padding: 0;
  }
+ .content-center {
+    text-align: center;
+    padding: 10px 0;
+}
  .content-center-small {
      text-align: center;
      font-size: 0.7em;
      display: block;
+     padding: 10px 0;
  }
- .content-center {
-     text-align: center;
+ .content-left {
+     padding: 10px 0;
  }
  .content-center img {
      display: inline-block;
@@ -494,7 +499,7 @@
 .connect02 {
     margin:0;
     display: grid;
-    grid: 50px 578px 152px;
+    grid-template-columns: 25px 603px 152px;
     grid-gap: 10px;
     grid-template-areas: "disclaimer   disclaimer   disclaimer"
                         "noEthernetBTN   noEthernetBTN   noEthernetBTN"
@@ -517,8 +522,6 @@
     margin:0;
     grid-area: noEthernet;
 }
-
-
 .connectThumb {
     display: block;
     width: 152px;
@@ -533,14 +536,28 @@
 
 .watchCode {
     width: 200px;
+    margin: auto;
+    padding: 0;
+    text-align: center;
 }
+
 .imageWatchCode {
     display: block;
     width: 100%;
+    padding: 20px 0;
 }
 
 .imageSmartPhone {
     display: block;
-    width: 400px;
+    width: 300px;
+    margin: auto;
+}
+.imageHourGlass {
+    display: block;
+    height: 300px;
+    margin: auto;
+}
+.checkbox {
+    margin: 0;
 }
 
