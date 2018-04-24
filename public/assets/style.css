@@ -429,14 +429,96 @@
 .listContacts {
     margin:0;
     display: grid;
-    grid: 100px 250px 410px;
-    grid-gap: 20px;
-    grid-template-areas: "enable   feature   message"
-                         "sosCheckbox   sos   sosMessage"
-                         "ahrCheckbox   abnormalHeartRate   ahrMessage"
-                         ".   .   ahrHeartRate"
-                         "vblbCheckbox   vitalBandLowBattery   vblbMessage";
+    grid-template-columns: 100px 560px 120px;
+    grid-gap: 10px;
+    grid-template-areas: "titleName   resultName   resultEdit"
+                         "titleRelationship   resultRelationship   resultEdit"
+                         "titleContactMethod   resultContactMethod   resultEdit"
+                         "titlePhone   resultPhone   resultEdit"
+                         "titleEmail   resultEmail   resultEdit"
+                         "titleAddress   resultAddress   resultEdit";
 }
+
+.resultEdit {
+    margin:0;
+    grid-area: resultEdit;
+}
+.contactListBTN {
+    margin:0;
+    grid-area: contactListBTN;
+}
+
+.titleName {
+    margin:0;
+    grid-area: titleName;
+    font-size: 0.7em;
+}
+.resultName {
+    margin:0;
+    grid-area: resultName;
+    color: black;
+}
+.titleRelationship {
+    margin:0;
+    grid-area: titleRelationship;
+    font-size: 0.7em;
+}
+.resultRelationship {
+    margin:0;
+    grid-area: resultRelationship;
+    color: black;
+}
+.titleContactMethod {
+    margin:0;
+    grid-area: titleContactMethod;
+    font-size: 0.7em;
+}
+.resultContactMethod {
+    margin:0;
+    grid-area: resultContactMethod;
+    color: black;
+}
+.titlePhone {
+    margin:0;
+    grid-area: titlePhone;
+    font-size: 0.7em;
+}
+.resultPhone {
+    margin:0;
+    grid-area: resultPhone;
+    color: black;
+}
+.titleEmail {
+    margin:0;
+    grid-area: titleEmail;
+    font-size: 0.7em;
+}
+.resultEmail {
+    margin:0;
+    grid-area: resultEmail;
+    color: black;
+}
+.titleAddress {
+    margin:0;
+    grid-area: titleAddress;
+    font-size: 0.7em;
+}
+.resultAddress {
+    margin:0;
+    grid-area: resultAddress;
+    color: black;
+}
+
+
+
+
+
+.contactsResults {
+    text-align: left;
+    font-size: 0.9em;
+    padding: 10px 0;
+}
+
 .structureFormAlerts {
     margin:0;
     display: grid;
@@ -541,6 +623,12 @@
     margin: auto;
 }
 
+.btnSmall {
+    display: block;
+    width: 120px;
+    text-align: center;
+    margin: auto;
+}
 .watchCode {
     width: 200px;
     margin: auto;
