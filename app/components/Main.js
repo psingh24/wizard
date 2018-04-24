@@ -129,9 +129,12 @@ var Main = createReactClass({
         editMode: newArray
       })
     }
+    else if (mode === 'error') {
+      this.setState({errorMessage: "Please fill in all the required fields for the contact."})
+    }
   },
   contactFormLogic() {
-    this.state.contactFormPage === 1 ? this.setState({contactFormPage: 0}) : this.setState({contactFormPage: 1})
+    this.state.contactFormPage === 1 ? this.setState({contactFormPage: 0}) : this.setState({contactFormPage: 1, errorMessage: ""})
   },
   handleEditModeContact(id, step) {
     var newArray = this.state.editMode.slice()

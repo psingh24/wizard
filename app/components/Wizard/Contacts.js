@@ -95,10 +95,15 @@ var Contacts = createReactClass({
       state: this.state.state,
       zip: this.state.zip
     };
-    this.props.addContactsToState(data, "add");
-    this.clearState();
-    this.props.contactFormLogic();
-    console.log(this.props.contactData);
+
+    if ((data.firstName != '') && (data.lastName != '') && (data.phoneNumber != '') && (data.email != '') && (data.contactMethod != '') ) {
+        this.props.addContactsToState(data, "add");
+        this.clearState();
+        this.props.contactFormLogic();
+    } else {
+        data = '';
+        this.props.addContactsToState(data, "error");
+    }
   },
   returnForm() {
     return (
