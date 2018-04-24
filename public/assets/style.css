@@ -97,6 +97,13 @@
     text-align: center;
     padding: 10px 0;
 }
+
+.errorMessage {
+    text-align: center;
+    font-size: 0.9em;
+    color: rgba(255, 0, 0, 1.0);
+    padding: 10px 0;
+}
  .content-center-small {
      text-align: center;
      font-size: 0.7em;
