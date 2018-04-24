@@ -39,17 +39,26 @@ var Main = createReactClass({
           zip: ''
         },
       contacts: [],
-      editMode: [false, 0]
+      editMode: [false, 0],
+      errorMessage: ''
     };
   },
 
   continue: function(num, page) {
     console.log("Page:" + page)
-    if ((this.state.EulaCompleted) && (page === 0)) {
+    // if ( page === 0 ||page === 1 || page === 2 ) {
+    //   console.log("fired")
+    //   this.setState({errorMessage: "Please complete all the required fields to continue."})
+    // }
+     if ((this.state.EulaCompleted) && (page === 0)) {
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
         }));
-    } 
+        this.setState({errorMessage: ""})
+    } else if (page === 0) {
+      this.setState({errorMessage: "Please agree to the terms to continue."})
+    }
+    
     else if ((
       (this.state.profile.firstName.length > 1) && 
       (this.state.profile.lastName.length > 1) && 
@@ -63,17 +72,26 @@ var Main = createReactClass({
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
         }));
+        this.setState({errorMessage: ""})
     } 
+    else if (page === 1) {
+      this.setState({errorMessage: "Please complete all the required fields to continue."})
+    }
     else if ((this.state.contacts.length > 0) && (page === 2)) {
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
         }));
+        this.setState({errorMessage: ""})
+    }
+    else if (page === 2) {
+      this.setState({errorMessage: "Please add atleast one contact to continue."})
     } 
     else if ((page > 2)) {
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
         }));
-    }
+        this.setState({errorMessage: ""})
+    } 
   },
   back: function(num) {
     this.setState((prevState, props) => ({
@@ -235,11 +253,12 @@ var Main = createReactClass({
                      editMode={this.state.editMode}
                      handleEditModeContact={this.handleEditModeContact}
                       />
-
+        
         <Footer continue={this.continue}
                 back={this.back}
                 page={this.state.currentPage}
-                formCompleted={this.state.formCompleted}/>
+                formCompleted={this.state.formCompleted}
+                errorMessage={this.state.errorMessage}/>
         </div>
     );
   }

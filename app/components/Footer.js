@@ -26,7 +26,7 @@ var Footer = createReactClass({
             : <div></div>}
             </div>
 
-            <div></div>
+            <div><p style={{color:'red', textAlign:'center'}}>{this.props.errorMessage}</p></div>
             {/* <div className="event-forward">
                 <a className="footer-btn" onClick={this.handleContinue} href="#">Continue <span className="chevron-event"><img src="assets/image/icon-chevron-right.svg" className="chevron" alt=""/></span></a>
             </div> */}
