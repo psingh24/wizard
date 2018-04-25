@@ -228,11 +228,6 @@ var Contacts = createReactClass({
             <FormControl.Feedback />
           </FormGroup>
 
-           {/* Share contact */}
-        <FormGroup className="shareContact">
-            <Checkbox name="shareContact" checked={this.state.shareContact ? "checked" : false} onChange={this.handleChange}>Share Medical Information with this contact.</Checkbox>
-        </FormGroup>
-
           {/* Physical Address */}
           <FormGroup className="address">
             <ControlLabel className="formInputTitle">
@@ -342,9 +337,13 @@ var Contacts = createReactClass({
               />
               <FormControl.Feedback />
             </FormGroup>
-
-           
           </div>
+
+
+          {/* Share contact */}
+        <FormGroup className="shareContact">
+            <Checkbox name="shareContact" checked={this.state.shareContact ? "checked" : false} onChange={this.handleChange}>Share Medical Information with this contact.</Checkbox>
+        </FormGroup>
 
           <ButtonToolbar className="contactsBack">
             {this.props.contactData.length > 0 ? (
@@ -397,6 +396,9 @@ var Contacts = createReactClass({
           <div className="resultPhone contactsResults">{contact.phoneNumber}</div>
           <div className="titleEmail">Email: </div>
           <div className="resultEmail contactsResults">{contact.email}</div>
+          <div className="titleAddress">Address: </div>
+          <div className="resultAddress1 contactsResults">{contact.address}</div>
+          <div className="resultAddress2 contactsResults">{contact.city + ', ' +contact.state+  ' ' +contact.zip}</div>
 
           <div className="resultEdit">{this.props.contactData.length <= 1 ? (
             ""

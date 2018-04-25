@@ -444,7 +444,8 @@
                          "titleContactMethod   resultContactMethod   resultEdit"
                          "titlePhone   resultPhone   resultEdit"
                          "titleEmail   resultEmail   resultEdit"
-                         "titleAddress   resultAddress   resultEdit"
+                         "titleAddress   resultAddress1   resultEdit"
+                         ".   resultAddress2   resultEdit"
                          "lineSeperator   lineSeperator   lineSeperator";
 }
 
@@ -516,9 +517,14 @@
     grid-area: titleAddress;
     font-size: 0.7em;
 }
-.resultAddress {
+.resultAddress1 {
     margin:0;
-    grid-area: resultAddress;
+    grid-area: resultAddress1;
+    color: black;
+}
+.resultAddress2 {
+    margin:0;
+    grid-area: resultAddress2;
     color: black;
 }
 
