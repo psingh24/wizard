@@ -203,21 +203,18 @@ var Main = createReactClass({
             value = this.state.profile.firstName.length;
             if (value >= 3) return 'success';
             else if (value > 0) return 'warning';
-            else if (value === 0) return 'error';
             return null;
         }
           case "lastName": {
               value = this.state.profile.lastName.length;
               if (value >= 3) return 'success';
               else if (value > 0) return 'warning';
-              else if (value === 0) return 'error';
               return null;
           }
           case "weight": {
               value = this.state.profile.weight.length;
               if (value >= 1 && !isNaN(this.state.profile.weight)) return 'success';
               if (value >= 1 && isNaN(this.state.profile.weight)) return 'warning';
-              else if (value === 0) return 'error';
               return null;
           }
           case "telephone": {
@@ -225,32 +222,27 @@ var Main = createReactClass({
               if (value >= 10 && !isNaN(this.state.profile.phoneNumber)) return 'success';
               if (value >= 1 && !isNaN(this.state.profile.phoneNumber)) return 'warning';
               else if (value >= 1 && isNaN(this.state.profile.phoneNumber)) return 'warning';
-              else if (value === 0) return 'error';
               return null;
           }
           case "dob": {
               value = this.state.profile.dob;
               if (value) return 'success';
-              else return 'error';
               return null;
           }
           case "height": {
               var heightFt = this.state.profile.heightFt;
               var heightIn = this.state.profile.heightIn;
               if (heightFt && heightIn) return 'success';
-              else return 'error';
               return null;
           }
           case "gender": {
               value = this.state.profile.gender;
               if (value) return 'success';
-              else return 'error';
               return null;
           }
           case "activityLevel": {
               value = this.state.profile.activityLevel;
               if (value) return 'success';
-              else return 'error';
               return null;
           }
       }

@@ -38,7 +38,6 @@ var Contacts = createReactClass({
         var length = this.state.firstName.length;
         if (length >= 3) return "success";
         else if (length > 0) return "warning";
-        else if (length === 0) return "error";
         return null;
       }
 
@@ -46,7 +45,6 @@ var Contacts = createReactClass({
         var length = this.state.lastName.length;
         if (length >= 3) return "success";
         else if (length > 0) return "warning";
-        else if (length === 0) return "error";
         return null;
       }
 
@@ -54,7 +52,6 @@ var Contacts = createReactClass({
         var length = this.state.weight.length;
         if (length >= 1 && !isNaN(this.state.weight)) return "success";
         if (length >= 1 && isNaN(this.state.weight)) return "warning";
-        else if (length === 0) return "error";
         return null;
       }
       case "telephone": {
@@ -62,20 +59,17 @@ var Contacts = createReactClass({
         if (length >= 10 && !isNaN(this.state.phoneNumber)) return "success";
         if (length >= 1 && !isNaN(this.state.phoneNumber)) return "warning";
         else if (length >= 1 && isNaN(this.state.phoneNumber)) return "warning";
-        else if (length === 0) return "error";
         return null;
       }
       case "contactMethod": {
         var value = this.state.contactMethod;
         if (value) return "success";
-        else return "error";
         return null;
       }
       case "email": {
         var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var email = this.state.email;
         if (email.match(regex)) return "success";
-        else return "error";
         return null;
       }
     }
@@ -192,8 +186,8 @@ var Contacts = createReactClass({
           </FormGroup>
 
           {/* telephone */}
-          <FormGroup className="phone">
-            <ControlLabel className="formInputTitle">Phone Number</ControlLabel>
+          <FormGroup validationState={this.validate("telephone")} className="phone">
+            <ControlLabel className="formInputTitle">Phone Number *</ControlLabel>
             <FormControl
               type="text"
               name="phoneNumber"

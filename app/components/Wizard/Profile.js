@@ -67,7 +67,7 @@ var Profile = createReactClass({
 
                 {/* firstName */}
          <FormGroup validationState={this.props.validate('firstName')} className="firstName">
-         <ControlLabel className="formInputTitle">First Name</ControlLabel>
+         <ControlLabel className="formInputTitle">First Name *</ControlLabel>
              <FormControl
              type="text"
              name="firstName"
@@ -92,7 +92,7 @@ var Profile = createReactClass({
         </FormGroup>
             {/* Last Name */}
         <FormGroup validationState={this.props.validate("lastName")} className="lastName">
-            <ControlLabel className="formInputTitle">Last Name</ControlLabel>
+            <ControlLabel className="formInputTitle">Last Name *</ControlLabel>
             <FormControl
             type="text"
             name="lastName"
@@ -107,13 +107,13 @@ var Profile = createReactClass({
         <FormGroup
             validationState={this.props.validate("dob")} className="dob"
         >
-            <ControlLabel className="formInputTitle">Date of Birth</ControlLabel>
+            <ControlLabel className="formInputTitle">Date of Birth *</ControlLabel>
             <FormControl id="date" type="date" name="dob" value={this.props.profileData.dob} onChange={this.props.handleProfileChange}/>
             <FormControl.Feedback />
         </FormGroup>
             {/* Height */}
         <FormGroup validationState={this.props.validate("height")} className="height structureFormProfileHeight" >
-            <ControlLabel className="formInputTitle">Height</ControlLabel>
+            <ControlLabel className="formInputTitle">Height *</ControlLabel>
             <label className="feet"><FormControl componentClass="select" placeholder="feet" name="heightFt" value={this.props.profileData.heightFt}
         onChange={this.props.handleProfileChange}>
                 <option value="select" disabled>Feet</option>
@@ -154,7 +154,7 @@ var Profile = createReactClass({
             validationState={this.props.validate("weight")} className="weight"
 
         >
-            <ControlLabel className="formInputTitle">Weight(lbs)</ControlLabel>
+            <ControlLabel className="formInputTitle">Weight(lbs) *</ControlLabel>
             <FormControl
             type="text"
             name="weight"
@@ -169,7 +169,7 @@ var Profile = createReactClass({
             validationState={this.props.validate("telephone")} className="phone"
 
         >
-            <ControlLabel className="formInputTitle">Phone Number</ControlLabel>
+            <ControlLabel className="formInputTitle">Phone Number *</ControlLabel>
             <FormControl
             type="text"
             name="phoneNumber"
@@ -181,7 +181,7 @@ var Profile = createReactClass({
         </FormGroup>
         {/* Gender */}
         <FormGroup validationState={this.props.validate("gender")} className="gender" >
-            <ControlLabel className="formInputTitle">Gender</ControlLabel>
+            <ControlLabel className="formInputTitle">Gender *</ControlLabel>
             <FormControl componentClass="select" placeholder="Gender" name="gender" value={this.props.profileData.gender}
         onChange={this.props.handleProfileChange} >
                 <option value="select" disabled>Gender</option>
@@ -191,7 +191,7 @@ var Profile = createReactClass({
             <FormControl.Feedback />
         </FormGroup>
         <FormGroup validationState={this.props.validate("activityLevel")} className="activityLevel" >
-            <ControlLabel className="formInputTitle">Activity Level</ControlLabel>
+            <ControlLabel className="formInputTitle">Activity Level *</ControlLabel>
             <FormControl componentClass="select" placeholder="Activity Level" name="activityLevel" value={this.props.profileData.activityLevel}
         onChange={this.props.handleProfileChange} >
                 <option value="select" disabled>Activity Level</option>
