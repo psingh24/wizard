@@ -16,6 +16,8 @@ var Connect3 = createReactClass({
             name="watchCode"
             className="watchCode"
             placeholder="Five-digit Code"
+            value={this.props.watchMac}
+            onChange={this.props.handlewatchMacChange}
             />
         </FormGroup>
         <Image src="assets/image/vitalband-back.png" className="imageWatchCode"/>

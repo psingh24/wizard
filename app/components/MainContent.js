@@ -64,7 +64,7 @@ var MainContent = createReactClass({
                 return (
                     <div>
                         <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
-                        <Connect1 />
+                        <Connect1 {...this.props}/>
                     </div>
                 );
             }
@@ -80,7 +80,7 @@ var MainContent = createReactClass({
                 return (
                     <div>
                         <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
-                        <Connect3 />
+                        <Connect3 {...this.props}/>
                     </div>
                 );
             }
@@ -88,7 +88,7 @@ var MainContent = createReactClass({
                 return (
                     <div>
                         <img src="assets/image/ConnectIcon.png" alt="" className="icon"/>
-                        <Connect4 />
+                        <Connect4 {...this.props}/>
                     </div>
                 );
             }

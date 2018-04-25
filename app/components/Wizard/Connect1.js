@@ -10,7 +10,7 @@ var Connect1 = createReactClass({
     return (
     <div className="connect02">
         <div className="disclaimer"><h1 className="content-center disclaimer">Please run through the check list and check each box before moving forward</h1></div>
-        <div className="noEthernetBTN"><Button className="btnLarge noEthernetBTN" bsStyle="primary">NO ETHERNET?</Button></div>
+        <div className="noEthernetBTN"><Button onClick={() => {this.props.continue(1, this.props.currentPage)}} className="btnLarge noEthernetBTN" bsStyle="primary">NO ETHERNET?</Button></div>
         <div className="noEthernet"><p className="content-center-small noEthernet">Click here if you don't have the abilty to connect to an Ethernet cable to your router.</p></div>
 
 

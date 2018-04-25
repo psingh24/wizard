@@ -50,16 +50,14 @@ var Main = createReactClass({
         battery: '',
         batteryChecked: false
       },
-      errorMessage: ''
+      errorMessage: '',
+      watchMac: ''
     };
   },
 
   continue: function(num, page) {
     console.log("Page:" + page)
-    // if ( page === 0 ||page === 1 || page === 2 ) {
-    //   console.log("fired")
-    //   this.setState({errorMessage: "Please complete all the required fields to continue."})
-    // }
+
      if ((this.state.EulaCompleted) && (page === 0)) {
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
@@ -83,20 +81,22 @@ var Main = createReactClass({
           currentPage: prevState.currentPage + num,
         }));
         this.setState({errorMessage: ""})
-    } 
-    else if (page === 1) {
+    } else if (page === 1) {
       this.setState({errorMessage: "Please complete all the required fields to continue."})
     }
+    
     else if ((this.state.contacts.length > 0) && (page === 2)) {
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
         }));
         this.setState({errorMessage: ""})
-    }
-    else if (page === 2) {
+    } else if (page === 2) {
       this.setState({errorMessage: "Please add atleast one contact to continue."})
     } 
+    
     else if ((page > 2)) {
+      console.log("yesyes")
+      console.log("currentpage: "+this.state.currentPage)
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
         }));
@@ -126,7 +126,6 @@ var Main = createReactClass({
     this.setState(prevState => ({
       EulaCompleted: checked
     }));
-    
   },
   handleProfileChange: function(evt) {
     var profile = Object.assign({}, this.state.profile);    //creating copy of object
@@ -137,7 +136,6 @@ var Main = createReactClass({
       profile[evt.target.name] = evt.target.value;                        //updating value
       this.setState({profile});
     }
-    // this.profilePageCompleted()
   },
   addContactsToState(data, mode, id) {
     if (mode === "add"){
@@ -180,24 +178,12 @@ var Main = createReactClass({
     array.splice(index, 1);
     this.setState({contacts: array });
   },
+  handlewatchMacChange(evt) {
+    this.setState({watchMac: evt.target.value})
+  },
   isEmpty(obj) { 
     for (var x in obj) { return false; }
     return true;
- },
- profilePageCompleted() {
-   console.log("firedddd")
-  if ((this.state.profile.firstName.length > 1) && 
-  (this.state.profile.lastName.length > 1) && 
-  (this.state.profile.dob != '') && 
-  (this.state.profile.heightFt != '') && 
-  (this.state.profile.heightIn != '') && 
-  (this.state.profile.weight != '') && 
-  (this.state.profile.phoneNumber.length >8) && 
-  (this.state.profile.gender != '') && 
-  (this.state.profile.activityLevel != '')) {
-        console.log("fired")
-        this.setState({formCompleted: true})
-  }
  },
   componentDidUpdate() {
     console.log(this.state)
@@ -277,6 +263,11 @@ var Main = createReactClass({
 
                      alertsData={this.state.alerts}
                      handleAlertsChange={this.handleAlertsChange}
+
+                     continue={this.continue}
+                     currentPage={this.state.currentPage}
+
+                     handlewatchMacChange={this.handlewatchMacChange}
                       />
         
         <Footer continue={this.continue}
