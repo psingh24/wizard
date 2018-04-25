@@ -449,6 +449,10 @@
     grid-area: contactListBTN;
 }
 
+.has-error .control-label, .has-success .control-label, .has-warning .control-label {
+    color: rgba(71, 181, 210, 1.0);
+}
+
 .titleName {
     margin:0;
     grid-area: titleName;
