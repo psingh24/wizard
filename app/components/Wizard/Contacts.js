@@ -366,8 +366,7 @@ var Contacts = createReactClass({
           ) : (
             <ButtonToolbar className="contactsSave">
               <Button bsStyle="primary" onClick={this.addContact}>
-                <span className="glyphicon glyphicon glyphicon-plus" /> Add To
-                Contacts
+                <span className="glyphicon glyphicon glyphicon-plus" /> Add Contact
               </Button>
             </ButtonToolbar>
           )}
@@ -395,10 +394,13 @@ var Contacts = createReactClass({
           <div className="resultEdit">{this.props.contactData.length <= 1 ? (
             ""
           ) : (
-            <Button onClick={() => this.deleteContact(i)} className="btnSmall contactListBTN btn btn-danger">Delete Button</Button>
+            <Button onClick={() => this.deleteContact(i)} className="btnSmall contactListBTN btn btn-danger">Delete</Button>
           )}
-        <Button onClick={() => this.editContact(i)} className="btnSmall contactListBTN btn btn-primary">Edit Button</Button></div>
+        <Button onClick={() => this.editContact(i)} className="btnSmall contactListBTN btn btn-primary">Edit</Button></div>
+        
+        <hr className="lineSeperator"/>
         </div>
+        
       );
     });
   },
@@ -455,8 +457,9 @@ var Contacts = createReactClass({
       content = (
         <div>
           {this.returnContacts()}
+          
           <Button
-            className="AddContact"
+            className="btn btn-danger"
             onClick={() => {
               this.props.contactFormLogic();
               this.clearState();

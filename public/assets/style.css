@@ -436,7 +436,8 @@
                          "titleContactMethod   resultContactMethod   resultEdit"
                          "titlePhone   resultPhone   resultEdit"
                          "titleEmail   resultEmail   resultEdit"
-                         "titleAddress   resultAddress   resultEdit";
+                         "titleAddress   resultAddress   resultEdit"
+                         "lineSeperator   lineSeperator   lineSeperator";
 }
 
 .resultEdit {
@@ -516,7 +517,7 @@
 .contactsResults {
     text-align: left;
     font-size: 0.9em;
-    padding: 10px 0;
+    padding: 0;
 }
 
 .structureFormAlerts {
@@ -598,10 +599,28 @@
                         "checkBox03   checkBox03Text   checkBox03Image";
 }
 
+.lineSeperator {
+    margin:0;
+    grid-area: lineSeperator;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgba(71, 181, 210, 1.0);
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+
+
+
+
 .disclaimer {
     margin:0;
     grid-area: disclaimer;
 }
+
+
 
 .noEthernetBTN {
     margin:0;
@@ -615,19 +634,30 @@
     display: block;
     width: 152px;
 }
-
+button {
+    padding: 6px 6px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 5px;;
+}
+.btn {
+    padding: 6px 6px;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
 .btnLarge {
     display: block;
     width: 300px;
     text-align: center;
     margin: auto;
 }
-
 .btnSmall {
-    display: block;
-    width: 120px;
+    display: inline-block;
+    width: 50px;
     text-align: center;
-    margin: auto;
+    margin: 10px 3px;
 }
 .watchCode {
     width: 200px;
@@ -654,5 +684,8 @@
 }
 .checkbox {
     margin: 0;
+}
+.textAlignMiddle span {
+    vertical-align: middle;
 }
 
