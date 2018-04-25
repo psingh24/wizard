@@ -7,7 +7,7 @@ var Link = require("react-router").Link;
 
 // import '../../../node_modules/react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 
-import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, FormControl, DropdownButton, MenuItem, Checkbox } from 'react-bootstrap';
 
 
 
@@ -190,6 +190,7 @@ var Profile = createReactClass({
             </FormControl>
             <FormControl.Feedback />
         </FormGroup>
+        {/* Activity Level */}
         <FormGroup validationState={this.props.validate("activityLevel")} className="activityLevel" >
             <ControlLabel className="formInputTitle">Activity Level *</ControlLabel>
             <FormControl componentClass="select" placeholder="Activity Level" name="activityLevel" value={this.props.profileData.activityLevel}
@@ -201,6 +202,13 @@ var Profile = createReactClass({
             </FormControl>
             <FormControl.Feedback />
         </FormGroup>
+
+        {/* Amazon Alexa */}
+        <FormGroup className="amazonAlexa">
+            <Checkbox name="abnormalHeartRateChecked" name="amazonAlexa" checked={this.props.profileData.amazonAlexa ? "checked" : false} onChange={this.props.handleProfileChange}>I would like to be identified by this number and this number can be used with Amazon Alexa.</Checkbox>
+        </FormGroup>
+
+
         {/* Physical Address */}
         <FormGroup className="address">
       <ControlLabel className="formInputTitle">Physical Address</ControlLabel>

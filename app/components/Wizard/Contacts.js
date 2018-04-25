@@ -10,7 +10,8 @@ import {
   DropdownButton,
   MenuItem,
   Button,
-  ButtonToolbar
+  ButtonToolbar,
+  Checkbox
 } from "react-bootstrap";
 
 var Contacts = createReactClass({
@@ -26,11 +27,16 @@ var Contacts = createReactClass({
       address: "",
       city: "",
       state: "",
-      zip: ""
+      zip: "",
+      shareContact: false
     };
   },
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.type === "checkbox") {
+      this.setState({ [e.target.name]: e.target.checked });
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
+    }
   },
   validate(id) {
     switch (id) {
@@ -222,6 +228,11 @@ var Contacts = createReactClass({
             <FormControl.Feedback />
           </FormGroup>
 
+           {/* Share contact */}
+        <FormGroup className="shareContact">
+            <Checkbox name="shareContact" checked={this.state.shareContact ? "checked" : false} onChange={this.handleChange}>Share Medical Information with this contact.</Checkbox>
+        </FormGroup>
+
           {/* Physical Address */}
           <FormGroup className="address">
             <ControlLabel className="formInputTitle">
@@ -331,6 +342,8 @@ var Contacts = createReactClass({
               />
               <FormControl.Feedback />
             </FormGroup>
+
+           
           </div>
 
           <ButtonToolbar className="contactsBack">
@@ -441,7 +454,8 @@ var Contacts = createReactClass({
       address: "",
       city: "",
       state: "",
-      zip: ""
+      zip: "",
+      shareContact: false
     });
   },
   render: function() {

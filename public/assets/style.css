@@ -292,6 +292,7 @@
                           "firstName   middleName   lastName"
                           "dob   height   weight"
                           "phone   gender   activityLevel"
+                          "amazonAlexa amazonAlexa amazonAlexa"
                           "address   city   stateZipcode";
 }
 .timezone {
@@ -358,6 +359,10 @@
       margin:0;
       grid-area: activityLevel;
 }
+.amazonAlexa {
+    margin: 0;
+    grid-area: amazonAlexa;
+}
 .address {
       margin:0;
       grid-area: address;
@@ -397,6 +402,7 @@
                           "firstName   middleName   lastName"
                           "email   phone   preferredContact"
                           "address   city   stateZipcode"
+                          "shareContact shareContact shareContact"
                           "contactsBack . contactsSave";
 }
 .relationship {
@@ -420,8 +426,10 @@
     grid-area: contactsSave;
     justify-self: end;
 }
-
-
+.shareContact {
+    margin:0;
+    grid-area: shareContact;
+}
 
 
 

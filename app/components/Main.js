@@ -33,6 +33,7 @@ var Main = createReactClass({
           phoneNumber: '',
           gender: '',
           activityLevel: '',
+          amazonAlexa: false,
           address: '',
           city: '',
           state: '',
@@ -127,11 +128,16 @@ var Main = createReactClass({
     }));
     
   },
-  handleProfileChange: function(e) {
+  handleProfileChange: function(evt) {
     var profile = Object.assign({}, this.state.profile);    //creating copy of object
-    profile[e.target.name] = e.target.value;                        //updating value
-    this.setState({profile});
-    this.profilePageCompleted()
+    if (evt.target.type === "checkbox") {
+      profile[evt.target.name] = evt.target.checked;                        //updating value
+      this.setState({profile});
+    } else {
+      profile[evt.target.name] = evt.target.value;                        //updating value
+      this.setState({profile});
+    }
+    // this.profilePageCompleted()
   },
   addContactsToState(data, mode, id) {
     if (mode === "add"){
