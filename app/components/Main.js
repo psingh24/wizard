@@ -44,8 +44,8 @@ var Main = createReactClass({
         SOS: "",
         abnormalHeartRate: "",
         abnormalHeartRateChecked: false,
-        max: 140,
-        min: 50,
+        max: '',
+        min: '',
         battery: '',
         batteryChecked: false
       },
@@ -109,10 +109,15 @@ var Main = createReactClass({
   }));
   },
   handleAlertsChange: function(evt) {
-    var alerts = Object.assign({}, this.state.alerts);    //creating copy of object
-    alerts[evt.target.name] = evt.target.value;                        //updating value
-    this.setState({alerts});
-
+    var alerts = Object.assign({}, this.state.alerts);
+    // console.log(evt.target)
+    if (evt.target.type === "checkbox") {
+      alerts[evt.target.name] = evt.target.checked;      //updating value
+      this.setState({alerts});
+   } else {
+      alerts[evt.target.name] = evt.target.value;      //updating value
+      this.setState({alerts});
+    }
   },
   handleEulaChange: function(evt) {
     var checked = evt.target.checked

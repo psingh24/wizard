@@ -32,7 +32,7 @@ var Alerts = createReactClass({
 
         {/* Abnormal Heart Rate */}
           
-            <div className="ahrCheckbox"><Checkbox name="abnormalHeartRateChecked" onChange={this.props.alertsData.abnormalHeartRateChecked}></Checkbox></div>
+            <div className="ahrCheckbox"><Checkbox name="abnormalHeartRateChecked" checked={this.props.alertsData.abnormalHeartRateChecked ? "checked" : false} onChange={this.props.handleAlertsChange}></Checkbox></div>
             <div className="abnormalHeartRate">Abnormal Heart Rate</div>
             <FormGroup className="ahrMessage">
               <FormControl
@@ -73,12 +73,13 @@ var Alerts = createReactClass({
 
         {/* VitalBand Low Battery */}
           
-            <div className="vblbCheckbox"><Checkbox name="battery" onChange={this.props.alertsData.batteryChecked}></Checkbox></div>
+            <div className="vblbCheckbox"><Checkbox name="batteryChecked" checked={this.props.alertsData.batteryChecked ? "checked" : false} onChange={this.props.handleAlertsChange}></Checkbox></div>
             <div className="vitalBandLowBattery">VitalBand Low Battery</div>
             <FormGroup className="vblbMessage">
               <FormControl
               type="text"
               name="battery"
+              placeholder="VitalBand battery is low"
               value={this.props.alertsData.battery}
               onChange={this.props.handleAlertsChange}
               />
