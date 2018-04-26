@@ -1,8 +1,9 @@
 // Inclue the React library
-var React = require("react");
+import React from 'react';
 
 // Include the react-router module
-var router = require("react-router");
+// import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
+// var router = require("react-router");
 
 import {
 Router,
@@ -16,11 +17,12 @@ import createBrowserHistory from 'history/createBrowserHistory'
 const history = createBrowserHistory()
 
 // Include the IndexRoute (catch-all route)
-var IndexRoute = router.IndexRoute;
+var IndexRoute = Router.IndexRoute;
 
 // Reference the high-level components
-var Main = require("../components/Main");
-var Test = require("../components/Test");
+
+import Main from '../components/Main.js'
+
 
 
 // Export the Routes
@@ -30,8 +32,6 @@ module.exports = (
 
 <div>
     <Route exact path="/" component={Main}/>
-    <Route path="/test" component={Test}/>
-   
 </div>
 </Router>
   
@@ -40,11 +40,3 @@ module.exports = (
 
 );
 
-
-// <Route path="saved" component={Saved} />
-
-// <BrowserRouter >
-//     <Route path="/" component={Main}/>
-
-//     <Route path="/" component={Main}/>
-//     </BrowserRouter>

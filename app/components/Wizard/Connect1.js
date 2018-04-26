@@ -1,16 +1,11 @@
-var React = require("react");
-var createReactClass = require("create-react-class");
-
-var Link = require("react-router").Link;
-
+import React from 'react';
 import { Button, Checkbox, Image } from 'react-bootstrap';
 
-var Connect1 = createReactClass({
-  render: function() {
-    return (
+export default function Connect1(props) {
+  return (
     <div className="connect02">
         <div className="disclaimer"><h1 className="content-center disclaimer">Please run through the check list and check each box before moving forward</h1></div>
-        <div className="noEthernetBTN"><Button onClick={() => {this.props.continue(1, this.props.currentPage)}} className="btnLarge noEthernetBTN" bsStyle="primary">NO ETHERNET?</Button></div>
+        <div className="noEthernetBTN"><Button onClick={() => {props.continue(1, props.currentPage)}} className="btnLarge noEthernetBTN" bsStyle="primary">NO ETHERNET?</Button></div>
         <div className="noEthernet"><p className="content-center-small noEthernet">Click here if you don't have the abilty to connect to an Ethernet cable to your router.</p></div>
 
 
@@ -30,7 +25,4 @@ var Connect1 = createReactClass({
      </div>
         
     );
-  }
-});
-
-module.exports = Connect1;
+}

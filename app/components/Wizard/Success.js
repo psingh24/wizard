@@ -1,17 +1,8 @@
-var React = require("react");
-var createReactClass = require("create-react-class");
-
-var Link = require("react-router").Link;
-
+import React from 'react';
 import { Button } from 'react-bootstrap';
 
-var Success = createReactClass({
-  render: function() {
-    return (
-     <div className="noEthernetBTN"><Button className="btnLarge" bsStyle="primary">GO TO DASHBAORD</Button></div>
-        
-    );
-  }
-});
-
-module.exports = Success;
+export default function Success() {
+  return (
+    <div className="noEthernetBTN"><Button className="btnLarge" bsStyle="primary">GO TO DASHBAORD</Button></div>
+   );
+}

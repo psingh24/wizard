@@ -1,21 +1,10 @@
-var React = require("react");
-var createReactClass = require("create-react-class");
-
-var Link = require("react-router").Link;
+import React from 'react';
 import { Image } from 'react-bootstrap';
 
-
-var Connect5 = createReactClass({
-  render: function() {
-    return (
-     <div>
-
-         <Image src="assets/image/hour-glass.svg" className="imageHourGlass"/>
-         
-     </div>
-        
-    );
-  }
-});
-
-module.exports = Connect5;
+export default function Connect5() {
+  return (
+    <div>
+        <Image src="assets/image/hour-glass.svg" className="imageHourGlass"/>     
+    </div>
+  )
+}

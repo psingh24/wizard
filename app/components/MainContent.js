@@ -1,23 +1,23 @@
-var React = require("react");
-var createReactClass = require("create-react-class");
-var Nav = require("./Nav");
-var Eula = require("./Wizard/Eula");
-var Profile = require("./Wizard/Profile");
-var Contacts = require("./Wizard/Contacts");
-var Alerts = require("./Wizard/Alerts");
-var Connect = require("./Wizard/Connect");
-var Connect1 = require("./Wizard/Connect1");
-var Connect2 = require("./Wizard/Connect2");
-var Connect3 = require("./Wizard/Connect3");
-var Connect4 = require("./Wizard/Connect4");
-var Connect5 = require("./Wizard/Connect5");
-var Success = require("./Wizard/Success");
+import React from 'react';
 
-var Link = require("react-router").Link;
+import Eula from './Wizard/Eula.js'
+import Profile from './Wizard/Profile.js'
+import Contacts from './Wizard/Contacts.js'
+import Alerts from './Wizard/Alerts.js'
+import Connect from './Wizard/Connect.js';
+import Connect1 from './Wizard/Connect1.js'
+import Connect2 from './Wizard/Connect2.js'
+import Connect3 from './Wizard/Connect3.js'
+import Connect4 from './Wizard/Connect4.js'
+import Connect5 from './Wizard/Connect5.js'
+import Success from './Wizard/Success.js'
 
 
-
-var MainContent = createReactClass({
+class MainContent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.whichPageToRender = this.whichPageToRender.bind(this);
+    }
     whichPageToRender(page) {
         switch (page) {
             case "Eula": {
@@ -111,27 +111,27 @@ var MainContent = createReactClass({
             }
         }
 
-    },
-    render: function() {
-    var nameOfComponent = this.props.page;
-    return (
-    <div className="main">
+    }
+    render() {
+        var nameOfComponent = this.props.page;
+        return (
+        <div className="main">
+    
+          <div className="menu1"><img src="assets/image/icon-menu.svg" alt=""/></div>
+    
+          <div className="">
+          </div>
+          <div className="content">
+            {/* <img src="assets/image/logo.svg" alt="" className="logo"/> */}
+    
+            {this.whichPageToRender(this.props.page)}
+          </div>
+          <div className="">
+          </div>
+        </div>
+        );
+      }
 
-      <div className="menu1"><img src="assets/image/icon-menu.svg" alt=""/></div>
+}
 
-      <div className="">
-      </div>
-      <div className="content">
-        {/* <img src="assets/image/logo.svg" alt="" className="logo"/> */}
-
-        {this.whichPageToRender(this.props.page)}
-      </div>
-      <div className="">
-      </div>
-    </div>
-    );
-  }
-});
-
-
-module.exports = MainContent;
+export default MainContent;

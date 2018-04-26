@@ -1,7 +1,4 @@
-var React = require("react");
-var createReactClass = require("create-react-class");
-
-var Link = require("react-router").Link;
+import React from 'react';
 import {
   Form,
   FormGroup,
@@ -14,9 +11,10 @@ import {
   Checkbox
 } from "react-bootstrap";
 
-var Contacts = createReactClass({
-  getInitialState: function() {
-    return {
+class Contacts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       firstName: "",
       middleName: "",
       lastName: "",
@@ -29,15 +27,25 @@ var Contacts = createReactClass({
       state: "",
       zip: "",
       shareContact: false
-    };
-  },
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.validate = this.validate.bind(this);
+    this.returnForm = this.returnForm.bind(this);
+    this.addContact = this.addContact.bind(this);
+    this.returnContacts = this.returnContacts.bind(this);
+    this.editContact = this.editContact.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
+    this.updateContact = this.updateContact.bind(this);
+    this.clearState = this.clearState.bind(this);
+    
+  }
   handleChange(e) {
     if (e.target.type === "checkbox") {
       this.setState({ [e.target.name]: e.target.checked });
     } else {
       this.setState({ [e.target.name]: e.target.value });
     }
-  },
+  }
   validate(id) {
     switch (id) {
       case "firstName": {
@@ -79,7 +87,7 @@ var Contacts = createReactClass({
         return null;
       }
     }
-  },
+  }
   addContact() {
     console.log("fired");
     var data = {
@@ -104,7 +112,7 @@ var Contacts = createReactClass({
         data = '';
         this.props.addContactsToState(data, "error");
     }
-  },
+  }
   returnForm() {
     return (
       <div className="form">
@@ -180,7 +188,7 @@ var Contacts = createReactClass({
 
           {/* Email */}
           <FormGroup validationState={this.validate("email")} className="email">
-            <ControlLabel className="formInputTitle">Email</ControlLabel>
+            <ControlLabel className="formInputTitle">Email *</ControlLabel>
             <FormControl
               type="text"
               name="email"
@@ -379,8 +387,9 @@ var Contacts = createReactClass({
         </Form>
       </div>
     );
-  },
+  }
   returnContacts() {
+    console.log("returnContacts")
     return this.props.contactData.map((contact, i) => {
       return (
         <div key={i} className="listContacts">
@@ -412,19 +421,19 @@ var Contacts = createReactClass({
         
       );
     });
-  },
+  }
   deleteContact(id) {
     this.props.deleteContact(id);
     if (this.props.contactData.length < 1) {
       this.props.contactFormLogic();
     }
-  },
+  }
   editContact(id) {
     this.props.handleEditModeContact(id, "editPage");
     var data = this.props.contactData[id];
     this.props.contactFormLogic();
     this.setState(data);
-  },
+  }
   updateContact() {
     var id = this.props.editMode[1];
     var data = {
@@ -443,7 +452,7 @@ var Contacts = createReactClass({
     this.props.addContactsToState(data, "edit", id);
     this.clearState();
     this.props.contactFormLogic();
-  },
+  }
   clearState() {
     this.setState({
       firstName: "",
@@ -459,8 +468,8 @@ var Contacts = createReactClass({
       zip: "",
       shareContact: false
     });
-  },
-  render: function() {
+  }
+  render() {
     var content;
     if (this.props.contactFormPage === 1) {
       console.log("true");
@@ -485,6 +494,6 @@ var Contacts = createReactClass({
     }
     return <div>{content}</div>;
   }
-});
+}
 
-module.exports = Contacts;
+export default Contacts;

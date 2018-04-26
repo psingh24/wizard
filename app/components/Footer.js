@@ -1,20 +1,22 @@
-import { HTML5_FMT } from "moment";
+import React from 'react';
+import {Link} from 'react-router';
 
-var React = require("react");
-var createReactClass = require("create-react-class");
-var Nav = require("./Nav");
-var Link = require("react-router").Link;
 
-var Footer = createReactClass({
+class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleContinue = this.handleContinue.bind(this);
+    this.handleBack = this.handleBack.bind(this);
+  }
   handleContinue() {
     event.preventDefault();
     this.props.continue(1, this.props.page);
-  },
+  }
   handleBack() {
     event.preventDefault();
     this.props.back(1);
-  },
-  render: function() {
+  }
+  render() {
     return (
       <div className="footer">
         <div className="event-back">
@@ -54,12 +56,10 @@ var Footer = createReactClass({
             </a>
           </div>
         )}
-        {/* <div className="event-forward">
-                <a className="footer-btn" onClick={this.handleContinue} href="#">Continue <span className="chevron-event"><img src="assets/image/icon-chevron-right.svg" className="chevron" alt=""/></span></a>
-            </div>  */}
       </div>
     );
   }
-});
 
-module.exports = Footer;
+}
+
+export default Footer;
