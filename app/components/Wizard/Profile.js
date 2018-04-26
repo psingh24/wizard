@@ -19,7 +19,7 @@ export default function Profile(props) {
    
    
            {/*timezone*/}
-           <FormGroup className="timezone">
+           <FormGroup className="timezoneRelationship">
            <ControlLabel className="formInputTitle">Timezone</ControlLabel>
            
            <FormControl componentClass="select" placeholder="Time Zone" name="timeZone" value={props.profileData.timezone}
@@ -62,7 +62,7 @@ export default function Profile(props) {
    
    
                    {/* firstName */}
-            <FormGroup validationState={props.validate('firstName')} className="firstName">
+            <FormGroup validationState={props.validate('firstName')} className="formPos01">
             <ControlLabel className="formInputTitle">First Name *</ControlLabel>
                 <FormControl
                 type="text"
@@ -75,7 +75,7 @@ export default function Profile(props) {
             </FormGroup>
    
                 {/*Middle Name*/}
-           <FormGroup className="middleName">
+           <FormGroup className="formPos02">
                <ControlLabel className="formInputTitle">Middle Name</ControlLabel>
                <FormControl
                type="text"
@@ -87,7 +87,7 @@ export default function Profile(props) {
                <FormControl.Feedback />
            </FormGroup>
                {/* Last Name */}
-           <FormGroup validationState={props.validate("lastName")} className="lastName">
+           <FormGroup validationState={props.validate("lastName")} className="formPos03">
                <ControlLabel className="formInputTitle">Last Name *</ControlLabel>
                <FormControl
                type="text"
@@ -101,14 +101,14 @@ export default function Profile(props) {
    
                {/* Date of Birth */}
            <FormGroup
-               validationState={props.validate("dob")} className="dob"
+               validationState={props.validate("dob")} className="formPos04"
            >
                <ControlLabel className="formInputTitle">Date of Birth *</ControlLabel>
                <FormControl id="date" type="date" name="dob" value={props.profileData.dob} onChange={props.handleProfileChange}/>
                <FormControl.Feedback />
            </FormGroup>
                {/* Height */}
-           <FormGroup validationState={props.validate("height")} className="height structureFormProfileHeight" >
+           <FormGroup validationState={props.validate("height")} className="formPos05 structureFormProfileHeight" >
                <ControlLabel className="formInputTitle">Height *</ControlLabel>
                <label className="feet"><FormControl componentClass="select" placeholder="feet" name="heightFt" value={props.profileData.heightFt}
            onChange={props.handleProfileChange}>
@@ -146,10 +146,7 @@ export default function Profile(props) {
                <FormControl.Feedback />
            </FormGroup>
                {/* Weight */}
-           <FormGroup
-               validationState={props.validate("weight")} className="weight"
-   
-           >
+           <FormGroup validationState={props.validate("weight")} className="formPos06">
                <ControlLabel className="formInputTitle">Weight(lbs) *</ControlLabel>
                <FormControl
                type="text"
@@ -161,10 +158,7 @@ export default function Profile(props) {
                <FormControl.Feedback />
            </FormGroup>
            {/* phone number */}
-           <FormGroup
-               validationState={props.validate("telephone")} className="phone"
-   
-           >
+           <FormGroup validationState={props.validate("telephone")} className="formPos07">
                <ControlLabel className="formInputTitle">Phone Number *</ControlLabel>
                <FormControl
                type="text"
@@ -176,7 +170,7 @@ export default function Profile(props) {
                <FormControl.Feedback />
            </FormGroup>
            {/* Gender */}
-           <FormGroup validationState={props.validate("gender")} className="gender" >
+           <FormGroup validationState={props.validate("gender")} className="formPos08" >
                <ControlLabel className="formInputTitle">Gender *</ControlLabel>
                <FormControl componentClass="select" placeholder="Gender" name="gender" value={props.profileData.gender}
            onChange={props.handleProfileChange} >
@@ -187,7 +181,7 @@ export default function Profile(props) {
                <FormControl.Feedback />
            </FormGroup>
            {/* Activity Level */}
-           <FormGroup validationState={props.validate("activityLevel")} className="activityLevel" >
+           <FormGroup validationState={props.validate("activityLevel")} className="formPos09" >
                <ControlLabel className="formInputTitle">Activity Level *</ControlLabel>
                <FormControl componentClass="select" placeholder="Activity Level" name="activityLevel" value={props.profileData.activityLevel}
            onChange={props.handleProfileChange} >
@@ -200,13 +194,12 @@ export default function Profile(props) {
            </FormGroup>
    
            {/* Amazon Alexa */}
-           <FormGroup className="amazonAlexa">
+           <FormGroup className="formTextCheck">
                <Checkbox name="abnormalHeartRateChecked" name="amazonAlexa" checked={props.profileData.amazonAlexa ? "checked" : false} onChange={props.handleProfileChange}>I would like to be identified by this number and this number can be used with Amazon Alexa.</Checkbox>
            </FormGroup>
-   
-   
+
            {/* Physical Address */}
-           <FormGroup className="address">
+           <FormGroup className="formPos10">
          <ControlLabel className="formInputTitle">Physical Address</ControlLabel>
              <FormControl
              type="text"
@@ -218,7 +211,7 @@ export default function Profile(props) {
          <FormControl.Feedback />
          </FormGroup>
          {/* City */}
-         <FormGroup className="city">
+         <FormGroup className="formPos11">
          <ControlLabel className="formInputTitle">City</ControlLabel>
          <FormControl
          type="text"
@@ -232,9 +225,7 @@ export default function Profile(props) {
    
          {/* State */}
    
-           <div className="stateZipcode">
-   
-   
+           <div className="formPos12 stateZipcode">
          <FormGroup className="state">
          <ControlLabel className="formInputTitle">State</ControlLabel>
          <FormControl componentClass="select" placeholder="State" name="state" value={props.profileData.state}
@@ -295,7 +286,6 @@ export default function Profile(props) {
          <FormControl.Feedback />
          </FormGroup>
    
-   
            {/* zip code */}
            <FormGroup className="zip">
          <ControlLabel className="formInputTitle">Zip Code</ControlLabel>
@@ -309,11 +299,6 @@ export default function Profile(props) {
          <FormControl.Feedback />
          </FormGroup>
          </div>
-   
-   
-   
-   
-   
    
          </Form>
    

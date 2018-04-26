@@ -118,7 +118,7 @@ class Contacts extends React.Component {
       <div className="form">
         <Form className="structureFormContacts">
           {/* Relationship */}
-          <FormGroup className="relationship">
+          <FormGroup className="timezoneRelationship">
             <ControlLabel className="formInputTitle">Relationship</ControlLabel>
             <FormControl
               componentClass="select"
@@ -144,7 +144,7 @@ class Contacts extends React.Component {
           {/* First Name */}
           <FormGroup
             validationState={this.validate("firstName")}
-            className="firstName"
+            className="formPos01"
           >
             <ControlLabel className="formInputTitle">First Name *</ControlLabel>
             <FormControl
@@ -158,7 +158,7 @@ class Contacts extends React.Component {
           </FormGroup>
 
           {/* Middle Name */}
-          <FormGroup className="middleName">
+          <FormGroup className="formPos02">
             <ControlLabel className="formInputTitle">Middle Name</ControlLabel>
             <FormControl
               type="text"
@@ -173,7 +173,7 @@ class Contacts extends React.Component {
           {/* Last Name */}
           <FormGroup
             validationState={this.validate("lastName")}
-            className="lastName"
+            className="formPos03"
           >
             <ControlLabel className="formInputTitle">Last Name *</ControlLabel>
             <FormControl
@@ -187,7 +187,7 @@ class Contacts extends React.Component {
           </FormGroup>
 
           {/* Email */}
-          <FormGroup validationState={this.validate("email")} className="email">
+          <FormGroup validationState={this.validate("email")} className="formPos04">
             <ControlLabel className="formInputTitle">Email *</ControlLabel>
             <FormControl
               type="text"
@@ -200,7 +200,7 @@ class Contacts extends React.Component {
           </FormGroup>
 
           {/* telephone */}
-          <FormGroup validationState={this.validate("telephone")} className="phone">
+          <FormGroup validationState={this.validate("telephone")} className="formPos05">
             <ControlLabel className="formInputTitle">Phone Number *</ControlLabel>
             <FormControl
               type="text"
@@ -215,7 +215,7 @@ class Contacts extends React.Component {
           {/* Perferred contact method */}
           <FormGroup
             validationState={this.validate("contactMethod")}
-            className="preferredContact"
+            className="formPos06"
           >
             <ControlLabel className="formInputTitle">
               Preferred Contact Method *
@@ -237,7 +237,7 @@ class Contacts extends React.Component {
           </FormGroup>
 
           {/* Physical Address */}
-          <FormGroup className="address">
+          <FormGroup className="formPos07">
             <ControlLabel className="formInputTitle">
               Physical Address
             </ControlLabel>
@@ -251,7 +251,7 @@ class Contacts extends React.Component {
             <FormControl.Feedback />
           </FormGroup>
           {/* City */}
-          <FormGroup className="city">
+          <FormGroup className="formPos08">
             <ControlLabel className="formInputTitle">City</ControlLabel>
             <FormControl
               type="text"
@@ -264,8 +264,13 @@ class Contacts extends React.Component {
           </FormGroup>
 
           {/* State */}
+     
 
-          <div className="stateZipcode">
+
+
+
+     
+          <div className="formPos09   stateZipcode">
             <FormGroup className="state">
               <ControlLabel className="formInputTitle">State</ControlLabel>
               <FormControl
@@ -349,11 +354,11 @@ class Contacts extends React.Component {
 
 
           {/* Share contact */}
-        <FormGroup className="shareContact">
+        <FormGroup className="formTextCheck">
             <Checkbox name="shareContact" checked={this.state.shareContact ? "checked" : false} onChange={this.handleChange}>Share Medical Information with this contact.</Checkbox>
         </FormGroup>
 
-          <ButtonToolbar className="contactsBack">
+          <ButtonToolbar className="formPos10">
             {this.props.contactData.length > 0 ? (
               <Button
                 bsStyle="info"
@@ -371,14 +376,14 @@ class Contacts extends React.Component {
           </ButtonToolbar>
 
           {this.props.editMode[0] ? (
-            <ButtonToolbar className="contactsSave">
+            <ButtonToolbar className="formPos12 contactsSave">
               <Button bsStyle="primary" onClick={this.updateContact}>
                 <span className="glyphicon glyphicon glyphicon-plus" /> Update
                 Contact
               </Button>
             </ButtonToolbar>
           ) : (
-            <ButtonToolbar className="contactsSave">
+            <ButtonToolbar className="formPos12">
               <Button bsStyle="primary" onClick={this.addContact}>
                 <span className="glyphicon glyphicon glyphicon-plus" /> Add Contact
               </Button>
