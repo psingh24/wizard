@@ -9,251 +9,224 @@
     grid: 1fr 50px / 300px 1fr;
     min-height: 100vh;
     grid-gap: 5px;
-    grid-template-areas: "sidebar  main"
-                         "footer   footer";
+    grid-template-areas:
+        "sidebar  main"
+        "footer   footer";
  }
 
  /* Master Page Grid Structure css */
- .aside {
-     grid-area: sidebar;
-     grid-column: 1/2;
-     background: rgba(71, 181, 210, 1.0);
-     padding: 0;
-     display: grid;
-     grid-template-columns: 1fr;
-     grid-template-rows: 1fr 280px;
-     grid-template-areas: "help-text"
-                          "wiz";
- }
- .main {
-     grid-area: main;
-     background: rgba(217, 240, 246, 1.0);
-     display: grid;
-     grid-template-columns: 1fr 800px 1fr;
-     grid-template-rows: 1fr;
-     grid-template-areas: ". content ." ;
-     padding: 0 20px;
- }
- .content {
-     grid-area: content;
-     width: 800px;
-     color: rgba(71, 181, 210, 1.0);
- }
-
- .footer {
-     grid-area: footer;
-     grid-column: 1/3;
-     display: grid;
-     grid-template-columns: 250px 1fr 250px;
-     grid-template-rows: 1fr;
-     background: rgba(255, 255, 255, 1.0);
-     grid-template-areas: "event-back  ......  event-forward";
-     padding: 0 20px;
- }
-
+.aside {
+    grid-area: sidebar;
+    grid-column: 1/2;
+    background: rgba(71, 181, 210, 1.0);
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 280px;
+    grid-template-areas:
+        "help-text"
+        "wiz";
+}
+.main {
+    grid-area: main;
+    background: rgba(217, 240, 246, 1.0);
+    display: grid;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". content ." ;
+    padding: 0 20px;
+}
+.content {
+    grid-area: content;
+    width: 800px;
+    color: rgba(71, 181, 210, 1.0);
+}
+.footer {
+    grid-area: footer;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    grid-template-rows: 1fr;
+    background: rgba(255, 255, 255, 1.0);
+    grid-template-areas: "event-back  ......  event-forward";
+    padding: 0 20px;
+}
 
 /* Global stye Guide Structure */
- p {
-     margin: 0;
-     display: block
- }
- h1 {
-     font-size: 1.3em;
-     text-align: center;
-     font-style: normal;
-     font-weight: normal;
-     padding: 0 0 20px 0;
- }
- a {
-     text-decoration: none!important;
-     color: rgba(0, 0, 0, 1.0);
- }
- a:hover {
-     text-decoration: none;
- }
- img {
-     display:block;
-     background-color: none;
-     border: none;
- }
- hr {
-     display: block;
-     height: 1px;
-     border: 0;
-     border-top: 1px solid rgba(71, 181, 210, 1.0);
-     margin: 1em 0;
-     padding: 0;
- }
- hr.hr-short {
-     display: block;
-     height: 1px;
-     width: 500px;
-     border: 0;
-     border-top: 1px solid rgba(71, 181, 210, 1.0);
-     margin: 0 auto;
-     padding: 0;
- }
- .content-center {
+p {
+    margin: 0;
+    display: block;
+    padding: 10px 0;
+}
+h1 {
+    font-size: 1.3em;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    padding: 0 0 20px 0;
+}
+a {
+    text-decoration: none!important;
+    color: rgb(253, 87, 57, 1.0)
+}
+a:hover {
+    color: rgba(71, 181, 210, 1.0);
+    text-decoration: none;
+}
+img {
+    display:block;
+    background-color: none;
+    border: none;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgba(71, 181, 210, 1.0);
+    margin: 1em 0;
+    padding: 0;
+}
+hr.hr-short {
+    display: block;
+    height: 1px;
+    width: 500px;
+    border: 0;
+    border-top: 1px solid rgba(71, 181, 210, 1.0);
+    margin: 0 auto;
+    padding: 0;
+}
+.content-center {
     text-align: center;
     padding: 10px 0;
 }
+.content-center-small {
+    text-align: center;
+    font-size: 0.7em;
+    display: block;
+    padding: 10px 0;
+}
+.content-center img {
+    display: inline-block;
+    vertical-align: middle;
+}
 
+/* Aside Bar - Wizard Area */
+.help-text {
+    align-items: start;
+    padding: 25px;
+}
+.help-text p {
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+}
+.wiz {
+    padding: 0 0 10px 0;
+    margin: 0;
+    display: block;
+}
+.wizard-img {
+    margin: auto;
+    height: 270px;
+    display: block;
+}
+
+/* Footer Page css */
+a.btn-sub {
+    text-decoration: none;
+    text-align: center;
+    color: rgba(31, 55, 119, 1.0);
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: normal;
+    margin:0;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.event-back {
+    grid-area: event-back;
+    grid-column: 1/2;
+    display: grid;
+    align-self: center;
+}
+.event-forward {
+    grid-area: event-forward;
+    grid-column: 3/4;
+    display: grid;
+    align-self: center;
+    text-align: right;
+}
+.chevron-event {
+    background: rgba(0, 0, 0, 1.0);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align:center;
+}
+.chevron {
+    width: 8px;
+    display: inline-block;
+}
+.event-back:hover .chevron-event, .event-forward:hover .chevron-event  {
+    background: rgba(71, 181, 210, 1.0);
+}
+.footer-btn .footer-btn:visited {
+    text-decoration: none;
+}
+.footer-btn:hover {
+    color: rgba(71, 181, 210, 1.0);
+    text-decoration: none;
+}
 .errorMessage {
     text-align: center;
     font-size: 0.9em;
     color: rgba(255, 0, 0, 1.0);
     padding: 10px 0;
 }
- .content-center-small {
-     text-align: center;
-     font-size: 0.7em;
-     display: block;
-     padding: 10px 0;
- }
- .content-left {
-     padding: 10px 0;
- }
- .content-center img {
-     display: inline-block;
-     vertical-align: middle;
- }
- /* Aside Bar - Wizard Area */
- .help-text {
-     align-items: start;
-     padding: 25px;
- }
- .help-text p {
-     line-height: 26px;
-     margin: 0;
-     padding: 0;
- }
- .wiz {
-     padding: 0;
-     margin: 0;
-     display: block;
- }
- .wizard-img {
-     margin: auto;
-     height: 280px;
-     display: block;
- }
 
- /* Hamburger css */
- .menu1 {
-     position: absolute;
-     right: 0px;
-     padding: 10px;
-     color: black;
- }
- .menu {
-     background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjhweCIgaGVpZ2h0PSIyOHB4IiB2aWV3Qm94PSIwIDAgMjggMjgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5BcnRib2FyZDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxwYXRoIGQ9Ik01LjUsMTkgTDIyLjUsMTkgQzIzLjMyODQyNzEsMTkgMjQsMTkuNjcxNTcyOSAyNCwyMC41IEMyNCwyMS4zMjg0MjcxIDIzLjMyODQyNzEsMjIgMjIuNSwyMiBMNS41LDIyIEM0LjY3MTU3Mjg4LDIyIDQsMjEuMzI4NDI3MSA0LDIwLjUgQzQsMTkuNjcxNTcyOSA0LjY3MTU3Mjg4LDE5IDUuNSwxOSBaIE01LjUsMTMgTDIyLjUsMTMgQzIzLjMyODQyNzEsMTMgMjQsMTMuNjcxNTcyOSAyNCwxNC41IEMyNCwxNS4zMjg0MjcxIDIzLjMyODQyNzEsMTYgMjIuNSwxNiBMNS41LDE2IEM0LjY3MTU3Mjg4LDE2IDQsMTUuMzI4NDI3MSA0LDE0LjUgQzQsMTMuNjcxNTcyOSA0LjY3MTU3Mjg4LDEzIDUuNSwxMyBaIE01LjUsNyBMMjIuNSw3IEMyMy4zMjg0MjcxLDcgMjQsNy42NzE1NzI4OCAyNCw4LjUgQzI0LDkuMzI4NDI3MTIgMjMuMzI4NDI3MSwxMCAyMi41LDEwIEw1LjUsMTAgQzQuNjcxNTcyODgsMTAgNCw5LjMyODQyNzEyIDQsOC41IEM0LDcuNjcxNTcyODggNC42NzE1NzI4OCw3IDUuNSw3IFoiIGlkPSJwYXRoLTEiPjwvcGF0aD4KICAgIDwvZGVmcz4KICAgIDxnIGlkPSJBcnRib2FyZCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stMiIgZmlsbD0id2hpdGUiPgogICAgICAgICAgICA8dXNlIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPgogICAgICAgIDwvbWFzaz4KICAgICAgICA8dXNlIGlkPSJNYXNrIiBmaWxsPSIjRkZGRkZGIiB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4KICAgIDwvZz4KPC9zdmc+');
-     width: 28px;
-     height: 28px;
-     background-size: 28px 28px;
-     fill: black;
-     display: block;
- }
- .menu:hover {
-     cursor: pointer;
-     filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
- }
+/* Hamburger css */
+.menu1 {
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+    color: black;
+}
+.menu {
+    background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjhweCIgaGVpZ2h0PSIyOHB4IiB2aWV3Qm94PSIwIDAgMjggMjgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5BcnRib2FyZDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxwYXRoIGQ9Ik01LjUsMTkgTDIyLjUsMTkgQzIzLjMyODQyNzEsMTkgMjQsMTkuNjcxNTcyOSAyNCwyMC41IEMyNCwyMS4zMjg0MjcxIDIzLjMyODQyNzEsMjIgMjIuNSwyMiBMNS41LDIyIEM0LjY3MTU3Mjg4LDIyIDQsMjEuMzI4NDI3MSA0LDIwLjUgQzQsMTkuNjcxNTcyOSA0LjY3MTU3Mjg4LDE5IDUuNSwxOSBaIE01LjUsMTMgTDIyLjUsMTMgQzIzLjMyODQyNzEsMTMgMjQsMTMuNjcxNTcyOSAyNCwxNC41IEMyNCwxNS4zMjg0MjcxIDIzLjMyODQyNzEsMTYgMjIuNSwxNiBMNS41LDE2IEM0LjY3MTU3Mjg4LDE2IDQsMTUuMzI4NDI3MSA0LDE0LjUgQzQsMTMuNjcxNTcyOSA0LjY3MTU3Mjg4LDEzIDUuNSwxMyBaIE01LjUsNyBMMjIuNSw3IEMyMy4zMjg0MjcxLDcgMjQsNy42NzE1NzI4OCAyNCw4LjUgQzI0LDkuMzI4NDI3MTIgMjMuMzI4NDI3MSwxMCAyMi41LDEwIEw1LjUsMTAgQzQuNjcxNTcyODgsMTAgNCw5LjMyODQyNzEyIDQsOC41IEM0LDcuNjcxNTcyODggNC42NzE1NzI4OCw3IDUuNSw3IFoiIGlkPSJwYXRoLTEiPjwvcGF0aD4KICAgIDwvZGVmcz4KICAgIDxnIGlkPSJBcnRib2FyZCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stMiIgZmlsbD0id2hpdGUiPgogICAgICAgICAgICA8dXNlIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPgogICAgICAgIDwvbWFzaz4KICAgICAgICA8dXNlIGlkPSJNYXNrIiBmaWxsPSIjRkZGRkZGIiB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4KICAgIDwvZz4KPC9zdmc+');
+    width: 28px;
+    height: 28px;
+    background-size: 28px 28px;
+    fill: black;
+    display: block;
+}
+.menu:hover {
+    cursor: pointer;
+    filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
 
-
-
-
-
-
-
-
-/* Footer Page css */
- a.btn-sub {
-     text-decoration: none;
-     text-align: center;
-     color: rgba(31, 55, 119, 1.0);
-     font-size: 1.5em;
-     font-style: normal;
-     font-weight: normal;
-     margin:0;
-     display: inline-block;
-     margin-left: auto;
-     margin-right: auto;
- }
- .event-back {
-     grid-area: event-back;
-     grid-column: 1/2;
-     display: grid;
-     align-self: center;
- }
- .event-forward {
-     grid-area: event-forward;
-     grid-column: 3/4;
-     display: grid;
-     align-self: center;
-     text-align: right;
- }
- .chevron-event {
-     background: rgba(0, 0, 0, 1.0);
-     width: 28px;
-     height: 28px;
-     border-radius: 50%;
-     display: inline-block;
-     text-align:center;
- }
- .chevron {
-     width: 8px;
-     display: inline-block;
- }
- .event-back:hover .chevron-event, .event-forward:hover .chevron-event  {
-     background: rgba(71, 181, 210, 1.0);
- }
- .footer-btn .footer-btn:visited {
-     text-decoration: none;
- }
- .footer-btn:hover {
-     color: rgba(71, 181, 210, 1.0);
-     text-decoration: none;
- }
-
-
-
-
-
-
-
-
- .logo {
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-     height: 120px;
-     padding: 20px 0;
- }
- .icon {
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-     height: 120px;
-     padding: 20px 0;
- }
-
-
-
-/* EULA Page css */
- ul {
-     list-style-type: none;
-     margin: 0;
-     padding: 0;
-     width: 60px;
- }
-
- li a {
-     display: block;
- }
-
-
-
-
-
+/* Profile EULA Page css */
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    padding: 20px 0;
+}
+.icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    padding: 20px 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li~li { border-bottom: 1px solid #000000 }
 
 /* Form Standard Elements */
 .formInputTitle {
@@ -263,7 +236,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 .has-feedback label~.form-control-feedback {
     font-size: .6em;
     position: absolute;
@@ -275,9 +247,7 @@
     width: 22px;
     height: 22px;
     pointer-events: none;
-
 }
-
 
 /* Profile Page */
 .structureFormProfile {
@@ -288,107 +258,108 @@
     display: grid;
     grid-template-columns: 242px 244px 242px;
     grid-gap: 14px 36px;
-    grid-template-areas:  ". timezone  ."
-                          "firstName   middleName   lastName"
-                          "dob   height   weight"
-                          "phone   gender   activityLevel"
-                          "amazonAlexa amazonAlexa amazonAlexa"
-                          "address   city   stateZipcode";
+    grid-template-areas:
+        ". timezone  ."
+        "firstName   middleName   lastName"
+        "dob   height   weight"
+        "phone   gender   activityLevel"
+        "amazonAlexa amazonAlexa amazonAlexa"
+        "address   city   stateZipcode";
 }
 .timezone {
-      margin:0;
-      grid-area: timezone;
+    margin:0;
+    grid-area: timezone;
 }
 .firstName {
-      margin:0;
-      grid-area: firstName;
+    margin:0;
+    grid-area: firstName;
 }
 .middleName {
-      margin:0;
-      grid-area: middleName;
+    margin:0;
+    grid-area: middleName;
 }
 .lastName {
-      margin:0;
-      grid-area: lastName;
+    margin:0;
+    grid-area: lastName;
 }
 .dob {
-      margin:0;
-      grid-area: dob;
+    margin:0;
+    grid-area: dob;
 }
 .height {
-      margin:0;
-      grid-area: height;
+    margin:0;
+    grid-area: height;
 }
 .structureFormProfileHeight {
     display: grid;
     grid-template-columns: 112px 112px;
     grid-gap: 0 10px;
     align-self: start;
-    grid-template-areas:  "title   title"
-                          "feet   inch";
+    grid-template-areas:
+        "title   title"
+        "feet   inch";
 }
 .feet {
-      margin:0;
-      grid-area: feet;
-      grid-column: 1/2;
-      font-size: .9em;
-      font-weight: normal;
-      font-style: normal;
+    margin:0;
+    grid-area: feet;
+    grid-column: 1/2;
+    font-size: .9em;
+    font-weight: normal;
+    font-style: normal;
 }
 .inch {
-      margin:0;
-      grid-area: inch;
-      grid-column: 2/3;
-      font-size: .9em;
-      font-weight: normal;
-      font-style: normal;
+    margin:0;
+    grid-area: inch;
+    grid-column: 2/3;
+    font-size: .9em;
+    font-weight: normal;
+    font-style: normal;
 }
 .weight {
-      margin:0;
-      grid-area: weight;
+    margin:0;
+    grid-area: weight;
 }
 .phone {
-      margin:0;
-      grid-area: phone;
+    margin:0;
+    grid-area: phone;
 }
 .gender {
-      margin:0;
-      grid-area: gender;
+    margin:0;
+    grid-area: gender;
 }
 .activityLevel {
-      margin:0;
-      grid-area: activityLevel;
+    margin:0;
+    grid-area: activityLevel;
 }
 .amazonAlexa {
     margin: 0;
     grid-area: amazonAlexa;
 }
 .address {
-      margin:0;
-      grid-area: address;
+    margin:0;
+    grid-area: address;
 }
 .city {
-      margin:0;
-      grid-area: city;
+    margin:0;
+    grid-area: city;
 }
 .stateZipcode {
-      grid-area: stateZipcode;
-      display: grid;
-      grid-template-columns: 116px 116px;
-      grid-gap: 0 10px;
-      grid-template-areas:  "title   title"
-                            "state   zip";
+    grid-area: stateZipcode;
+    display: grid;
+    grid-template-columns: 116px 116px;
+    grid-gap: 0 10px;
+    grid-template-areas:
+        "title   title"
+        "state   zip";
 }
 .state {
-      margin:0;
-      grid-area: state;
+    margin:0;
+    grid-area: state;
 }
 .zip {
-      margin:0;
-      grid-area: zip;
+    margin:0;
+    grid-area: zip;
 }
-
-
 
 /* Contact Form Page */
 .structureFormContacts {
@@ -398,12 +369,13 @@
     display: grid;
     grid-template-columns: 242px 244px 242px;
     grid-gap: 14px 36px;
-    grid-template-areas: ". relationship  ."
-                          "firstName   middleName   lastName"
-                          "email   phone   preferredContact"
-                          "address   city   stateZipcode"
-                          "shareContact shareContact shareContact"
-                          "contactsBack . contactsSave";
+    grid-template-areas:
+        ". relationship  ."
+        "firstName   middleName   lastName"
+        "email   phone   preferredContact"
+        "address   city   stateZipcode"
+        "shareContact shareContact shareContact"
+        "contactsBack . contactsSave";
 }
 .relationship {
     margin:0;
@@ -431,24 +403,22 @@
     grid-area: shareContact;
 }
 
-
-
 /* the other grid-template-rows css */
 .listContacts {
     margin:0;
     display: grid;
     grid-template-columns: 100px 560px 120px;
     grid-gap: 10px;
-    grid-template-areas: "titleName   resultName   resultEdit"
-                         "titleRelationship   resultRelationship   resultEdit"
-                         "titleContactMethod   resultContactMethod   resultEdit"
-                         "titlePhone   resultPhone   resultEdit"
-                         "titleEmail   resultEmail   resultEdit"
-                         "titleAddress   resultAddress1   resultEdit"
-                         ".   resultAddress2   resultEdit"
-                         "lineSeperator   lineSeperator   lineSeperator";
+    grid-template-areas:
+        "titleName   resultName   resultEdit"
+        "titleRelationship   resultRelationship   resultEdit"
+        "titleContactMethod   resultContactMethod   resultEdit"
+        "titlePhone   resultPhone   resultEdit"
+        "titleEmail   resultEmail   resultEdit"
+        "titleAddress   resultAddress1   resultEdit"
+        ".   resultAddress2   resultEdit"
+        "lineSeperator   lineSeperator   lineSeperator";
 }
-
 .resultEdit {
     margin:0;
     grid-area: resultEdit;
@@ -457,11 +427,9 @@
     margin:0;
     grid-area: contactListBTN;
 }
-
 .has-error .control-label, .has-success .control-label, .has-warning .control-label {
     color: rgba(71, 181, 210, 1.0);
 }
-
 .titleName {
     margin:0;
     grid-area: titleName;
@@ -527,36 +495,30 @@
     grid-area: resultAddress2;
     color: black;
 }
-
-
-
-
-
 .contactsResults {
     text-align: left;
     font-size: 0.9em;
     padding: 0;
 }
-
 .structureFormAlerts {
     margin:0;
     display: grid;
     grid-template-columns: 50px 300px 410px;
     grid-gap: 10px;
-    grid-template-areas: "enable   feature   message"
-                        "sosCheckbox   sos   sosMessage"
-                        "ahrCheckbox   abnormalHeartRate   ahrMessage"
-                        ".   .   ahrHeartRate"
-                        "vblbCheckbox   vitalBandLowBattery   vblbMessage";
+    grid-template-areas:
+        "enable   feature   message"
+        "sosCheckbox   sos   sosMessage"
+        "ahrCheckbox   abnormalHeartRate   ahrMessage"
+        ".   .   ahrHeartRate"
+        "vblbCheckbox   vitalBandLowBattery   vblbMessage";
 }
-
 .ahrHeartRate {
-      grid-area: ahrHeartRate;
-      display: grid;
-      padding: 10px 0 0 0;
-      grid-template-columns: 200px 200px;
-      grid-gap: 0 10px;
-      grid-template-areas:  "hrMin   hrMax";
+    grid-area: ahrHeartRate;
+    display: grid;
+    padding: 10px 0 0 0;
+    grid-template-columns: 200px 200px;
+    grid-gap: 0 10px;
+    grid-template-areas: "hrMin   hrMax";
 }
 .hrMin {
     font-size: .8em;
@@ -570,11 +532,9 @@
     font-weight: normal;
     font-style: normal;
     margin:0;
-      padding: 0;
-      grid-area: hrMax;
+    padding: 0;
+    grid-area: hrMax;
 }
-
-
 .connect01 {
     margin:0;
     display: grid;
@@ -598,25 +558,23 @@
     display: block;
     width: 152px;
 }
-
 .image05 {
     display: block;
     width: 152px;
 }
-
 .connect02 {
     margin:0;
     display: grid;
     grid-template-columns: 25px 603px 152px;
     grid-gap: 10px;
-    grid-template-areas: "disclaimer   disclaimer   disclaimer"
-                        "noEthernetBTN   noEthernetBTN   noEthernetBTN"
-                        "noEthernet   noEthernet   noEthernet"
-                        "checkBox01   checkBox01Text   checkBox01Image"
-                        "checkBox02   checkBox02Text   checkBox02Image"
-                        "checkBox03   checkBox03Text   checkBox03Image";
+    grid-template-areas:
+        "disclaimer   disclaimer   disclaimer"
+        "noEthernetBTN   noEthernetBTN   noEthernetBTN"
+        "noEthernet   noEthernet   noEthernet"
+        "checkBox01   checkBox01Text   checkBox01Image"
+        "checkBox02   checkBox02Text   checkBox02Image"
+        "checkBox03   checkBox03Text   checkBox03Image";
 }
-
 .lineSeperator {
     margin:0;
     grid-area: lineSeperator;
@@ -627,19 +585,10 @@
     margin: 1em 0;
     padding: 0;
 }
-
-
-
-
-
-
 .disclaimer {
     margin:0;
     grid-area: disclaimer;
 }
-
-
-
 .noEthernetBTN {
     margin:0;
     grid-area: noEthernetBTN;
@@ -683,13 +632,11 @@ button {
     padding: 0;
     text-align: center;
 }
-
 .imageWatchCode {
     display: block;
     width: 100%;
     padding: 20px 0;
 }
-
 .imageSmartPhone {
     display: block;
     width: 300px;
@@ -706,4 +653,3 @@ button {
 .textAlignMiddle span {
     vertical-align: middle;
 }
-

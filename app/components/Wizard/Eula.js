@@ -6,6 +6,13 @@ export default function Eula(props) {
     <div>
      <h1 className="content-center">Vital to your health, vital to your peace of mind, vital to YOU.</h1>
      <p className="content-center-small">( Please review and agree to our terms of use. )</p>
+     
+     <ul>
+        <li><a className="" href="#"><img src="assets/image/icon-folder.svg" alt=""/> Terms & Conditions</a></li>
+        <li><a className="" href="#"><img src="assets/image/icon-folder.svg" alt=""/> Privacy Policy</a></li>
+        <li><a className="" href="#"><img src="assets/image/icon-folder.svg" alt=""/> EULA</a></li>
+      </ul>
+     
      <hr className="hr-short"/>
      <p className="content-center">
          <img src="assets/image/icon-folder.svg" alt=""/> Terms & Conditions</p>
