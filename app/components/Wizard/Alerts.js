@@ -1,7 +1,6 @@
 import React from 'react';
 import { Checkbox, Table, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
-
 export default function Alerts(props) {
   return (
     <div className="structureFormAlerts">
@@ -9,7 +8,6 @@ export default function Alerts(props) {
       <div className="enable formInputTitle">Enable</div>
       <div className="feature formInputTitle">Feature</div>
       <div className="message formInputTitle">Message</div>
-
 
       {/* SOS */}
 
@@ -24,7 +22,6 @@ export default function Alerts(props) {
           onChange={props.handleAlertsChange}
         />
       </FormGroup>
-
 
       {/* Abnormal Heart Rate */}
 
@@ -63,7 +60,6 @@ export default function Alerts(props) {
           </FormGroup>
         </div>
       </FormGroup>
-
 
       {/* VitalBand Low Battery */}
 

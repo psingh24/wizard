@@ -100,7 +100,7 @@ class MainContent extends React.Component {
                     </div>
                 );
             }
-            case "Sucess": {
+            case "Success": {
                 return (
                     <div>
                         <h1>Rediecting to Dashboard...</h1>

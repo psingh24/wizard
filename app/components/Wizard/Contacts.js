@@ -264,12 +264,6 @@ class Contacts extends React.Component {
           </FormGroup>
 
           {/* State */}
-     
-
-
-
-
-     
           <div className="formPos09   stateZipcode">
             <FormGroup className="state">
               <ControlLabel className="formInputTitle">State</ControlLabel>
@@ -352,7 +346,6 @@ class Contacts extends React.Component {
             </FormGroup>
           </div>
 
-
           {/* Share contact */}
         <FormGroup className="formTextCheck">
             <Checkbox name="shareContact" checked={this.state.shareContact ? "checked" : false} onChange={this.handleChange}>Share Medical Information with this contact.</Checkbox>
@@ -383,7 +376,7 @@ class Contacts extends React.Component {
               </Button>
             </ButtonToolbar>
           ) : (
-            <ButtonToolbar className="formPos12">
+            <ButtonToolbar className="formPos12 alignRight">
               <Button bsStyle="primary" onClick={this.addContact}>
                 <span className="glyphicon glyphicon glyphicon-plus" /> Add Contact
               </Button>
@@ -483,7 +476,7 @@ class Contacts extends React.Component {
           {this.returnContacts()}
           
           <Button
-            className="btn btn-danger"
+            className="btn btn-danger alignRight"
             onClick={() => {
               this.props.contactFormLogic();
               this.clearState();
