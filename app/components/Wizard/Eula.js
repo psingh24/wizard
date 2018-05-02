@@ -13,8 +13,8 @@ export default function Eula(props) {
         <li><a className="" href="#"><img src="assets/image/icon-folder.svg" alt=""/> EULA</a></li>
       </ul>
       
-     {props.EulaCompleted ? <div></div> : <p className="content-center-small gap">* Please read the documents and check the box to continue *</p>}
-     <div className="content-center-small"><Checkbox checked={props.EulaCompleted ? "checked": false} onChange={props.handleChange}>  I agree to the terms and Conditions laid out in the above documents</Checkbox></div>
+     {props.EulaCompleted ? <div></div> : <p className="content-center-small">* Please read the documents and check the box to continue *</p>}
+     <div className="content-center-small gap"><Checkbox checked={props.EulaCompleted ? "checked": false} onChange={props.handleChange}>  I agree to the terms and Conditions laid out in the above documents</Checkbox></div>
 
        </div>
 

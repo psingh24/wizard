@@ -1,673 +1,5 @@
 @media only screen and (min-width: 601px) {
     .Grid {
-    font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
-    font-size: 1.3em;
-    font-style: normal;
-    background: #ffffff;
-    margin:0;
-    color: rgba(255, 255, 255, 1.0);
-    display: grid;
-    grid: 1fr 50px / 300px 1fr;
-    min-height: 100vh;
-    grid-gap: 5px;
-    grid-template-areas:
-        "sidebar  main"
-        "footer   footer";
- }
-
- /* Master Page Grid Structure css */
-.aside {
-    grid-area: sidebar;
-    grid-column: 1/2;
-    background: rgba(71, 181, 210, 1.0);
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 280px;
-    grid-template-areas:
-        "help-text"
-        "wiz";
-}
-.main {
-    grid-area: main;
-    background: rgba(217, 240, 246, 1.0);
-    display: grid;
-    grid-template-columns: 1fr 800px 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: ". content ." ;
-    padding: 0 20px;
-}
-.content {
-    grid-area: content;
-    width: 800px;
-    color: rgba(71, 181, 210, 1.0);
-}
-.footer {
-    grid-area: footer;
-    grid-column: 1/3;
-    display: grid;
-    grid-template-columns: 250px 1fr 250px;
-    grid-template-rows: 1fr;
-    background: rgba(255, 255, 255, 1.0);
-    grid-template-areas: "event-back  ......  event-forward";
-    padding: 0 20px;
-}
-
-/* Global stye Guide Structure */
-p {
-    margin: 0;
-    display: block;
-    padding: 10px 0;
-}
-h1 {
-    font-size: 1.3em;
-    text-align: center;
-    font-style: normal;
-    font-weight: normal;
-    padding: 0 0 20px 0;
-}
-a {
-    text-decoration: none!important;
-    color: rgb(253, 87, 57, 1.0);
-}
-a:hover {
-    color: rgba(71, 181, 210, 1.0);
-    text-decoration: none;
-}
-img {
-    display: inline-block;
-    background-color: none;
-    border: none;
-}
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid rgba(71, 181, 210, 1.0);
-    margin: 1em 0;
-    padding: 0;
-}
-hr.hr-short {
-    display: block;
-    height: 1px;
-    width: 500px;
-    border: 0;
-    border-top: 1px solid rgba(71, 181, 210, 1.0);
-    margin: 0 auto;
-    padding: 0;
-}
-.content-center {
-    text-align: center;
-    padding: 10px 0;
-}
-.content-center-small {
-    text-align: center;
-    font-size: 0.7em;
-    display: block;
-    padding: 10px 0;
-}
-.content-center img {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* Aside Bar - Wizard Area */
-.help-text {
-    align-items: start;
-    padding: 25px;
-}
-.help-text p {
-    line-height: 26px;
-    margin: 0;
-    padding: 0;
-}
-.wiz {
-    padding: 0 0 10px 0;
-    margin: 0;
-    display: block;
-}
-.wizard-img {
-    margin: auto;
-    height: 270px;
-    display: block;
-}
-
-/* Footer Page css */
-a.btn-sub {
-    text-decoration: none;
-    text-align: center;
-    color: rgba(31, 55, 119, 1.0);
-    font-size: 1.5em;
-    font-style: normal;
-    font-weight: normal;
-    margin:0;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.event-back {
-    grid-area: event-back;
-    grid-column: 1/2;
-    display: grid;
-    align-self: center;
-}
-.event-forward {
-    grid-area: event-forward;
-    grid-column: 3/4;
-    display: grid;
-    align-self: center;
-    text-align: right;
-}
-.chevron-event {
-    background: rgba(0, 0, 0, 1.0);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: inline-block;
-    text-align:center;
-}
-.chevron {
-    width: 8px;
-    display: inline-block;
-}
-.event-back:hover .chevron-event, .event-forward:hover .chevron-event  {
-    background: rgba(71, 181, 210, 1.0);
-}
-.footer-btn .footer-btn:visited {
-    text-decoration: none;
-}
-.footer-btn:hover {
-    color: rgba(71, 181, 210, 1.0);
-    text-decoration: none;
-}
-.errorMessage {
-    text-align: center;
-    font-size: 0.9em;
-    color: rgba(255, 0, 0, 1.0);
-    padding: 10px 0;
-}
-
-/* Hamburger css */
-.menu1 {
-    position: absolute;
-    right: 0px;
-    padding: 10px;
-    color: black;
-}
-.menu {
-    background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjhweCIgaGVpZ2h0PSIyOHB4IiB2aWV3Qm94PSIwIDAgMjggMjgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5BcnRib2FyZDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxwYXRoIGQ9Ik01LjUsMTkgTDIyLjUsMTkgQzIzLjMyODQyNzEsMTkgMjQsMTkuNjcxNTcyOSAyNCwyMC41IEMyNCwyMS4zMjg0MjcxIDIzLjMyODQyNzEsMjIgMjIuNSwyMiBMNS41LDIyIEM0LjY3MTU3Mjg4LDIyIDQsMjEuMzI4NDI3MSA0LDIwLjUgQzQsMTkuNjcxNTcyOSA0LjY3MTU3Mjg4LDE5IDUuNSwxOSBaIE01LjUsMTMgTDIyLjUsMTMgQzIzLjMyODQyNzEsMTMgMjQsMTMuNjcxNTcyOSAyNCwxNC41IEMyNCwxNS4zMjg0MjcxIDIzLjMyODQyNzEsMTYgMjIuNSwxNiBMNS41LDE2IEM0LjY3MTU3Mjg4LDE2IDQsMTUuMzI4NDI3MSA0LDE0LjUgQzQsMTMuNjcxNTcyOSA0LjY3MTU3Mjg4LDEzIDUuNSwxMyBaIE01LjUsNyBMMjIuNSw3IEMyMy4zMjg0MjcxLDcgMjQsNy42NzE1NzI4OCAyNCw4LjUgQzI0LDkuMzI4NDI3MTIgMjMuMzI4NDI3MSwxMCAyMi41LDEwIEw1LjUsMTAgQzQuNjcxNTcyODgsMTAgNCw5LjMyODQyNzEyIDQsOC41IEM0LDcuNjcxNTcyODggNC42NzE1NzI4OCw3IDUuNSw3IFoiIGlkPSJwYXRoLTEiPjwvcGF0aD4KICAgIDwvZGVmcz4KICAgIDxnIGlkPSJBcnRib2FyZCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stMiIgZmlsbD0id2hpdGUiPgogICAgICAgICAgICA8dXNlIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPgogICAgICAgIDwvbWFzaz4KICAgICAgICA8dXNlIGlkPSJNYXNrIiBmaWxsPSIjRkZGRkZGIiB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4KICAgIDwvZz4KPC9zdmc+');
-    width: 28px;
-    height: 28px;
-    background-size: 28px 28px;
-    fill: black;
-    display: block;
-}
-.menu:hover {
-    cursor: pointer;
-    filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
-}
-
-/* Profile EULA Page css */
-.logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 120px;
-    padding: 20px 0;
-}
-.icon {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 120px;
-    padding: 20px 0;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-li { 
-    padding: 10px 0;
-    text-align: center;
-}
-li~li { border-top: 1px solid rgba(71, 181, 210, 1.0);
-}
-
-/* Form Standard Elements */
-.formInputTitle {
-    font-size: .9em;
-    color: rgba(71, 181, 210, 1.0);
-    margin: 0;
-    font-weight: normal;
-    font-style: normal;
-}
-.has-feedback label~.form-control-feedback {
-    font-size: .6em;
-    position: absolute;
-    font-family: 'Glyphicons Halflings';
-    color: rgba(71, 181, 210, 1.0);
-    top: -4px;
-    right: 0;
-    display: block;
-    width: 22px;
-    height: 22px;
-    pointer-events: none;
-}
-.formTextCheck {
-    margin: 0;
-    grid-area: formTextCheck;
-}
-.formPos01 {
-    margin:0;
-    grid-area: formPos01;
-}
-.formPos02 {
-    margin:0;
-    grid-area: formPos02;
-}
-.formPos03 {
-    margin:0;
-    grid-area: formPos03;
-}
-.formPos04 {
-    margin:0;
-    grid-area: formPos04;
-}
-.formPos05 {
-    margin:0;
-    grid-area: formPos05;
-}
-.formPos06 {
-    margin:0;
-    grid-area: formPos06;
-}
-.formPos07 {
-    margin:0;
-    grid-area: formPos07;
-}
-.formPos08 {
-    margin:0;
-    grid-area: formPos08;
-}
-.formPos09 {
-    margin:0;
-    grid-area: formPos09;
-}
-.formPos10 {
-    margin:0;
-    grid-area: formPos10;
-}
-.formPos11 {
-    margin:0;
-    grid-area: formPos11;
-}
-.formPos12 {
-    margin:0;
-    grid-area: formPos12;
-}
-
-/* Profile Page */
-.structureFormProfile {
-    font-size: .9em;
-    font-weight: normal;
-    font-style: normal;
-    width: 760px;
-    display: grid;
-    grid-template-columns: 242px 244px 242px;
-    grid-gap: 14px 36px;
-    grid-template-areas:
-        ". timezoneRelationship  ."
-        "formPos01   formPos02   formPos03"
-        "formPos04   formPos05   formPos06"
-        "formPos07   formPos08   formPos09"
-        "formTextCheck formTextCheck formTextCheck"
-        "formPos10   formPos11   formPos12";
-}
-.timezoneRelationship {
-    margin:0;
-    grid-area: timezoneRelationship;
-}
-.structureFormProfileHeight {
-    display: grid;
-    grid-template-columns: 112px 112px;
-    grid-gap: 0 10px;
-    align-self: start;
-    grid-template-areas:
-        "title   title"
-        "feet   inch";
-}
-.feet {
-    margin:0;
-    grid-area: feet;
-    grid-column: 1/2;
-    font-size: .9em;
-    font-weight: normal;
-    font-style: normal;
-}
-.inch {
-    margin:0;
-    grid-area: inch;
-    grid-column: 2/3;
-    font-size: .9em;
-    font-weight: normal;
-    font-style: normal;
-}
-.stateZipcode {
-    display: grid;
-    grid-template-columns: 116px 116px;
-    grid-gap: 0 10px;
-    align-self: start;
-    grid-template-areas:
-        "title   title"
-        "state   zip";
-}
-.state {
-    margin:0;
-    grid-area: state;
-}
-.zip {
-    margin:0;
-    grid-area: zip;
-}
-
-/* Contact Form Page */
-.structureFormContacts {
-    font-size: .9em;
-    font-weight: normal;
-    font-style: normal;
-    display: grid;
-    grid-template-columns: 242px 244px 242px;
-    grid-gap: 14px 36px;
-    grid-template-areas:
-        ". timezoneRelationship  ."
-        "formPos01   formPos02   formPos03"
-        "formPos04   formPos05   formPos06"
-        "formPos07   formPos08   formPos09"
-        "formTextCheck formTextCheck formTextCheck"
-        "formPos10 . formPos12";
-}
-.email {
-    margin:0;
-    grid-area: email;
-}
-.preferredContact {
-    margin:0;
-    grid-area: preferredContact;
-}
-.contactsBack {
-    margin: 20px 0 0 0;
-    grid-area: contactsBack;
-}
-.contactsSave {
-    margin: 20px 0 0 0;
-    grid-area: contactsSave;
-    justify-self: end;
-}
-.shareContact {
-    margin:0;
-    grid-area: shareContact;
-}
-
-/* the other grid-template-rows css */
-.listContacts {
-    margin:0;
-    display: grid;
-    grid-template-columns: 100px 560px 120px;
-    grid-gap: 10px;
-    grid-template-areas:
-        "titleName   resultName   resultEdit"
-        "titleRelationship   resultRelationship   resultEdit"
-        "titleContactMethod   resultContactMethod   resultEdit"
-        "titlePhone   resultPhone   resultEdit"
-        "titleEmail   resultEmail   resultEdit"
-        "titleAddress   resultAddress1   resultEdit"
-        ".   resultAddress2   resultEdit"
-        "lineSeperator   lineSeperator   lineSeperator";
-}
-.resultEdit {
-    margin:0;
-    grid-area: resultEdit;
-}
-.contactListBTN {
-    margin:0;
-    grid-area: contactListBTN;
-}
-.has-error .control-label, .has-success .control-label, .has-warning .control-label {
-    color: rgba(71, 181, 210, 1.0);
-}
-.titleName {
-    margin:0;
-    grid-area: titleName;
-    font-size: 0.7em;
-}
-.resultName {
-    margin:0;
-    grid-area: resultName;
-    color: black;
-}
-.titleRelationship {
-    margin:0;
-    grid-area: titleRelationship;
-    font-size: 0.7em;
-}
-.resultRelationship {
-    margin:0;
-    grid-area: resultRelationship;
-    color: black;
-}
-.titleContactMethod {
-    margin:0;
-    grid-area: titleContactMethod;
-    font-size: 0.7em;
-}
-.resultContactMethod {
-    margin:0;
-    grid-area: resultContactMethod;
-    color: black;
-}
-.titlePhone {
-    margin:0;
-    grid-area: titlePhone;
-    font-size: 0.7em;
-}
-.resultPhone {
-    margin:0;
-    grid-area: resultPhone;
-    color: black;
-}
-.titleEmail {
-    margin:0;
-    grid-area: titleEmail;
-    font-size: 0.7em;
-}
-.resultEmail {
-    margin:0;
-    grid-area: resultEmail;
-    color: black;
-}
-.titleAddress {
-    margin:0;
-    grid-area: titleAddress;
-    font-size: 0.7em;
-}
-.resultAddress1 {
-    margin:0;
-    grid-area: resultAddress1;
-    color: black;
-}
-.resultAddress2 {
-    margin:0;
-    grid-area: resultAddress2;
-    color: black;
-}
-.contactsResults {
-    text-align: left;
-    font-size: 0.9em;
-    padding: 0;
-}
-.structureFormAlerts {
-    margin:0;
-    display: grid;
-    grid-template-columns: 50px 300px 410px;
-    grid-gap: 10px;
-    grid-template-areas:
-        "enable   feature   message"
-        "sosCheckbox   sos   sosMessage"
-        "ahrCheckbox   abnormalHeartRate   ahrMessage"
-        ".   .   ahrHeartRate"
-        "vblbCheckbox   vitalBandLowBattery   vblbMessage";
-}
-.ahrHeartRate {
-    grid-area: ahrHeartRate;
-    display: grid;
-    padding: 10px 0 0 0;
-    grid-template-columns: 200px 200px;
-    grid-gap: 0 10px;
-    grid-template-areas: "hrMin   hrMax";
-}
-.hrMin {
-    font-size: .8em;
-    font-weight: normal;
-    font-style: normal;
-    margin:0;
-    grid-area: hrMin;
-}
-.hrMax {
-    font-size: .8em;
-    font-weight: normal;
-    font-style: normal;
-    margin:0;
-    padding: 0;
-    grid-area: hrMax;
-}
-.connect01 {
-    margin:0;
-    display: grid;
-    grid-template-columns: 152px 152px 152px 152px 152px;
-    grid-gap: 5px;
-    grid-template-areas: "image01   image02   image03   image04   image05";
-}
-.image01 {
-    display: block;
-    width: 152px;
-}
-.image02 {
-    display: block;
-    width: 152px;
-}
-.image03 {
-    display: block;
-    width: 152px;
-}
-.image04 {
-    display: block;
-    width: 152px;
-}
-.image05 {
-    display: block;
-    width: 152px;
-}
-.connect02 {
-    margin:0;
-    display: grid;
-    grid-template-columns: 25px 603px 152px;
-    grid-gap: 10px;
-    grid-template-areas:
-        "disclaimer   disclaimer   disclaimer"
-        "noEthernetBTN   noEthernetBTN   noEthernetBTN"
-        "noEthernet   noEthernet   noEthernet"
-        "checkBox01   checkBox01Text   checkBox01Image"
-        "checkBox02   checkBox02Text   checkBox02Image"
-        "checkBox03   checkBox03Text   checkBox03Image";
-}
-.lineSeperator {
-    margin:0;
-    grid-area: lineSeperator;
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid rgba(71, 181, 210, 1.0);
-    margin: 1em 0;
-    padding: 0;
-}
-.disclaimer {
-    margin:0;
-    grid-area: disclaimer;
-}
-.noEthernetBTN {
-    margin:0;
-    grid-area: noEthernetBTN;
-}
-.noEthernet {
-    margin:0;
-    grid-area: noEthernet;
-}
-.connectThumb {
-    display: block;
-    width: 152px;
-}
-button {
-    padding: 6px 6px;
-    display: block;
-    text-align: center;
-    margin: 0 5px;
-}
-.btn {
-    padding: 6px 6px;
-    display: block;
-    text-align: center;
-    margin: 10px 0;
-}
-.btnLarge {
-    display: block;
-    width: 300px;
-    text-align: center;
-    margin: auto;
-}
-.btnSmall {
-    display: inline-block;
-    width: 50px;
-    text-align: center;
-    margin: 10px 3px;
-}
-.alignRight {
-    justify-self: end;
-}
-.watchCode {
-    width: 200px;
-    margin: auto;
-    padding: 0;
-    text-align: center;
-}
-.imageWatchCode {
-    display: block;
-    width: 100%;
-    padding: 20px 0;
-}
-.imageSmartPhone {
-    display: block;
-    width: 300px;
-    margin: auto;
-}
-.imageHourGlass {
-    display: block;
-    height: 300px;
-    margin: auto;
-}
-.checkbox {
-    margin: 0;
-}
-.textAlignMiddle span {
-    vertical-align: middle;
-}
-
-}
-
-
-
-@media only screen and (max-width: 600px) {
-    .Grid {
         font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
         font-size: 1.3em;
         font-style: normal;
@@ -675,53 +7,157 @@ button {
         margin:0;
         color: rgba(255, 255, 255, 1.0);
         display: grid;
-        grid-template-rows: 1fr 40px;
+        grid: 1fr 50px / 300px 1fr;
         min-height: 100vh;
         grid-gap: 5px;
         grid-template-areas:
-            "main"
-            "footer";
+            "sidebar  main"
+            "footer   footer";
     }
 
     /* Master Page Grid Structure css */
     .aside {
-        display: none;
+        grid-area: sidebar;
+        grid-column: 1/2;
+        background: rgba(71, 181, 210, 1.0);
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 280px;
+        grid-template-areas:
+            "help-text"
+            "wiz";
     }
     .main {
         grid-area: main;
         background: rgba(217, 240, 246, 1.0);
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 800px 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: ". content ." ;
-        padding: 14px;
+        padding: 0 20px;
     }
     .content {
         grid-area: content;
-        width: 100%;
+        width: 800px;
         color: rgba(71, 181, 210, 1.0);
     }
     .footer {
         grid-area: footer;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        grid-column: 1/2;
+        grid-column: 1/3;
         display: grid;
-        grid-template-columns: 120px 1fr 120px;
+        grid-template-columns: 250px 1fr 250px;
         grid-template-rows: 1fr;
         background: rgba(255, 255, 255, 1.0);
         grid-template-areas: "event-back  ......  event-forward";
-        padding: 5px;
+        padding: 0 20px;
+    }
+
+    /* Global stye Guide Structure */
+    p {
         margin: 0;
+        display: block;
+        padding: 10px 0;
+    }
+    h1 {
+        font-size: 1.3em;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        padding: 0 0 20px 0;
+    }
+    a {
+        text-decoration: none!important;
+        color: rgb(253, 87, 57, 1.0);
+    }
+    a:hover {
+        color: rgba(71, 181, 210, 1.0);
+        text-decoration: none;
+    }
+    img {
+        display: inline-block;
+        background-color: none;
+        border: none;
+    }
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid rgba(71, 181, 210, 1.0);
+        margin: 1em 0;
+        padding: 0;
+    }
+    hr.hr-short {
+        display: block;
+        height: 1px;
+        width: 500px;
+        border: 0;
+        border-top: 1px solid rgba(71, 181, 210, 1.0);
+        margin: 0 auto;
+        padding: 0;
+    }
+    .content-center {
+        text-align: center;
+        padding: 10px 0;
+    }
+    .content-center-small {
+        text-align: center;
+        font-size: 0.7em;
+        display: block;
+        padding: 10px 0;
+    }
+    .content-center img {
+        display: inline-block;
+        vertical-align: middle;
     }
 
-
-    .menu1 {
-        display: none;
+    /* Aside Bar - Wizard Area */
+    .help-text {
+        align-items: start;
+        padding: 25px;
     }
+    .help-text p {
+        line-height: 26px;
+        margin: 0;
+        padding: 0;
+    }
+    .wiz {
+        padding: 0 0 10px 0;
+        margin: 0;
+        display: block;
+    }
+    .wizard-img {
+        margin: auto;
+        height: 270px;
+        display: block;
+    }
+
     /* Footer Page css */
+    a.btn-sub {
+        text-decoration: none;
+        text-align: center;
+        color: rgba(31, 55, 119, 1.0);
+        font-size: 1.5em;
+        font-style: normal;
+        font-weight: normal;
+        margin:0;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .event-back {
+        grid-area: event-back;
+        grid-column: 1/2;
+        display: grid;
+        align-self: center;
+    }
+    .event-forward {
+        grid-area: event-forward;
+        grid-column: 3/4;
+        display: grid;
+        align-self: center;
+        text-align: right;
+    }
     .chevron-event {
         background: rgba(0, 0, 0, 1.0);
         width: 28px;
@@ -750,6 +186,615 @@ button {
         color: rgba(255, 0, 0, 1.0);
         padding: 10px 0;
     }
+
+    /* Hamburger css */
+    .menu1 {
+        position: absolute;
+        right: 0px;
+        padding: 10px;
+        color: black;
+    }
+    .menu {
+        background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjhweCIgaGVpZ2h0PSIyOHB4IiB2aWV3Qm94PSIwIDAgMjggMjgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5BcnRib2FyZDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxwYXRoIGQ9Ik01LjUsMTkgTDIyLjUsMTkgQzIzLjMyODQyNzEsMTkgMjQsMTkuNjcxNTcyOSAyNCwyMC41IEMyNCwyMS4zMjg0MjcxIDIzLjMyODQyNzEsMjIgMjIuNSwyMiBMNS41LDIyIEM0LjY3MTU3Mjg4LDIyIDQsMjEuMzI4NDI3MSA0LDIwLjUgQzQsMTkuNjcxNTcyOSA0LjY3MTU3Mjg4LDE5IDUuNSwxOSBaIE01LjUsMTMgTDIyLjUsMTMgQzIzLjMyODQyNzEsMTMgMjQsMTMuNjcxNTcyOSAyNCwxNC41IEMyNCwxNS4zMjg0MjcxIDIzLjMyODQyNzEsMTYgMjIuNSwxNiBMNS41LDE2IEM0LjY3MTU3Mjg4LDE2IDQsMTUuMzI4NDI3MSA0LDE0LjUgQzQsMTMuNjcxNTcyOSA0LjY3MTU3Mjg4LDEzIDUuNSwxMyBaIE01LjUsNyBMMjIuNSw3IEMyMy4zMjg0MjcxLDcgMjQsNy42NzE1NzI4OCAyNCw4LjUgQzI0LDkuMzI4NDI3MTIgMjMuMzI4NDI3MSwxMCAyMi41LDEwIEw1LjUsMTAgQzQuNjcxNTcyODgsMTAgNCw5LjMyODQyNzEyIDQsOC41IEM0LDcuNjcxNTcyODggNC42NzE1NzI4OCw3IDUuNSw3IFoiIGlkPSJwYXRoLTEiPjwvcGF0aD4KICAgIDwvZGVmcz4KICAgIDxnIGlkPSJBcnRib2FyZCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPG1hc2sgaWQ9Im1hc2stMiIgZmlsbD0id2hpdGUiPgogICAgICAgICAgICA8dXNlIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPgogICAgICAgIDwvbWFzaz4KICAgICAgICA8dXNlIGlkPSJNYXNrIiBmaWxsPSIjRkZGRkZGIiB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4KICAgIDwvZz4KPC9zdmc+');
+        width: 28px;
+        height: 28px;
+        background-size: 28px 28px;
+        fill: black;
+        display: block;
+    }
+    .menu:hover {
+        cursor: pointer;
+        filter: invert(.5) sepia(1) saturate(5) hue-rotate(175deg);
+    }
+
+    /* Profile EULA Page css */
+    .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 120px;
+        padding: 20px 0;
+    }
+    .icon {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 120px;
+        padding: 20px 0;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li { 
+        padding: 10px 0;
+        text-align: center;
+    }
+    li~li { border-top: 1px solid rgba(71, 181, 210, 1.0);
+    }
+
+    /* Form Standard Elements */
+    .formInputTitle {
+        font-size: .9em;
+        color: rgba(71, 181, 210, 1.0);
+        margin: 0;
+        font-weight: normal;
+        font-style: normal;
+    }
+    .has-feedback label~.form-control-feedback {
+        font-size: .6em;
+        position: absolute;
+        font-family: 'Glyphicons Halflings';
+        color: rgba(71, 181, 210, 1.0);
+        top: -4px;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+    }
+    .formTextCheck {
+        margin: 0;
+        grid-area: formTextCheck;
+    }
+    .formPos01 {
+        margin:0;
+        grid-area: formPos01;
+    }
+    .formPos02 {
+        margin:0;
+        grid-area: formPos02;
+    }
+    .formPos03 {
+        margin:0;
+        grid-area: formPos03;
+    }
+    .formPos04 {
+        margin:0;
+        grid-area: formPos04;
+    }
+    .formPos05 {
+        margin:0;
+        grid-area: formPos05;
+    }
+    .formPos06 {
+        margin:0;
+        grid-area: formPos06;
+    }
+    .formPos07 {
+        margin:0;
+        grid-area: formPos07;
+    }
+    .formPos08 {
+        margin:0;
+        grid-area: formPos08;
+    }
+    .formPos09 {
+        margin:0;
+        grid-area: formPos09;
+    }
+    .formPos10 {
+        margin:0;
+        grid-area: formPos10;
+    }
+    .formPos11 {
+        margin:0;
+        grid-area: formPos11;
+    }
+    .formPos12 {
+        margin:0;
+        grid-area: formPos12;
+    }
+
+    /* Profile Page */
+    .structureFormProfile {
+        font-size: .9em;
+        font-weight: normal;
+        font-style: normal;
+        width: 760px;
+        display: grid;
+        grid-template-columns: 242px 244px 242px;
+        grid-gap: 14px 36px;
+        grid-template-areas:
+            ". timezoneRelationship  ."
+            "formPos01   formPos02   formPos03"
+            "formPos04   formPos05   formPos06"
+            "formPos07   formPos08   formPos09"
+            "formTextCheck formTextCheck formTextCheck"
+            "formPos10   formPos11   formPos12";
+    }
+    .timezoneRelationship {
+        margin:0;
+        grid-area: timezoneRelationship;
+    }
+    .structureFormProfileHeight {
+        display: grid;
+        grid-template-columns: 112px 112px;
+        grid-gap: 0 10px;
+        align-self: start;
+        grid-template-areas:
+            "title   title"
+            "feet   inch";
+    }
+    .feet {
+        margin:0;
+        grid-area: feet;
+        grid-column: 1/2;
+        font-size: .9em;
+        font-weight: normal;
+        font-style: normal;
+    }
+    .inch {
+        margin:0;
+        grid-area: inch;
+        grid-column: 2/3;
+        font-size: .9em;
+        font-weight: normal;
+        font-style: normal;
+    }
+    .stateZipcode {
+        display: grid;
+        grid-template-columns: 116px 116px;
+        grid-gap: 0 10px;
+        align-self: start;
+        grid-template-areas:
+            "title   title"
+            "state   zip";
+    }
+    .state {
+        margin:0;
+        grid-area: state;
+    }
+    .zip {
+        margin:0;
+        grid-area: zip;
+    }
+
+    /* Contact Form Page */
+    .structureFormContacts {
+        font-size: .9em;
+        font-weight: normal;
+        font-style: normal;
+        display: grid;
+        grid-template-columns: 242px 244px 242px;
+        grid-gap: 14px 36px;
+        grid-template-areas:
+            ". timezoneRelationship  ."
+            "formPos01   formPos02   formPos03"
+            "formPos04   formPos05   formPos06"
+            "formPos07   formPos08   formPos09"
+            "formTextCheck formTextCheck formTextCheck"
+            "formPos10 . formPos12";
+    }
+    .email {
+        margin:0;
+        grid-area: email;
+    }
+    .preferredContact {
+        margin:0;
+        grid-area: preferredContact;
+    }
+    .contactsBack {
+        margin: 20px 0 0 0;
+        grid-area: contactsBack;
+    }
+    .contactsSave {
+        margin: 20px 0 0 0;
+        grid-area: contactsSave;
+        justify-self: end;
+    }
+    .shareContact {
+        margin:0;
+        grid-area: shareContact;
+    }
+
+    /* the other grid-template-rows css */
+    .listContacts {
+        margin:0;
+        display: grid;
+        grid-template-columns: 100px 560px 120px;
+        grid-gap: 10px;
+        grid-template-areas:
+            "titleName   resultName   resultEdit"
+            "titleRelationship   resultRelationship   resultEdit"
+            "titleContactMethod   resultContactMethod   resultEdit"
+            "titlePhone   resultPhone   resultEdit"
+            "titleEmail   resultEmail   resultEdit"
+            "titleAddress   resultAddress1   resultEdit"
+            ".   resultAddress2   resultEdit"
+            "lineSeperator   lineSeperator   lineSeperator";
+    }
+    .resultEdit {
+        margin:0;
+        grid-area: resultEdit;
+    }
+    .contactListBTN {
+        margin:0;
+        grid-area: contactListBTN;
+    }
+    .has-error .control-label, .has-success .control-label, .has-warning .control-label {
+        color: rgba(71, 181, 210, 1.0);
+    }
+    .titleName {
+        margin:0;
+        grid-area: titleName;
+        font-size: 0.7em;
+    }
+    .resultName {
+        margin:0;
+        grid-area: resultName;
+        color: black;
+    }
+    .titleRelationship {
+        margin:0;
+        grid-area: titleRelationship;
+        font-size: 0.7em;
+    }
+    .resultRelationship {
+        margin:0;
+        grid-area: resultRelationship;
+        color: black;
+    }
+    .titleContactMethod {
+        margin:0;
+        grid-area: titleContactMethod;
+        font-size: 0.7em;
+    }
+    .resultContactMethod {
+        margin:0;
+        grid-area: resultContactMethod;
+        color: black;
+    }
+    .titlePhone {
+        margin:0;
+        grid-area: titlePhone;
+        font-size: 0.7em;
+    }
+    .resultPhone {
+        margin:0;
+        grid-area: resultPhone;
+        color: black;
+    }
+    .titleEmail {
+        margin:0;
+        grid-area: titleEmail;
+        font-size: 0.7em;
+    }
+    .resultEmail {
+        margin:0;
+        grid-area: resultEmail;
+        color: black;
+    }
+    .titleAddress {
+        margin:0;
+        grid-area: titleAddress;
+        font-size: 0.7em;
+    }
+    .resultAddress1 {
+        margin:0;
+        grid-area: resultAddress1;
+        color: black;
+    }
+    .resultAddress2 {
+        margin:0;
+        grid-area: resultAddress2;
+        color: black;
+    }
+    .contactsResults {
+        text-align: left;
+        font-size: 0.9em;
+        padding: 0;
+    }
+    .structureFormAlerts {
+        margin:0;
+        display: grid;
+        grid-template-columns: 50px 100px 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+            "sosCheckbox   sos sosMessage"
+            "ahrCheckbox   .  abnormalHeartRate"
+            ".    .    ahrMessage"
+            ".   .    ahrHeartRate"
+            "vblbCheckbox   vitalBandLowBattery     vblbMessage";
+    }
+    .ahrHeartRate {
+        grid-area: ahrHeartRate;
+        display: grid;
+        padding: 10px 0 0 0;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0 10px;
+        grid-template-areas: "hrMin   hrMax";
+    }
+    .hrMin {
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        margin:0;
+        grid-area: hrMin;
+    }
+    .hrMax {
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        margin:0;
+        padding: 0;
+        grid-area: hrMax;
+    }
+    .connect01 {
+        margin:0;
+        display: grid;
+        grid-template-columns: 152px 152px 152px 152px 152px;
+        grid-gap: 5px;
+        grid-template-areas: "image01   image02" "image03   image04   image05";
+    }
+    .image01 {
+        display: block;
+        width: 152px;
+    }
+    .image02 {
+        display: block;
+        width: 152px;
+    }
+    .image03 {
+        display: block;
+        width: 152px;
+    }
+    .image04 {
+        display: block;
+        width: 152px;
+    }
+    .image05 {
+        display: block;
+        width: 152px;
+    }
+    .connect02 {
+        margin:0;
+        display: grid;
+        grid-template-columns: 25px 603px 152px;
+        grid-gap: 10px;
+        grid-template-areas:
+            "disclaimer   disclaimer   disclaimer"
+            "noEthernetBTN   noEthernetBTN   noEthernetBTN"
+            "noEthernet   noEthernet   noEthernet"
+            "checkBox01   checkBox01Text   checkBox01Image"
+            "checkBox02   checkBox02Text   checkBox02Image"
+            "checkBox03   checkBox03Text   checkBox03Image";
+    }
+    .lineSeperator {
+        margin:0;
+        grid-area: lineSeperator;
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid rgba(71, 181, 210, 1.0);
+        margin: 1em 0;
+        padding: 0;
+    }
+    .disclaimer {
+        margin:0;
+        grid-area: disclaimer;
+    }
+    .noEthernetBTN {
+        margin:0;
+        grid-area: noEthernetBTN;
+    }
+    .noEthernet {
+        margin:0;
+        grid-area: noEthernet;
+    }
+    .connectThumb {
+        display: block;
+        width: 152px;
+    }
+    button {
+        padding: 6px 6px;
+        display: block;
+        text-align: center;
+        margin: 0 5px;
+    }
+    .btn {
+        padding: 6px 6px;
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .btnLarge {
+        display: block;
+        width: 300px;
+        text-align: center;
+        margin: auto;
+    }
+    .btnSmall {
+        display: inline-block;
+        width: 50px;
+        text-align: center;
+        margin: 10px 3px;
+    }
+    .alignRight {
+        justify-self: end;
+    }
+    .watchCode {
+        width: 200px;
+        margin: auto;
+        padding: 0;
+        text-align: center;
+    }
+    .imageWatchCode {
+        display: block;
+        width: 100%;
+        padding: 20px 0;
+    }
+    .imageSmartPhone {
+        display: block;
+        width: 300px;
+        margin: auto;
+    }
+    .imageHourGlass {
+        display: block;
+        height: 300px;
+        margin: auto;
+    }
+    .checkbox {
+        margin: 0;
+    }
+    .textAlignMiddle span {
+        vertical-align: middle;
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .Grid {
+        font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
+        font-size: 1.1em;
+        font-style: normal;
+        background: #ffffff;
+        margin:0;
+        color: rgba(255, 255, 255, 1.0);
+        display: grid;
+        grid-template-rows: 1fr 40px;
+        min-height: 100vh;
+        grid-gap: 5px;
+        grid-template-areas:
+            "main"
+            "footer";
+    }
+    p {
+        margin: 0;
+        display: block;
+        padding: 10px 0;
+    }
+    a {
+        text-decoration: none!important;
+        color: rgb(253, 87, 57, 1.0);
+        line-height: 1.6;
+    }
+    a:hover {
+        color: rgba(71, 181, 210, 1.0);
+        text-decoration: none;
+    }
+    .formInputTitle {
+        font-size: .9em;
+        color: rgba(71, 181, 210, 1.0);
+        margin: 0;
+        font-weight: normal;
+        font-style: normal;
+    }
+    .has-feedback label~.form-control-feedback {
+        font-size: .6em;
+        position: absolute;
+        font-family: 'Glyphicons Halflings';
+        color: rgba(71, 181, 210, 1.0);
+        top: -4px;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+    }
+    .formTextCheck {
+        margin: 0;
+        grid-area: formTextCheck;
+    }
+
+    /* Master Page Grid Structure css */
+    .aside {
+        display: none;
+    }
+    .main {
+        grid-area: main;
+        background: rgba(217, 240, 246, 1.0);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "content" ;
+        padding: 14px;
+    }
+    .content {
+        grid-area: content;
+        width: 100%;
+        color: rgba(71, 181, 210, 1.0);
+    }
+    .footer {
+        grid-area: footer;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        grid-column: 1/2;
+        display: grid;
+        grid-template-columns: 102px 1fr 102px;
+        grid-template-rows: 1fr;
+        background: rgba(255, 255, 255, 1.0);
+        grid-template-areas: "event-back  ......  event-forward";
+        padding: 5px;
+        margin: 0;
+    }
+    img {
+        display: inline-block;
+        background-color: none;
+        border: none;
+    }
+    .menu1 {
+        display: none;
+    }
+
+    /* Footer Page css */
+    .chevron-event {
+        background: rgba(0, 0, 0, 1.0);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: inline-block;
+        text-align:center;
+    }
+    .chevron {
+        width: 8px;
+        display: inline-block;
+    }
+    .event-back:hover .chevron-event, .event-forward:hover .chevron-event  {
+        background: rgba(71, 181, 210, 1.0);
+    }
+    .footer-btn .footer-btn:visited {
+        text-decoration: none;
+        line-height: 1.6;
+    }
+    .footer-btn:hover {
+        color: rgba(71, 181, 210, 1.0);
+        line-height: 1.6;
+        text-decoration: none;
+    }
+    .errorMessage {
+        text-align: center;
+        font-size: 0.8em;
+        color: rgba(255, 0, 0, 1.0);
+        padding: 5px 0;
+    }
     .event-back {
         grid-area: event-back;
         display: grid;
@@ -761,7 +806,6 @@ button {
         align-self: center;
         text-align: right;
     }
-
     .logo {
         display: block;
         margin-left: auto;
@@ -777,7 +821,7 @@ button {
         padding: 20px 0;
     }
     h1 {
-        font-size: 27px;
+        font-size: 20px;
         text-align: center;
     }
     .content-center {
@@ -791,17 +835,16 @@ button {
         padding: 0;
     }
     .gap {
-        padding-bottom: 75px;
+        padding-top: 185px;
     }
     .content-center img {
         display: inline-block;
         vertical-align: middle;
     }
-
     ul {
         list-style-type: none;
         margin: 0;
-        padding: 0;
+        padding: 20px 0;
     }
     li { 
         padding: 10px 0;
@@ -843,6 +886,208 @@ button {
         font-weight: normal;
         font-style: normal;
     }
-
-
+    .listContacts {
+        margin:0;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+            "titleName   resultName"
+            "titleRelationship   resultRelationship"
+            "titleContactMethod   resultContactMethod"
+            "titlePhone   resultPhone"
+            "titleEmail   resultEmail"
+            "titleAddress   resultAddress1"
+            ".   resultAddress2"
+            "resultEdit   resultEdit"
+            "lineSeperator   lineSeperator";
+    }
+    .resultEdit {
+        margin:0;
+        grid-area: resultEdit;
+    }
+    .contactListBTN {
+        margin:0;
+        grid-area: contactListBTN;
+    }
+    .has-error .control-label, .has-success .control-label, .has-warning .control-label {
+        color: rgba(71, 181, 210, 1.0);
+    }
+    .titleFont {
+        margin:0;
+        font-size: 0.7em;
+    }
+    .resultName {
+        margin:0;
+        grid-area: resultName;
+        color: black;
+    }
+    .resultAddress2 {
+        grid-column: 2/3;
+    }
+    .structureFormAlerts {
+        margin:0;
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        grid-gap: 6px;
+        grid-template-areas:
+            "sosCheckbox   sos"
+            "sosMessage   sosMessage"
+            "ahrCheckbox   abnormalHeartRate"
+            "ahrMessage    ahrMessage"
+            "ahrHeartRate   ahrHeartRate"
+            "vblbCheckbox   vitalBandLowBattery"
+            "vblbMessage    vblbMessage";
+    }
+    .message, .enable, .feature {
+        display: none;
+    }
+    .sosMessage, .ahrMessage, .vblbMessage, .checkBox01Image, .checkBox02Image, .checkBox03Image {
+        grid-column: 1/3;
+    }
+    .ahrHeartRate {
+        grid-area: ahrHeartRate;
+        display: grid;
+        padding: 10px 0 0 0;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0 10px;
+        grid-template-areas: "hrMin   hrMax";
+    }
+    .hrMin {
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        margin:0;
+        grid-area: hrMin;
+    }
+    .hrMax {
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        margin:0;
+        padding: 0;
+        grid-area: hrMax;
+    }
+    .connect01 {
+        margin:0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 5px;
+    }
+    .image01, .image02, .image03, .image04, .image05 {
+        display: block;
+        width: 100px;
+    }
+    .connect02 {
+        margin:0;
+        display: grid;
+        grid-template-columns: 25px 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+            "disclaimer   disclaimer"
+            "noEthernetBTN   noEthernetBTN"
+            "noEthernet   noEthernet"
+            "checkBox01   checkBox01Text"
+            "checkBox01Image   checkBox01Image"
+            "checkBox02   checkBox02Text"
+            "checkBox02Image   checkBox02Image"
+            "checkBox03   checkBox03Text"
+            "checkBox03Image   checkBox03Image";
+    }
+    .lineSeperator {
+        margin:0;
+        grid-area: lineSeperator;
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid rgba(71, 181, 210, 1.0);
+        margin: 1em 0;
+        padding: 0;
+    }
+    .disclaimer {
+        margin:0;
+        grid-area: disclaimer;
+    }
+    .noEthernetBTN {
+        margin:0;
+        grid-area: noEthernetBTN;
+    }
+    .noEthernet {
+        margin:0;
+        grid-area: noEthernet;
+    }
+    .connectThumb {
+        display: block;
+        width: 152px;
+    }
+    button {
+        padding: 6px 6px;
+        display: block;
+        text-align: center;
+        margin: 0 5px;
+    }
+    .btn {
+        padding: 6px 6px;
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .btnLarge {
+        display: block;
+        width: 200px;
+        text-align: center;
+        margin: auto;
+    }
+    .btnSmall {
+        display: inline-block;
+        width: 50px;
+        text-align: center;
+        margin: 10px 3px;
+    }
+    .alignRight {
+        justify-self: end;
+    }
+    .watchCode {
+        width: 200px;
+        margin: auto;
+        padding: 0;
+        text-align: center;
+    }
+    .imageWatchCode {
+        display: block;
+        width: 100%;
+        padding: 20px 0;
+    }
+    .imageSmartPhone {
+        display: block;
+        width: 300px;
+        margin: auto;
+    }
+    .imageHourGlass {
+        display: block;
+        height: 300px;
+        margin: auto;
+    }
+    .checkbox {
+        margin: 0;
+    }
+    .textAlignMiddle span {
+        vertical-align: middle;
+    }
+    .has-feedback label~.form-control-feedback {
+        font-size: .6em;
+        position: absolute;
+        font-family: 'Glyphicons Halflings';
+        color: rgba(71, 181, 210, 1.0);
+        top: -4px;
+        right: 0;
+        display: block;
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+    }
+    .formTextCheck {
+        margin: 0;
+        grid-area: formTextCheck;
+    }
 }

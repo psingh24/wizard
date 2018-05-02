@@ -391,19 +391,19 @@ class Contacts extends React.Component {
     return this.props.contactData.map((contact, i) => {
       return (
         <div key={i} className="listContacts">
-          <div className="titleName">Name: </div>
+          <div className="titleName titleFont">Name: </div>
           <div className="resultName">
             {contact.firstName + " " + contact.lastName}
           </div>
-          <div className="titleRelationship">Relationship: </div>
+          <div className="titleRelationship titleFont">Relationship: </div>
           <div className="resultRelationship contactsResults">{contact.relationship}</div>
-          <div className="titleContactMethod">Contact Method: </div>
+          <div className="titleContactMethod titleFont">Contact Method: </div>
           <div className="resultContactMethod contactsResults">{contact.contactMethod}</div>
-          <div className="titlePhone">Phone: </div>
+          <div className="titlePhone titleFont">Phone: </div>
           <div className="resultPhone contactsResults">{contact.phoneNumber}</div>
-          <div className="titleEmail">Email: </div>
+          <div className="titleEmail titleFont">Email: </div>
           <div className="resultEmail contactsResults">{contact.email}</div>
-          <div className="titleAddress">Address: </div>
+          <div className="titleAddress titleFont">Address: </div>
           <div className="resultAddress1 contactsResults">{contact.address}</div>
           <div className="resultAddress2 contactsResults">{contact.city + ', ' +contact.state+  ' ' +contact.zip}</div>
 

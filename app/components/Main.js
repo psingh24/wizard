@@ -61,14 +61,15 @@ class Main extends React.Component {
   }
   continue(num, page) {
     console.log("Page:" + page)
-
+    /* Here to ------- */
+    
      if ((this.state.EulaCompleted) && (page === 0)) {
         this.setState((prevState, props) => ({
           currentPage: prevState.currentPage + num,
         }));
         this.setState({errorMessage: ""})
     } else if (page === 0) {
-      this.setState({errorMessage: "Please agree to the terms to continue."})
+      this.setState({errorMessage: "Please agree to the terms."})
     }
     
     else if ((
@@ -86,7 +87,7 @@ class Main extends React.Component {
         }));
         this.setState({errorMessage: ""})
     } else if (page === 1) {
-      this.setState({errorMessage: "Please complete all the required fields to continue."})
+      this.setState({errorMessage: "Complete all the required fields."})
     }
     
     else if ((this.state.contacts.length > 0) && (page === 2)) {
@@ -95,9 +96,13 @@ class Main extends React.Component {
         }));
         this.setState({errorMessage: ""})
     } else if (page === 2) {
-      this.setState({errorMessage: "Please add atleast one contact to continue."})
+      this.setState({errorMessage: "Add one contact to continue."})
     } 
     
+
+    /* Here */
+
+
     else if ((page > 2)) {
       console.log("yesyes")
       console.log("currentpage: "+this.state.currentPage)
